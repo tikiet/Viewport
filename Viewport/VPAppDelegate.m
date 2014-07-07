@@ -52,21 +52,6 @@
     loginViewController = nil;
 }
 
--(void) onSelfFeedsLoaded:(NSData *)jsonData
-{
-    [feedsViewController updateData:jsonData];
-}
-
--(void) onPopularFeedsLoaded:(NSData *)jsonData
-{
-    [popularViewController updateData:jsonData];
-}
-
--(void) onFavoriteFeedsLoaded:(NSData *)jsonData
-{
-    [favoritesViewController updateData:jsonData];
-}
-
 - (IBAction)showTimeline:(id)sender {
     [self showFeedsView];
 }
@@ -100,18 +85,8 @@
     [parent addConstraints:constraint1];
     [parent addConstraints:constraint2];
     
-    NSURLRequest *request = [NSURLRequest requestWithURL:[VPInfo retrievePopularUrl]];
-    NSURLConnection *con =
-    [[NSURLConnection alloc] initWithRequest:request
-                                    delegate:[[VPConnectionDataDepot alloc]
-                                              initWithSuccessBlock:^(NSData *data){
-                                                  [self onPopularFeedsLoaded:data];
-                                              } failBlock:^(NSError *error){
-                                                  
-                                              }]
-                            startImmediately:NO];
-    
-    [con start];
+    popularViewController.requestUrl = [VPInfo retrievePopularUrl];
+    [popularViewController startRequest];
 }
 
 - (void) showFeedsView
@@ -135,18 +110,8 @@
     [parent addConstraints:constraint1];
     [parent addConstraints:constraint2];
     
-    NSURLRequest *request = [NSURLRequest requestWithURL:[VPInfo retrieveSelfTimelineUrl]];
-    NSURLConnection *con =
-    [[NSURLConnection alloc] initWithRequest:request
-                                    delegate:[[VPConnectionDataDepot alloc]
-                                              initWithSuccessBlock:^(NSData *data){
-                                                  [self onSelfFeedsLoaded:data];
-                                              } failBlock:^(NSError *error){
-                                                  
-                                              }]
-                            startImmediately:NO];
-    
-    [con start];
+    feedsViewController.requestUrl = [VPInfo retrieveSelfTimelineUrl];
+    [feedsViewController startRequest];
 }
 
 - (void) showLoginView
@@ -196,17 +161,7 @@
     [parent addConstraints:constraint1];
     [parent addConstraints:constraint2];
     
-    NSURLRequest *request = [NSURLRequest requestWithURL:[VPInfo retrieveFavoritesUrl]];
-    NSURLConnection *con =
-    [[NSURLConnection alloc] initWithRequest:request
-                                    delegate:[[VPConnectionDataDepot alloc]
-                                              initWithSuccessBlock:^(NSData *data){
-                                                  [self onFavoriteFeedsLoaded:data];
-                                              } failBlock:^(NSError *error){
-                                                  
-                                              }]
-                            startImmediately:NO];
-    
-    [con start];
+    favoritesViewController.requestUrl = [VPInfo retrieveFavoritesUrl];
+    [favoritesViewController startRequest];
 }
 @end

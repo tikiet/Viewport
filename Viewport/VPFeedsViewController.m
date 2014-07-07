@@ -16,10 +16,15 @@
 
 @implementation VPFeedsViewController
 
+@synthesize requestUrl;
+
 -(void)awakeFromNib
 {
     self.tableview.dataSource = self;
     self.tableview.delegate = self;
+    self.scrollView.refreshBlock = ^(EQSTRScrollView *scrollView){
+        [self startRequest];
+    };
 }
 
 -(void)updateData:(NSData*) jsonData
@@ -100,4 +105,23 @@
 {
     return NO;
 }
+
+-(void)startRequest
+{
+    NSURLRequest *request = [NSURLRequest requestWithURL:self.requestUrl];
+    NSURLConnection *con =
+    [[NSURLConnection alloc] initWithRequest:request
+                                    delegate:[[VPConnectionDataDepot alloc]
+                                              initWithSuccessBlock:^(NSData *data){
+                                                  [self.scrollView stopLoading];
+                                                  [self updateData:data];
+                                              } failBlock:^(NSError *error){
+                                                  [self.scrollView stopLoading];
+                                              }]
+                            startImmediately:NO];
+    
+    [con start];
+
+}
+
 @end

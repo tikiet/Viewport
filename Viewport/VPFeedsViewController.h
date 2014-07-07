@@ -9,12 +9,18 @@
 #import <Cocoa/Cocoa.h>
 #import "VPFeedView.h"
 #import "VPFeed.h"
+#import "VPInfo.h"
+#import "VPConnectionDataDepot.h"
+#import "EQSTRScrollView.h"
 #import <AsyncImageDownloader.h>
 
 @interface VPFeedsViewController : NSViewController <NSTableViewDataSource, NSTableViewDelegate>
 
 @property (weak) IBOutlet NSTableView *tableview;
+@property (weak) IBOutlet EQSTRScrollView *scrollView;
+@property NSURL *requestUrl;
 
 -(void)updateData:(NSData*)jsonData;
+-(void)startRequest;
 
 @end
