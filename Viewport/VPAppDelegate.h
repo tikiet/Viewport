@@ -19,5 +19,6 @@
 @property (assign) IBOutlet NSWindow *window;
 @property (strong) IBOutlet NSView *contentArea;
 @property (strong) IBOutlet NSView *navigationArea;
+@property (weak) IBOutlet NSView *rootView;
 
 @end

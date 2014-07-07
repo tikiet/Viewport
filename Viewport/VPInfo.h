@@ -12,6 +12,7 @@
 
 +(NSURL *) retrieveSelfTimelineUrl;
 +(NSURL *) retrievePopularUrl;
++(NSURL *) retrieveFavoritesUrl;
 
 +(void)setAccessToken:(NSString*)token;
 +(NSString*)accessToken;

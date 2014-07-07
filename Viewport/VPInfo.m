@@ -10,47 +10,66 @@
 
 @implementation VPInfo
 
-static NSString *clientId;
 static NSString *popularUrl = @"https://api.instagram.com/v1/media/popular?client_id=%@";
 static NSString *selfTimelineUrl = @"https://api.instagram.com/v1/users/self/feed?access_token=%@";
-static NSString *accessToken;
+static NSString *favoritesUrl = @"https://api.instagram.com/v1/users/self/media/liked?access_token=%@";
+
+#define ACCESS_TOKEN @"ACCESS_TOKEN"
+#define CLIENT_ID @"CLIENT_ID"
 
 +(void)initialize
 {
-    NSString *errorDesc = nil;
-    NSPropertyListFormat format;
-    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"AppInfo" ofType:@"plist"];
-    
-    NSData *plistXML = [[NSFileManager defaultManager] contentsAtPath:plistPath];
-    NSDictionary *temp = (NSDictionary *)[NSPropertyListSerialization
-                                          propertyListFromData:plistXML
-                                          mutabilityOption:NSPropertyListMutableContainersAndLeaves
-                                          format:nil
-                                          errorDescription:&errorDesc];
-    if (!temp) {
-        NSLog(@"Error reading plist: %@", errorDesc);
-    } else {
-        clientId = [temp objectForKey:@"CLIENT_ID"];
-    }
+    if (![self clientId]) {
+        NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"AppInfo" ofType:@"plist"];
+        NSData *plistXML = [[NSFileManager defaultManager] contentsAtPath:plistPath];
+        NSDictionary *temp = (NSDictionary *)[NSPropertyListSerialization
+                                              propertyListFromData:plistXML
+                                              mutabilityOption:NSPropertyListMutableContainersAndLeaves
+                                              format:nil
+                                              errorDescription:nil];
+        if (!temp) {
+            NSLog(@"Error reading plist");
+        } else {
+            [self setClientId:[temp objectForKey:@"CLIENT_ID"]];
+        }}
 }
 
 +(NSURL*)retrievePopularUrl
 {
-    return [NSURL URLWithString:[NSString stringWithFormat:popularUrl, clientId]];
+    return [NSURL URLWithString:[NSString stringWithFormat:popularUrl, [self clientId]]];
 }
 
 +(NSURL*)retrieveSelfTimelineUrl
 {
-    return [NSURL URLWithString:[NSString stringWithFormat:selfTimelineUrl, accessToken]];
+    return [NSURL URLWithString:[NSString stringWithFormat:selfTimelineUrl, [self accessToken]]];
+}
+
++(NSURL*)retrieveFavoritesUrl
+{
+    return [NSURL URLWithString:[NSString stringWithFormat:favoritesUrl, [self accessToken]]];
+}
+
++(NSString*)clientId
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    return [defaults objectForKey:CLIENT_ID];
+}
+
++(void)setClientId:(NSString*)clientId
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:clientId forKey:CLIENT_ID];
 }
 
 +(NSString*)accessToken
 {
-    return accessToken;
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    return [defaults objectForKey:ACCESS_TOKEN];
 }
 
 +(void)setAccessToken:(NSString *)token
 {
-    accessToken = token;
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:token forKey:ACCESS_TOKEN];
 }
 @end
