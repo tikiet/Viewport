@@ -11,6 +11,8 @@
 @interface VPFeedsViewController ()
 {
     NSArray *array;
+    BOOL hasMore;
+    BOOL triggeredBottom;
 }
 @end
 
@@ -25,6 +27,25 @@
     self.scrollView.refreshBlock = ^(EQSTRScrollView *scrollView){
         [self startRequest];
     };
+    
+    id clipView = [[self.tableview enclosingScrollView] contentView];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(myBoundsChangeNotificationHandler:)
+                                                 name:NSViewBoundsDidChangeNotification
+                                               object:clipView];
+}
+
+- (void)myBoundsChangeNotificationHandler:(NSNotification *)aNotification
+{
+    if ([aNotification object] == [[self.tableview enclosingScrollView] contentView]){
+        if ( NSMaxY([self.tableview enclosingScrollView].documentVisibleRect) >=
+            NSHeight([[self.tableview enclosingScrollView].documentView bounds]) ){
+            if (!triggeredBottom) {
+                NSLog(@"triggered bottom");
+                triggeredBottom = YES;
+            }
+        }
+    }
 }
 
 -(void)updateData:(NSData*) jsonData
@@ -42,6 +63,15 @@
     NSNib *nib = [[NSNib alloc] initWithNibNamed:@"VPFeedView" bundle:nil];
     [self.tableview registerNib:nib forIdentifier:@"CELL"];
     [self.tableview reloadData];
+    
+    NSDictionary *pagination = [data objectForKey:@"pagination"];
+    if (pagination && !([pagination isEqual: [NSNull null]])){
+        NSString *next_url = [pagination objectForKey:@"next_url"];
+        if (next_url && !([next_url isEqual:[NSNull null]])) {
+            requestUrl = [NSURL URLWithString:next_url];
+            hasMore = YES;
+        }
+    }
 }
 
 -(NSInteger) numberOfRowsInTableView:(NSTableView *)tableView
@@ -115,7 +145,9 @@
                                               initWithSuccessBlock:^(NSData *data){
                                                   [self.scrollView stopLoading];
                                                   [self updateData:data];
+                                                  hasMore = NO;
                                               } failBlock:^(NSError *error){
+                                                  NSLog(@"error:%@", error);
                                                   [self.scrollView stopLoading];
                                               }]
                             startImmediately:NO];
