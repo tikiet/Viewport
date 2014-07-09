@@ -43,6 +43,8 @@
             if (!triggeredBottom) {
                 NSLog(@"triggered bottom");
                 triggeredBottom = YES;
+                
+                [self startRequest];
             }
         }
     }
@@ -57,8 +59,20 @@
     for (NSDictionary *dic in rawFeeds){
         [feeds addObject: [[VPFeed alloc] initWithDictionray:dic]];
     }
+    [feeds addObjectsFromArray:array];
     
-    array = feeds;
+    array = [feeds sortedArrayUsingComparator:^NSComparisonResult(id a, id b){
+        VPFeed *fa = (VPFeed*)a;
+        VPFeed *fb = (VPFeed*)b;
+        int r = fa.createdTime - fb.createdTime;
+        if (r > 0){
+            return NSOrderedAscending;
+        } else if (r == 0){
+            return NSOrderedSame;
+        } else {
+            return NSOrderedDescending;
+        }
+    }];
     
     NSNib *nib = [[NSNib alloc] initWithNibNamed:@"VPFeedView" bundle:nil];
     [self.tableview registerNib:nib forIdentifier:@"CELL"];
@@ -146,6 +160,7 @@
                                                   [self.scrollView stopLoading];
                                                   [self updateData:data];
                                                   hasMore = NO;
+                                                  triggeredBottom = NO;
                                               } failBlock:^(NSError *error){
                                                   NSLog(@"error:%@", error);
                                                   [self.scrollView stopLoading];
@@ -153,7 +168,7 @@
                             startImmediately:NO];
     
     [con start];
-
+    
 }
 
 @end

@@ -16,8 +16,9 @@
 @property VPUser *user;
 @property VPImages *images;
 @property VPCaption *caption;
+@property int createdTime;
 
--(id)initWithUser:(VPUser*)user images:(VPImages*)images caption:(VPCaption*)caption;
+-(id)initWithUser:(VPUser*)user images:(VPImages*)images caption:(VPCaption*)caption createdTime:(int)createdTime;
 -(id)initWithDictionray:(NSDictionary*)dictionary;
 
 @end

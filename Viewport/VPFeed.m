@@ -10,15 +10,16 @@
 
 @implementation VPFeed
 
-@synthesize user, images;
+@synthesize user, images, createdTime;
 
--(id)initWithUser:(VPUser *)u images:(VPImages *)i caption:(VPCaption *)c
+-(id)initWithUser:(VPUser *)u images:(VPImages *)i caption:(VPCaption *)c createdTime:(int)ct
 {
     self = [super init];
     if (self) {
         self.user = u;
         self.images = i;
         self.caption = c;
+        self.createdTime = ct;
     }
     return self;
 }
@@ -28,7 +29,8 @@
     VPUser *u = [[VPUser alloc] initWithDictionary:[dictionary objectForKey:@"user"]];
     VPImages *i = [[VPImages alloc] initWithDictionray:[dictionary objectForKey:@"images"]];
     VPCaption *c = [[VPCaption alloc] initWithDictionary:[dictionary objectForKey:@"caption"]];
+    int ct = [[dictionary objectForKey:@"created_time"] intValue];
     
-    return [self initWithUser:u images:i caption:c];
+    return [self initWithUser:u images:i caption:c createdTime:ct];
 }
 @end
