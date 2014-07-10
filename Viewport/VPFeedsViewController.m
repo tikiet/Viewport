@@ -102,6 +102,7 @@
         [view.caption setStringValue:feed.caption.text];
     }
     
+    [view.pic setImage:nil];
     [[[AsyncImageDownloader alloc] initWithMediaURL:feed.images.standardResolution.url successBlock:^(NSImage *image) {
         [view.pic setImage:image];
     } failBlock:^(NSError *error) {
@@ -115,6 +116,7 @@
     view.userProfile.wantsLayer = YES;
     view.userProfile.layer = profileLayer;
     
+    [view.userProfile setImage:nil];
     [[[AsyncImageDownloader alloc] initWithMediaURL:feed.user.profilePicture successBlock:^(NSImage *profile) {
         [view.userProfile setImage:profile];
     } failBlock:^(NSError *error) {

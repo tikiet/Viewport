@@ -52,66 +52,84 @@
     loginViewController = nil;
 }
 
+-(void)hideAllViews
+{
+    [popularViewController.view setHidden:YES];
+    [favoritesViewController.view setHidden:YES];
+    [feedsViewController.view setHidden:YES];
+}
+
 - (IBAction)showTimeline:(id)sender {
+    [self hideAllViews];
     [self showFeedsView];
 }
 
 - (IBAction)showPopular:(id)sender {
+    [self hideAllViews];
     [self showPopularView];
 }
 
 - (IBAction)showFavorites:(id)sender {
+    [self hideAllViews];
     [self showFavoritesView];
 }
 
 - (void) showPopularView
 {
-    popularViewController = [[VPFeedsViewController alloc] initWithNibName:@"VPFeedsViewController" bundle:nil];
-    NSView *parent = self.contentArea;
-    
-    [parent addSubview:popularViewController.view];
-    NSView *view = popularViewController.view;
-    view.translatesAutoresizingMaskIntoConstraints = NO;
-    
-    NSArray *constraint1 = [NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[view]-(0)-|"
-                                                                   options:0
-                                                                   metrics:nil
-                                                                     views:NSDictionaryOfVariableBindings(view)];
-    NSArray *constraint2 = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[view]-(0)-|"
-                                                                   options:0
-                                                                   metrics:nil
-                                                                     views:NSDictionaryOfVariableBindings(view)];
-    
-    [parent addConstraints:constraint1];
-    [parent addConstraints:constraint2];
-    
-    popularViewController.requestUrl = [VPInfo retrievePopularUrl];
-    [popularViewController startRequest];
+    if (popularViewController){
+        [popularViewController.view setHidden:NO];
+    } else {
+        popularViewController = [[VPFeedsViewController alloc] initWithNibName:@"VPFeedsViewController" bundle:nil];
+        NSView *parent = self.contentArea;
+        
+        [parent addSubview:popularViewController.view];
+        NSView *view = popularViewController.view;
+        view.translatesAutoresizingMaskIntoConstraints = NO;
+        
+        NSArray *constraint1 = [NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[view]-(0)-|"
+                                                                       options:0
+                                                                       metrics:nil
+                                                                         views:NSDictionaryOfVariableBindings(view)];
+        NSArray *constraint2 = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[view]-(0)-|"
+                                                                       options:0
+                                                                       metrics:nil
+                                                                         views:NSDictionaryOfVariableBindings(view)];
+        
+        [parent addConstraints:constraint1];
+        [parent addConstraints:constraint2];
+        
+        popularViewController.requestUrl = [VPInfo retrievePopularUrl];
+        [popularViewController startRequest];
+    }
 }
 
 - (void) showFeedsView
 {
-    feedsViewController = [[VPFeedsViewController alloc] initWithNibName:@"VPFeedsViewController" bundle:nil];
-    NSView *parent = self.contentArea;
-    
-    [parent addSubview:feedsViewController.view];
-    NSView *view = feedsViewController.view;
-    view.translatesAutoresizingMaskIntoConstraints = NO;
-    
-    NSArray *constraint1 = [NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[view]-(0)-|"
-                                                                   options:0
-                                                                   metrics:nil
-                                                                     views:NSDictionaryOfVariableBindings(view)];
-    NSArray *constraint2 = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[view]-(0)-|"
-                                                                   options:0
-                                                                   metrics:nil
-                                                                     views:NSDictionaryOfVariableBindings(view)];
-    
-    [parent addConstraints:constraint1];
-    [parent addConstraints:constraint2];
-    
-    feedsViewController.requestUrl = [VPInfo retrieveSelfTimelineUrl];
-    [feedsViewController startRequest];
+    if (feedsViewController) {
+        [feedsViewController.view  setHidden:NO];
+    } else {
+        feedsViewController = [[VPFeedsViewController alloc] initWithNibName:@"VPFeedsViewController" bundle:nil];
+        NSView *parent = self.contentArea;
+        
+        [parent addSubview:feedsViewController.view];
+        NSView *view = feedsViewController.view;
+        view.translatesAutoresizingMaskIntoConstraints = NO;
+        
+        NSArray *constraint1 = [NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[view]-(0)-|"
+                                                                       options:0
+                                                                       metrics:nil
+                                                                         views:NSDictionaryOfVariableBindings(view)];
+        NSArray *constraint2 = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[view]-(0)-|"
+                                                                       options:0
+                                                                       metrics:nil
+                                                                         views:NSDictionaryOfVariableBindings(view)];
+        
+        [parent addConstraints:constraint1];
+        [parent addConstraints:constraint2];
+        
+        feedsViewController.requestUrl = [VPInfo retrieveSelfTimelineUrl];
+        [feedsViewController startRequest];
+    }
 }
 
 - (void) showLoginView
@@ -142,26 +160,30 @@
 
 -(void) showFavoritesView
 {
-    favoritesViewController = [[VPFeedsViewController alloc] initWithNibName:@"VPFeedsViewController" bundle:nil];
-    NSView *parent = self.contentArea;
-    
-    [parent addSubview:favoritesViewController.view];
-    NSView *view = favoritesViewController.view;
-    view.translatesAutoresizingMaskIntoConstraints = NO;
-    
-    NSArray *constraint1 = [NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[view]-(0)-|"
-                                                                   options:0
-                                                                   metrics:nil
-                                                                     views:NSDictionaryOfVariableBindings(view)];
-    NSArray *constraint2 = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[view]-(0)-|"
-                                                                   options:0
-                                                                   metrics:nil
-                                                                     views:NSDictionaryOfVariableBindings(view)];
-    
-    [parent addConstraints:constraint1];
-    [parent addConstraints:constraint2];
-    
-    favoritesViewController.requestUrl = [VPInfo retrieveFavoritesUrl];
-    [favoritesViewController startRequest];
+    if (favoritesViewController) {
+        [favoritesViewController.view setHidden:NO];
+    } else {
+        favoritesViewController = [[VPFeedsViewController alloc] initWithNibName:@"VPFeedsViewController" bundle:nil];
+        NSView *parent = self.contentArea;
+        
+        [parent addSubview:favoritesViewController.view];
+        NSView *view = favoritesViewController.view;
+        view.translatesAutoresizingMaskIntoConstraints = NO;
+        
+        NSArray *constraint1 = [NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[view]-(0)-|"
+                                                                       options:0
+                                                                       metrics:nil
+                                                                         views:NSDictionaryOfVariableBindings(view)];
+        NSArray *constraint2 = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[view]-(0)-|"
+                                                                       options:0
+                                                                       metrics:nil
+                                                                         views:NSDictionaryOfVariableBindings(view)];
+        
+        [parent addConstraints:constraint1];
+        [parent addConstraints:constraint2];
+        
+        favoritesViewController.requestUrl = [VPInfo retrieveFavoritesUrl];
+        [favoritesViewController startRequest];
+    }
 }
 @end

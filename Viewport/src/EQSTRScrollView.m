@@ -60,7 +60,6 @@
 - (void)dealloc {
 	self.refreshBlock = nil;
 	self._arrowLayer  = nil;
-	[super dealloc];
 }
 
 #pragma mark - Create Header View
@@ -82,7 +81,6 @@
 		clipView.drawsBackground = NO;
 		
 		[self setContentView:clipView];
-		[clipView release];
 		
 		superClipView            = [super contentView];
 		
@@ -94,7 +92,6 @@
 	// delete old stuff if any
 	if (self.refreshHeader) {		
 		[_refreshHeader removeFromSuperview];
-		[_refreshHeader release];
 		_refreshHeader = nil;
 	}
 	
@@ -163,9 +160,6 @@
 	[self.refreshHeader addSubview:self.refreshSpinner];
 	
 	[self.contentView addSubview:self.refreshHeader];	
-	
-	[_refreshArrow release];
-	[_refreshSpinner release];
 	
 	// Scroll to top
 	[self.contentView scrollToPoint:NSMakePoint(contentRect.origin.x, 0)];
