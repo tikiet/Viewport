@@ -16,6 +16,9 @@
 		BA355DF6196993D900D542BB /* VPConnectionDataDepot.m in Sources */ = {isa = PBXBuildFile; fileRef = BA355DF5196993D900D542BB /* VPConnectionDataDepot.m */; };
 		BA355DFC1969A69F00D542BB /* VPInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = BA355DFB1969A69F00D542BB /* VPInfo.m */; };
 		BA355DFE1969AE1D00D542BB /* AppInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BA355DFD1969AE1D00D542BB /* AppInfo.plist */; };
+		BA47A47A196EE11B0005997B /* internet.png in Resources */ = {isa = PBXBuildFile; fileRef = BA47A478196EE11B0005997B /* internet.png */; };
+		BA47A47B196EE11B0005997B /* heart.png in Resources */ = {isa = PBXBuildFile; fileRef = BA47A479196EE11B0005997B /* heart.png */; };
+		BA47A47D196EEC140005997B /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = BA47A47C196EEC140005997B /* home.png */; };
 		BA8F3DF31967A9D2009E7E70 /* VPFeedView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA8F3DF21967A9D2009E7E70 /* VPFeedView.m */; };
 		BA9D814E196AFEE200D0BC9A /* EQSTRClipView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA9D814B196AFEE200D0BC9A /* EQSTRClipView.m */; };
 		BA9D814F196AFEE200D0BC9A /* EQSTRScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA9D814D196AFEE200D0BC9A /* EQSTRScrollView.m */; };
@@ -78,6 +81,9 @@
 		BA355DFA1969A69F00D542BB /* VPInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VPInfo.h; sourceTree = "<group>"; };
 		BA355DFB1969A69F00D542BB /* VPInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VPInfo.m; sourceTree = "<group>"; };
 		BA355DFD1969AE1D00D542BB /* AppInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AppInfo.plist; sourceTree = "<group>"; };
+		BA47A478196EE11B0005997B /* internet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = internet.png; sourceTree = "<group>"; };
+		BA47A479196EE11B0005997B /* heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart.png; sourceTree = "<group>"; };
+		BA47A47C196EEC140005997B /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
 		BA8F3DF11967A9D2009E7E70 /* VPFeedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VPFeedView.h; sourceTree = "<group>"; };
 		BA8F3DF21967A9D2009E7E70 /* VPFeedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VPFeedView.m; sourceTree = "<group>"; };
 		BA9D814A196AFEE200D0BC9A /* EQSTRClipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EQSTRClipView.h; sourceTree = "<group>"; };
@@ -331,6 +337,9 @@
 		BAF657EF1960323300593F2D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BA47A47C196EEC140005997B /* home.png */,
+				BA47A478196EE11B0005997B /* internet.png */,
+				BA47A479196EE11B0005997B /* heart.png */,
 				BAF657F01960323300593F2D /* Viewport-Info.plist */,
 				BAF657F11960323300593F2D /* InfoPlist.strings */,
 				BAF657F41960323300593F2D /* main.m */,
@@ -439,10 +448,13 @@
 			files = (
 				BAF657F31960323300593F2D /* InfoPlist.strings in Resources */,
 				BAF658011960323300593F2D /* Images.xcassets in Resources */,
+				BA47A47D196EEC140005997B /* home.png in Resources */,
+				BA47A47B196EE11B0005997B /* heart.png in Resources */,
 				BAD91DA31969295D00BED591 /* VPFeedView.xib in Resources */,
 				BAD91D9C196923C500BED591 /* VPLoginViewController.xib in Resources */,
 				BA355DFE1969AE1D00D542BB /* AppInfo.plist in Resources */,
 				BAF657F91960323300593F2D /* Credits.rtf in Resources */,
+				BA47A47A196EE11B0005997B /* internet.png in Resources */,
 				BAD91DB41969709F00BED591 /* VPFeedsViewController.xib in Resources */,
 				BAF657FF1960323300593F2D /* MainMenu.xib in Resources */,
 			);

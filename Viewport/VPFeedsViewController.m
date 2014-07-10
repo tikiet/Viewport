@@ -41,9 +41,7 @@
         if ( NSMaxY([self.tableview enclosingScrollView].documentVisibleRect) >=
             NSHeight([[self.tableview enclosingScrollView].documentView bounds]) ){
             if (!triggeredBottom) {
-                NSLog(@"triggered bottom");
                 triggeredBottom = YES;
-                
                 [self startRequest];
             }
         }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5053" systemVersion="13D65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5053" systemVersion="13E28" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5053"/>
     </dependencies>
@@ -683,13 +683,13 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <subviews>
                             <button translatesAutoresizingMaskIntoConstraints="NO" id="e0e-Yf-dSQ">
-                                <rect key="frame" x="0.0" y="440" width="60" height="60"/>
+                                <rect key="frame" x="18" y="465" width="25" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="ZOD-FW-XMb"/>
-                                    <constraint firstAttribute="height" constant="60" id="tHa-W3-Ql7"/>
+                                    <constraint firstAttribute="width" constant="25" id="ZOD-FW-XMb"/>
+                                    <constraint firstAttribute="height" constant="25" id="tHa-W3-Ql7"/>
                                 </constraints>
-                                <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="NSUser" imagePosition="overlaps" alignment="center" imageScaling="proportionallyDown" inset="2" id="9Vy-nq-4yr">
+                                <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="home" imagePosition="overlaps" alignment="center" imageScaling="axesIndependently" inset="2" id="9Vy-nq-4yr">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -698,13 +698,13 @@
                                 </connections>
                             </button>
                             <button translatesAutoresizingMaskIntoConstraints="NO" id="xtf-oo-NcF">
-                                <rect key="frame" x="0.0" y="380" width="60" height="60"/>
+                                <rect key="frame" x="18" y="430" width="25" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="9SV-mc-Eow"/>
-                                    <constraint firstAttribute="width" constant="60" id="GsL-xR-zse"/>
+                                    <constraint firstAttribute="height" constant="25" id="9SV-mc-Eow"/>
+                                    <constraint firstAttribute="width" constant="25" id="GsL-xR-zse"/>
                                 </constraints>
-                                <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="NSEveryone" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="elf-uF-Pmr">
+                                <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="internet" imagePosition="only" alignment="center" imageScaling="axesIndependently" inset="2" id="elf-uF-Pmr">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system" size="10"/>
                                 </buttonCell>
@@ -713,13 +713,13 @@
                                 </connections>
                             </button>
                             <button translatesAutoresizingMaskIntoConstraints="NO" id="Wgr-Ja-Jjr">
-                                <rect key="frame" x="0.0" y="320" width="60" height="60"/>
+                                <rect key="frame" x="18" y="395" width="25" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="JPF-87-vOJ"/>
-                                    <constraint firstAttribute="height" constant="60" id="tam-v5-81N"/>
+                                    <constraint firstAttribute="width" constant="25" id="JPF-87-vOJ"/>
+                                    <constraint firstAttribute="height" constant="25" id="tam-v5-81N"/>
                                 </constraints>
-                                <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="NSUserGuest" imagePosition="overlaps" alignment="center" imageScaling="proportionallyDown" inset="2" id="LZd-YV-v0a">
+                                <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="heart" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="LZd-YV-v0a">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -729,15 +729,13 @@
                             </button>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="xtf-oo-NcF" firstAttribute="leading" secondItem="z2b-Z9-2oC" secondAttribute="leading" id="4Cv-g0-2FY"/>
-                            <constraint firstItem="xtf-oo-NcF" firstAttribute="top" secondItem="e0e-Yf-dSQ" secondAttribute="bottom" id="JJi-s5-9EA"/>
-                            <constraint firstItem="e0e-Yf-dSQ" firstAttribute="leading" secondItem="z2b-Z9-2oC" secondAttribute="leading" id="MwY-2t-yWO"/>
-                            <constraint firstItem="e0e-Yf-dSQ" firstAttribute="top" secondItem="z2b-Z9-2oC" secondAttribute="top" id="Ytn-pK-1W3"/>
+                            <constraint firstItem="Wgr-Ja-Jjr" firstAttribute="top" secondItem="xtf-oo-NcF" secondAttribute="bottom" constant="10" id="AxL-tv-szo"/>
+                            <constraint firstItem="xtf-oo-NcF" firstAttribute="top" secondItem="e0e-Yf-dSQ" secondAttribute="bottom" constant="10" id="JJi-s5-9EA"/>
+                            <constraint firstItem="e0e-Yf-dSQ" firstAttribute="centerX" secondItem="z2b-Z9-2oC" secondAttribute="centerX" id="MwY-2t-yWO"/>
+                            <constraint firstItem="xtf-oo-NcF" firstAttribute="centerX" secondItem="z2b-Z9-2oC" secondAttribute="centerX" id="NLz-kD-enE"/>
+                            <constraint firstItem="e0e-Yf-dSQ" firstAttribute="top" secondItem="z2b-Z9-2oC" secondAttribute="top" constant="10" id="Ytn-pK-1W3"/>
                             <constraint firstAttribute="width" constant="60" id="bvv-LQ-fI3"/>
-                            <constraint firstItem="Wgr-Ja-Jjr" firstAttribute="leading" secondItem="z2b-Z9-2oC" secondAttribute="leading" id="gS8-as-SMi"/>
-                            <constraint firstAttribute="trailing" secondItem="xtf-oo-NcF" secondAttribute="trailing" id="oHq-ND-cOA"/>
-                            <constraint firstItem="Wgr-Ja-Jjr" firstAttribute="top" secondItem="xtf-oo-NcF" secondAttribute="bottom" id="osO-4s-xRv"/>
-                            <constraint firstItem="Wgr-Ja-Jjr" firstAttribute="trailing" secondItem="z2b-Z9-2oC" secondAttribute="trailing" id="uzK-xr-NJ0"/>
+                            <constraint firstAttribute="centerX" secondItem="Wgr-Ja-Jjr" secondAttribute="centerX" id="eqx-rC-9xv"/>
                         </constraints>
                     </customView>
                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="jLF-ZD-66n">
@@ -758,8 +756,8 @@
         </window>
     </objects>
     <resources>
-        <image name="NSEveryone" width="32" height="32"/>
-        <image name="NSUser" width="32" height="32"/>
-        <image name="NSUserGuest" width="32" height="32"/>
+        <image name="heart" width="1200" height="1200"/>
+        <image name="home" width="12.800000190734863" height="12.800000190734863"/>
+        <image name="internet" width="12" height="12"/>
     </resources>
 </document>
