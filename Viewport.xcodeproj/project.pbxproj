@@ -39,6 +39,7 @@
 		BAEBEFE919645BA90074D049 /* VPCaption.m in Sources */ = {isa = PBXBuildFile; fileRef = BAEBEFE819645BA90074D049 /* VPCaption.m */; };
 		BAEBEFEC196461140074D049 /* VPLikes.m in Sources */ = {isa = PBXBuildFile; fileRef = BAEBEFEB196461140074D049 /* VPLikes.m */; };
 		BAEBEFEF196463FE0074D049 /* VPFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = BAEBEFEE196463FE0074D049 /* VPFeed.m */; };
+		BAF21C661971345300C2EAF0 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = BAF21C651971345300C2EAF0 /* logo.png */; };
 		BAF657E91960323300593F2D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAF657E81960323300593F2D /* Cocoa.framework */; };
 		BAF657F31960323300593F2D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BAF657F11960323300593F2D /* InfoPlist.strings */; };
 		BAF657F51960323300593F2D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF657F41960323300593F2D /* main.m */; };
@@ -120,6 +121,7 @@
 		BAEBEFEB196461140074D049 /* VPLikes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VPLikes.m; sourceTree = "<group>"; };
 		BAEBEFED196463FE0074D049 /* VPFeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VPFeed.h; sourceTree = "<group>"; };
 		BAEBEFEE196463FE0074D049 /* VPFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VPFeed.m; sourceTree = "<group>"; };
+		BAF21C651971345300C2EAF0 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		BAF657E51960323300593F2D /* Viewport.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Viewport.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAF657E81960323300593F2D /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		BAF657EB1960323300593F2D /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -337,6 +339,7 @@
 		BAF657EF1960323300593F2D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BAF21C651971345300C2EAF0 /* logo.png */,
 				BA47A47C196EEC140005997B /* home.png */,
 				BA47A478196EE11B0005997B /* internet.png */,
 				BA47A479196EE11B0005997B /* heart.png */,
@@ -454,6 +457,7 @@
 				BAD91D9C196923C500BED591 /* VPLoginViewController.xib in Resources */,
 				BA355DFE1969AE1D00D542BB /* AppInfo.plist in Resources */,
 				BAF657F91960323300593F2D /* Credits.rtf in Resources */,
+				BAF21C661971345300C2EAF0 /* logo.png in Resources */,
 				BA47A47A196EE11B0005997B /* internet.png in Resources */,
 				BAD91DB41969709F00BED591 /* VPFeedsViewController.xib in Resources */,
 				BAF657FF1960323300593F2D /* MainMenu.xib in Resources */,
