@@ -54,7 +54,12 @@
     return [self initWithUser:u images:i caption:c createdTime:ct id:fid];
 }
 
--(BOOL)isEqualTo:(id)other
+-(NSUInteger) hash
+{
+    return self.feedId.hash;
+}
+
+-(BOOL)isEqual:(id)other
 {
     if (other == self) {
         return YES;
@@ -64,9 +69,14 @@
     }
 
     VPFeed *feed = other;
-    if (![self.feedId isEqualTo:feed.feedId]) {
+    if (![self.feedId isEqualToString:feed.feedId]) {
         return NO;
     }
     return YES;
+}
+
+-(NSString*)description
+{
+    return [NSString stringWithFormat:@"feed id: %@, time:%d", self.feedId, self.createdTime];
 }
 @end

@@ -30,7 +30,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        identifier =idt;
+        identifier = idt;
     }
     return self;
 }
@@ -107,13 +107,10 @@
     [self.tableview reloadData];
     
     NSDictionary *pagination = [data objectForKey:@"pagination"];
-    NSLog(@"pagination:%@",pagination);
     
     if (pagination && !([pagination isEqual: [NSNull null]])){
         NSString *next_url = [pagination objectForKey:@"next_url"];
-        NSLog(@"next_url:%@", next_url);
         if (next_url && !([next_url isEqual:[NSNull null]])) {
-            NSLog(@"null: %d", !([next_url isEqual:[NSNull null]]));
             requestUrl = [NSURL URLWithString:next_url];
             hasMore = YES;
         } else {
