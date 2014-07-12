@@ -106,6 +106,7 @@
         [parent addConstraints:constraint1];
         [parent addConstraints:constraint2];
         
+        [popularViewController prepare];
         popularViewController.requestUrl = [VPInfo retrievePopularUrl];
         [popularViewController startRequest];
     }
@@ -114,8 +115,10 @@
 - (void) showFeedsView
 {
     if (feedsViewController) {
+        NSLog(@"use cached");
         [feedsViewController.view  setHidden:NO];
     } else {
+        NSLog(@"create brand new");
         feedsViewController = [[VPFeedsViewController alloc] initWithNibName:@"VPFeedsViewController" identifier:@"self" bundle:nil];
         NSView *parent = self.contentArea;
         
@@ -135,6 +138,7 @@
         [parent addConstraints:constraint1];
         [parent addConstraints:constraint2];
         
+        [feedsViewController prepare];
         feedsViewController.requestUrl = [VPInfo retrieveSelfTimelineUrl];
         [feedsViewController startRequest];
     }
@@ -190,6 +194,7 @@
         [parent addConstraints:constraint1];
         [parent addConstraints:constraint2];
         
+        [favoritesViewController prepare];
         favoritesViewController.requestUrl = [VPInfo retrieveFavoritesUrl];
         [favoritesViewController startRequest];
     }

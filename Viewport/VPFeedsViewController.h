@@ -23,5 +23,6 @@
 -(void)updateData:(NSData*)jsonData;
 -(void)startRequest;
 -(void)archiveData;
+-(void)prepare;
 -(id)initWithNibName:(NSString *)nibNameOrNil identifier:(NSString*) identifier bundle:(NSBundle *)nibBundleOrNil;
 @end

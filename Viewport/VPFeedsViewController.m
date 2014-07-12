@@ -41,7 +41,7 @@
     [[NSUserDefaults standardUserDefaults] setObject:data forKey:identifier];
 }
 
--(void)awakeFromNib
+-(void)prepare
 {
     hasMore = YES;
     self.tableview.dataSource = self;
