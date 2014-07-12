@@ -17,8 +17,9 @@
 @property VPImages *images;
 @property VPCaption *caption;
 @property int createdTime;
+@property NSString *feedId;
 
--(id)initWithUser:(VPUser*)user images:(VPImages*)images caption:(VPCaption*)caption createdTime:(int)createdTime;
+-(id)initWithUser:(VPUser*)user images:(VPImages*)images caption:(VPCaption*)caption createdTime:(int)createdTime id:(NSString*)feedId;
 -(id)initWithDictionray:(NSDictionary*)dictionary;
 
 @end

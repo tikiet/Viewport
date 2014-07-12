@@ -22,6 +22,7 @@
 
 -(void)awakeFromNib
 {
+    hasMore = YES;
     self.tableview.dataSource = self;
     self.tableview.delegate = self;
     self.scrollView.refreshBlock = ^(EQSTRScrollView *scrollView){
@@ -53,13 +54,13 @@
     NSDictionary *data = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
     NSArray *rawFeeds = [data objectForKey:@"data"];
     
-    NSMutableArray *feeds = [[NSMutableArray alloc] init];
+    NSMutableSet *feeds = [[NSMutableSet alloc] init];
     for (NSDictionary *dic in rawFeeds){
         [feeds addObject: [[VPFeed alloc] initWithDictionray:dic]];
     }
     [feeds addObjectsFromArray:array];
     
-    array = [feeds sortedArrayUsingComparator:^NSComparisonResult(id a, id b){
+    array = [[feeds allObjects] sortedArrayUsingComparator:^NSComparisonResult(id a, id b){
         VPFeed *fa = (VPFeed*)a;
         VPFeed *fb = (VPFeed*)b;
         int r = fa.createdTime - fb.createdTime;
@@ -77,11 +78,17 @@
     [self.tableview reloadData];
     
     NSDictionary *pagination = [data objectForKey:@"pagination"];
+    NSLog(@"pagination:%@",pagination);
+    
     if (pagination && !([pagination isEqual: [NSNull null]])){
         NSString *next_url = [pagination objectForKey:@"next_url"];
+        NSLog(@"next_url:%@", next_url);
         if (next_url && !([next_url isEqual:[NSNull null]])) {
+            NSLog(@"null: %d", !([next_url isEqual:[NSNull null]]));
             requestUrl = [NSURL URLWithString:next_url];
             hasMore = YES;
+        } else {
+            hasMore = NO;
         }
     }
 }
@@ -152,23 +159,23 @@
 
 -(void)startRequest
 {
-    NSURLRequest *request = [NSURLRequest requestWithURL:self.requestUrl];
-    NSURLConnection *con =
-    [[NSURLConnection alloc] initWithRequest:request
-                                    delegate:[[VPConnectionDataDepot alloc]
-                                              initWithSuccessBlock:^(NSData *data){
-                                                  [self.scrollView stopLoading];
-                                                  [self updateData:data];
-                                                  hasMore = NO;
-                                                  triggeredBottom = NO;
-                                              } failBlock:^(NSError *error){
-                                                  NSLog(@"error:%@", error);
-                                                  [self.scrollView stopLoading];
-                                              }]
-                            startImmediately:NO];
-    
-    [con start];
-    
+    if (hasMore) {
+        NSURLRequest *request = [NSURLRequest requestWithURL:self.requestUrl];
+        NSURLConnection *con =
+        [[NSURLConnection alloc] initWithRequest:request
+                                        delegate:[[VPConnectionDataDepot alloc]
+                                                  initWithSuccessBlock:^(NSData *data){
+                                                      [self.scrollView stopLoading];
+                                                      [self updateData:data];
+                                                      triggeredBottom = NO;
+                                                  } failBlock:^(NSError *error){
+                                                      NSLog(@"error:%@", error);
+                                                      [self.scrollView stopLoading];
+                                                  }]
+                                startImmediately:NO];
+        
+        [con start];
+    }
 }
 
 @end

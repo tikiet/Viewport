@@ -10,9 +10,9 @@
 
 @implementation VPFeed
 
-@synthesize user, images, createdTime;
+@synthesize user, images, createdTime, feedId;
 
--(id)initWithUser:(VPUser *)u images:(VPImages *)i caption:(VPCaption *)c createdTime:(int)ct
+-(id)initWithUser:(VPUser *)u images:(VPImages *)i caption:(VPCaption *)c createdTime:(int)ct id:(NSString*)fid
 {
     self = [super init];
     if (self) {
@@ -20,6 +20,7 @@
         self.images = i;
         self.caption = c;
         self.createdTime = ct;
+        self.feedId = fid;
     }
     return self;
 }
@@ -30,7 +31,24 @@
     VPImages *i = [[VPImages alloc] initWithDictionray:[dictionary objectForKey:@"images"]];
     VPCaption *c = [[VPCaption alloc] initWithDictionary:[dictionary objectForKey:@"caption"]];
     int ct = [[dictionary objectForKey:@"created_time"] intValue];
+    NSString *fid = [dictionary objectForKey:@"id"];
     
-    return [self initWithUser:u images:i caption:c createdTime:ct];
+    return [self initWithUser:u images:i caption:c createdTime:ct id:fid];
+}
+
+-(BOOL)isEqualTo:(id)other
+{
+    if (other == self) {
+        return YES;
+    }
+    if (!other || !([other isKindOfClass:[self class]])) {
+        return NO;
+    }
+
+    VPFeed *feed = other;
+    if (![self.feedId isEqualTo:feed.feedId]) {
+        return NO;
+    }
+    return YES;
 }
 @end
