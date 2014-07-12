@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "VPImage.h"
 
-@interface VPImages : NSObject
+@interface VPImages : NSObject <NSCoding>
 
 @property VPImage *thumbnail;
 @property VPImage *lowResolution;

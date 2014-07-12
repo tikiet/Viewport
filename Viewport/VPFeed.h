@@ -11,7 +11,7 @@
 #import "VPImages.h"
 #import "VPCaption.h"
 
-@interface VPFeed : NSObject
+@interface VPFeed : NSObject <NSCoding>
 
 @property VPUser *user;
 @property VPImages *images;

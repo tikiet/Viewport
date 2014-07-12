@@ -12,9 +12,26 @@
 
 @synthesize name, fullName, userId, profilePicture;
 
--(id) initWithID:(int)userId name:(NSString *)name fullName:(NSString *)fullName profilePicture:(NSString *)profilePicture
+-(id) initWithCoder:(NSCoder *)aDecoder
 {
-    return [self initWithID:userId name:name fullName:fullName profilePicture:profilePicture];
+    self.userId = [aDecoder decodeIntForKey:@"userId"];
+    self.fullName = [aDecoder decodeObjectForKey:@"fullName"];
+    self.name = [aDecoder decodeObjectForKey:@"name"];
+    self.profilePicture = [aDecoder decodeObjectForKey:@"profilePicture"];
+    return self;
+}
+
+-(void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.fullName forKey:@"fullName"];
+    [aCoder encodeObject:self.name forKey:@"name"];
+    [aCoder encodeObject:self.profilePicture forKey:@"profilePicture"];
+    [aCoder encodeInt:self.userId forKey:@"userId"];
+}
+
+-(id) initWithID:(int)uid name:(NSString *)n fullName:(NSString *)fn profilePicture:(NSString *)pp
+{
+    return [self initWithID:uid name:n fullName:fn profilePicture:pp];
 }
 
 -(id)initWithID:(int) uid name:(NSString *) userName fullName:(NSString *)userFullname profilePicture:(NSString *) picture

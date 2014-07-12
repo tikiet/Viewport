@@ -20,6 +20,14 @@
     INAppStoreWindow *iasWindow;
 }
 
+- (void)applicationWillTerminate:(NSNotification *)notification
+{
+    NSLog(@"will terminate");
+    [feedsViewController archiveData];
+    [popularViewController archiveData];
+    [favoritesViewController archiveData];
+}
+
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     // configure title bar
@@ -79,7 +87,7 @@
     if (popularViewController){
         [popularViewController.view setHidden:NO];
     } else {
-        popularViewController = [[VPFeedsViewController alloc] initWithNibName:@"VPFeedsViewController" bundle:nil];
+        popularViewController = [[VPFeedsViewController alloc] initWithNibName:@"VPFeedsViewController" identifier:@"popular" bundle:nil];
         NSView *parent = self.contentArea;
         
         [parent addSubview:popularViewController.view];
@@ -108,7 +116,7 @@
     if (feedsViewController) {
         [feedsViewController.view  setHidden:NO];
     } else {
-        feedsViewController = [[VPFeedsViewController alloc] initWithNibName:@"VPFeedsViewController" bundle:nil];
+        feedsViewController = [[VPFeedsViewController alloc] initWithNibName:@"VPFeedsViewController" identifier:@"self" bundle:nil];
         NSView *parent = self.contentArea;
         
         [parent addSubview:feedsViewController.view];
@@ -163,7 +171,7 @@
     if (favoritesViewController) {
         [favoritesViewController.view setHidden:NO];
     } else {
-        favoritesViewController = [[VPFeedsViewController alloc] initWithNibName:@"VPFeedsViewController" bundle:nil];
+        favoritesViewController = [[VPFeedsViewController alloc] initWithNibName:@"VPFeedsViewController" identifier:@"favorites" bundle:nil];
         NSView *parent = self.contentArea;
         
         [parent addSubview:favoritesViewController.view];

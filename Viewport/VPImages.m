@@ -12,6 +12,22 @@
 
 @synthesize standardResolution, lowResolution, thumbnail;
 
+-(id)initWithCoder:(NSCoder *)aDecoder
+{
+    self.standardResolution = [aDecoder decodeObjectForKey:@"standard"];
+    self.lowResolution = [aDecoder decodeObjectForKey:@"low"];
+    self.thumbnail = [aDecoder decodeObjectForKey:@"thumbnail"];
+    
+    return self;
+}
+
+-(void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.standardResolution forKey:@"standard"];
+    [aCoder encodeObject:self.lowResolution forKey:@"low"];
+    [aCoder encodeObject:self.thumbnail forKey:@"thumbnail"];
+}
+
 -(id)initWithStandardResolution:(VPImage *)s lowResolution:(VPImage *)l thumbnail:(VPImage *)t
 {
     self = [super init];

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface VPImage : NSObject
+@interface VPImage : NSObject <NSCoding>
 
 @property NSString *url;
 @property int height;

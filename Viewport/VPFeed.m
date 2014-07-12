@@ -12,6 +12,24 @@
 
 @synthesize user, images, createdTime, feedId;
 
+-(id)initWithCoder:(NSCoder *)aDecoder
+{
+    self.user = [aDecoder decodeObjectForKey:@"user"];
+    self.images = [aDecoder decodeObjectForKey:@"images"];
+    self.createdTime = [aDecoder decodeIntForKey:@"createdTime"];
+    self.feedId = [aDecoder decodeObjectForKey:@"feedId"];
+    
+    return self;
+}
+
+-(void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.user forKey:@"user"];
+    [aCoder encodeObject:self.images forKey:@"images"];
+    [aCoder encodeObject:self.feedId forKey:@"feedId"];
+    [aCoder encodeInt:self.createdTime forKey:@"createdTime"];
+}
+
 -(id)initWithUser:(VPUser *)u images:(VPImages *)i caption:(VPCaption *)c createdTime:(int)ct id:(NSString*)fid
 {
     self = [super init];

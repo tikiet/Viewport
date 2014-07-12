@@ -13,12 +13,33 @@
     NSArray *array;
     BOOL hasMore;
     BOOL triggeredBottom;
+    NSString *identifier;
 }
 @end
 
 @implementation VPFeedsViewController
 
 @synthesize requestUrl;
+
+-(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    return [self initWithNibName:nibNameOrNil identifier:@"default" bundle:nibBundleOrNil];
+}
+
+-(id)initWithNibName:(NSString *)nibNameOrNil identifier:(NSString *)idt bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        identifier =idt;
+    }
+    return self;
+}
+
+-(void)archiveData
+{
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:array];
+    [[NSUserDefaults standardUserDefaults] setObject:data forKey:identifier];
+}
 
 -(void)awakeFromNib
 {
@@ -29,11 +50,21 @@
         [self startRequest];
     };
     
+    NSNib *nib = [[NSNib alloc] initWithNibNamed:@"VPFeedView" bundle:nil];
+    [self.tableview registerNib:nib forIdentifier:@"CELL"];
+    
     id clipView = [[self.tableview enclosingScrollView] contentView];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(myBoundsChangeNotificationHandler:)
                                                  name:NSViewBoundsDidChangeNotification
                                                object:clipView];
+    
+    NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:identifier];
+    if (data && ![data isEqualTo:[NSNull null]]) {
+        NSArray *archivedArray = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+        array = archivedArray;
+        [self.tableview reloadData];
+    }
 }
 
 - (void)myBoundsChangeNotificationHandler:(NSNotification *)aNotification
@@ -73,8 +104,6 @@
         }
     }];
     
-    NSNib *nib = [[NSNib alloc] initWithNibNamed:@"VPFeedView" bundle:nil];
-    [self.tableview registerNib:nib forIdentifier:@"CELL"];
     [self.tableview reloadData];
     
     NSDictionary *pagination = [data objectForKey:@"pagination"];

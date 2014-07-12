@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface VPUser : NSObject
+@interface VPUser : NSObject <NSCoding>
 
 @property int userId;
 @property NSString *fullName;
@@ -17,7 +17,8 @@
 @property NSString *website;
 @property NSString *bio;
 
--(id)initWithID:(int) userId name:(NSString *) name fullName:(NSString*) fullName profilePicture:(NSString*) profilePicture webSite:(NSString*) webSite biography:(NSString*) biography;
+-(id)initWithID:(int) userId name:(NSString *) name fullName:(NSString*) fullName
+ profilePicture:(NSString*) profilePicture webSite:(NSString*) webSite biography:(NSString*) biography;
 
 -(id)initWithID:(int) userId name:(NSString *) name fullName:(NSString*) fullName profilePicture:(NSString*) profilePicture;
 

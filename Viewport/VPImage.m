@@ -12,6 +12,22 @@
 
 @synthesize url, height, width;
 
+-(id)initWithCoder:(NSCoder *)aDecoder
+{
+    self.url = [aDecoder decodeObjectForKey:@"url"];
+    self.height = [aDecoder decodeIntForKey:@"height"];
+    self.width = [aDecoder decodeIntForKey:@"width"];
+    
+    return self;
+}
+
+-(void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.url forKey:@"url"];
+    [aCoder encodeInt:self.height forKey:@"height"];
+    [aCoder encodeInt:self.width forKey:@"width"];
+}
+
 -(id)initWithUrl:(NSString *)u width:(int)w height:(int)h
 {
     self = [super init];
@@ -25,11 +41,11 @@
 
 -(id)initWithDictionary:(NSDictionary *)dictionary
 {
-    NSString *url = [dictionary objectForKey:@"url"];
-    int height = [[dictionary objectForKey:@"height"] intValue];
-    int width = [[dictionary objectForKey:@"width"] intValue];
+    NSString *u = [dictionary objectForKey:@"url"];
+    int h = [[dictionary objectForKey:@"height"] intValue];
+    int w = [[dictionary objectForKey:@"width"] intValue];
     
-    return [self initWithUrl:url width:width height:height];
+    return [self initWithUrl:u width:w height:h];
 }
 
 @end
