@@ -12,7 +12,7 @@
 #import "VPInfo.h"
 #import "VPConnectionDataDepot.h"
 #import "EQSTRScrollView.h"
-#import <AsyncImageDownloader.h>
+#import "TKImageLoader.h"
 
 @interface VPFeedsViewController : NSViewController <NSTableViewDataSource, NSTableViewDelegate>
 

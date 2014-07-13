@@ -134,12 +134,7 @@
     }
     
     [view.pic setImage:nil];
-    [[[AsyncImageDownloader alloc] initWithMediaURL:feed.images.standardResolution.url successBlock:^(NSImage *image) {
-        [view.pic setImage:image];
-    } failBlock:^(NSError *error) {
-        [view.pic setImage:nil];
-        NSLog(@"error: %@", error);
-    }] startDownload];
+    [[[TKImageLoader alloc] initWithURL:[NSURL URLWithString:feed.images.standardResolution.url] imageView:view.pic] start];
     
     CALayer *profileLayer = [CALayer layer];
     profileLayer.cornerRadius = 3;
@@ -148,12 +143,8 @@
     view.userProfile.layer = profileLayer;
     
     [view.userProfile setImage:nil];
-    [[[AsyncImageDownloader alloc] initWithMediaURL:feed.user.profilePicture successBlock:^(NSImage *profile) {
-        [view.userProfile setImage:profile];
-    } failBlock:^(NSError *error) {
-        [view.pic setImage:nil];
-        NSLog(@"error: %@", error);
-    }] startDownload];
+    
+    [[[TKImageLoader alloc] initWithURL:[NSURL URLWithString:feed.user.profilePicture] imageView:view.userProfile] start];
     
     CALayer *viewLayer = [CALayer layer];
     [viewLayer setBackgroundColor:CGColorCreateGenericRGB(0.835, 0.835, 0.835, 1)];

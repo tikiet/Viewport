@@ -7,7 +7,6 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import <AsyncImageDownloader.h>
 #import "VPFeed.h"
 #import "VPFeedView.h"
 #import "VPLoginViewController.h"
