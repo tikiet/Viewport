@@ -131,6 +131,8 @@
     
     if (feed.caption.text) {
         [view.caption setStringValue:feed.caption.text];
+    } else {
+        [view.caption setStringValue:@""];
     }
     
     [view.pic setImage:nil];
@@ -143,7 +145,6 @@
     view.userProfile.layer = profileLayer;
     
     [view.userProfile setImage:nil];
-    
     [[[TKImageLoader alloc] initWithURL:[NSURL URLWithString:feed.user.profilePicture] imageView:view.userProfile] start];
     
     CALayer *viewLayer = [CALayer layer];

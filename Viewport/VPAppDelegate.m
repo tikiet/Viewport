@@ -115,11 +115,11 @@
 - (void) showFeedsView
 {
     if (feedsViewController) {
-        NSLog(@"use cached");
         [feedsViewController.view  setHidden:NO];
     } else {
-        NSLog(@"create brand new");
-        feedsViewController = [[VPFeedsViewController alloc] initWithNibName:@"VPFeedsViewController" identifier:@"self" bundle:nil];
+        feedsViewController = [[VPFeedsViewController alloc] initWithNibName:@"VPFeedsViewController"
+                                                                  identifier:@"self"
+                                                                      bundle:nil];
         NSView *parent = self.contentArea;
         
         [parent addSubview:feedsViewController.view];
@@ -175,7 +175,9 @@
     if (favoritesViewController) {
         [favoritesViewController.view setHidden:NO];
     } else {
-        favoritesViewController = [[VPFeedsViewController alloc] initWithNibName:@"VPFeedsViewController" identifier:@"favorites" bundle:nil];
+        favoritesViewController = [[VPFeedsViewController alloc] initWithNibName:@"VPFeedsViewController"
+                                                                      identifier:@"favorites"
+                                                                          bundle:nil];
         NSView *parent = self.contentArea;
         
         [parent addSubview:favoritesViewController.view];

@@ -1,1 +1,0 @@
-../../AsyncImageDownloaderOSX/Mac OS/AsyncImageDownloader.h
