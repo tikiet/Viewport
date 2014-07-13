@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9A42E261584E4F37B9EE6861 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B36829801D97485B8997B7E1 /* libPods.a */; };
+		BA07C61F19725BAD00027EC1 /* TKImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = BA07C61E19725BAD00027EC1 /* TKImageLoader.m */; };
 		BA355DEF196986F900D542BB /* INAppStoreWindowSwizzling.c in Sources */ = {isa = PBXBuildFile; fileRef = BA355DE4196986F900D542BB /* INAppStoreWindowSwizzling.c */; };
 		BA355DF0196986F900D542BB /* INWindowBackgroundView+CoreUIRendering.m in Sources */ = {isa = PBXBuildFile; fileRef = BA355DE7196986F900D542BB /* INWindowBackgroundView+CoreUIRendering.m */; };
 		BA355DF1196986F900D542BB /* NSDocument+INAppStoreWindowFixes.m in Sources */ = {isa = PBXBuildFile; fileRef = BA355DE9196986F900D542BB /* NSDocument+INAppStoreWindowFixes.m */; };
@@ -64,8 +64,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1E4484FC5F8E4EB486970C68 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		B36829801D97485B8997B7E1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA07C61D19725BAD00027EC1 /* TKImageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKImageLoader.h; sourceTree = "<group>"; };
+		BA07C61E19725BAD00027EC1 /* TKImageLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKImageLoader.m; sourceTree = "<group>"; };
 		BA355DE4196986F900D542BB /* INAppStoreWindowSwizzling.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = INAppStoreWindowSwizzling.c; sourceTree = "<group>"; };
 		BA355DE5196986F900D542BB /* INAppStoreWindowSwizzling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INAppStoreWindowSwizzling.h; sourceTree = "<group>"; };
 		BA355DE6196986F900D542BB /* INWindowBackgroundView+CoreUIRendering.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "INWindowBackgroundView+CoreUIRendering.h"; sourceTree = "<group>"; };
@@ -150,7 +151,6 @@
 			files = (
 				BAD91DA11969264200BED591 /* WebKit.framework in Frameworks */,
 				BAF657E91960323300593F2D /* Cocoa.framework in Frameworks */,
-				9A42E261584E4F37B9EE6861 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,6 +166,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BA07C61C19725B3300027EC1 /* TKImageLoader */ = {
+			isa = PBXGroup;
+			children = (
+				BA07C61D19725BAD00027EC1 /* TKImageLoader.h */,
+				BA07C61E19725BAD00027EC1 /* TKImageLoader.m */,
+			);
+			name = TKImageLoader;
+			sourceTree = "<group>";
+		};
 		BA355DE2196986F900D542BB /* INAppStoreWindow */ = {
 			isa = PBXGroup;
 			children = (
@@ -192,15 +201,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		BA8F3DF01967A9B8009E7E70 /* view */ = {
+		BA8F3DF01967A9B8009E7E70 /* VPFeedView */ = {
 			isa = PBXGroup;
 			children = (
-				BAD91DB21969709F00BED591 /* VPFeedsViewController.xib */,
 				BAD91DA21969295D00BED591 /* VPFeedView.xib */,
 				BA8F3DF11967A9D2009E7E70 /* VPFeedView.h */,
 				BA8F3DF21967A9D2009E7E70 /* VPFeedView.m */,
 			);
-			name = view;
+			name = VPFeedView;
 			sourceTree = "<group>";
 		};
 		BA9D8149196AFEE200D0BC9A /* ScrollToRefresh */ = {
@@ -245,6 +253,7 @@
 		BAD91D961969238B00BED591 /* utility */ = {
 			isa = PBXGroup;
 			children = (
+				BA07C61C19725B3300027EC1 /* TKImageLoader */,
 				BA9D8149196AFEE200D0BC9A /* ScrollToRefresh */,
 				BA355DE2196986F900D542BB /* INAppStoreWindow */,
 				BAD91D971969239300BED591 /* login */,
@@ -268,13 +277,14 @@
 			name = login;
 			sourceTree = "<group>";
 		};
-		BAD91DAF1969704D00BED591 /* controller */ = {
+		BAD91DAF1969704D00BED591 /* VPFeedsController */ = {
 			isa = PBXGroup;
 			children = (
+				BAD91DB21969709F00BED591 /* VPFeedsViewController.xib */,
 				BAD91DB01969709F00BED591 /* VPFeedsViewController.h */,
 				BAD91DB11969709F00BED591 /* VPFeedsViewController.m */,
 			);
-			name = controller;
+			name = VPFeedsController;
 			sourceTree = "<group>";
 		};
 		BAF657DC1960323300593F2D = {
@@ -284,7 +294,6 @@
 				BAF6580C1960323300593F2D /* ViewportTests */,
 				BAF657E71960323300593F2D /* Frameworks */,
 				BAF657E61960323300593F2D /* Products */,
-				1E4484FC5F8E4EB486970C68 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -323,8 +332,8 @@
 			isa = PBXGroup;
 			children = (
 				BAD91D961969238B00BED591 /* utility */,
-				BA8F3DF01967A9B8009E7E70 /* view */,
-				BAD91DAF1969704D00BED591 /* controller */,
+				BA8F3DF01967A9B8009E7E70 /* VPFeedView */,
+				BAD91DAF1969704D00BED591 /* VPFeedsController */,
 				BAAFC76619630231004E3408 /* model */,
 				BAF657FA1960323300593F2D /* VPAppDelegate.h */,
 				BAF657FB1960323300593F2D /* VPAppDelegate.m */,
@@ -377,11 +386,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BAF658161960323300593F2D /* Build configuration list for PBXNativeTarget "Viewport" */;
 			buildPhases = (
-				94D0EB06640F4DB58574848D /* Check Pods Manifest.lock */,
 				BAF657E11960323300593F2D /* Sources */,
 				BAF657E21960323300593F2D /* Frameworks */,
 				BAF657E31960323300593F2D /* Resources */,
-				944A6D3E2FFD41068D9D0CDB /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -474,39 +481,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		944A6D3E2FFD41068D9D0CDB /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		94D0EB06640F4DB58574848D /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		BAF657E11960323300593F2D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -525,6 +499,7 @@
 				BAF657F51960323300593F2D /* main.m in Sources */,
 				BA355DEF196986F900D542BB /* INAppStoreWindowSwizzling.c in Sources */,
 				BA355DF2196986F900D542BB /* INAppStoreWindow.m in Sources */,
+				BA07C61F19725BAD00027EC1 /* TKImageLoader.m in Sources */,
 				BAEBEFE61964596B0074D049 /* VPImages.m in Sources */,
 				BA355DF1196986F900D542BB /* NSDocument+INAppStoreWindowFixes.m in Sources */,
 				BAEBEFE3196457F90074D049 /* VPImage.m in Sources */,
@@ -666,7 +641,6 @@
 		};
 		BAF658171960323300593F2D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1E4484FC5F8E4EB486970C68 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -680,7 +654,6 @@
 		};
 		BAF658181960323300593F2D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1E4484FC5F8E4EB486970C68 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
