@@ -127,6 +127,7 @@
 -(NSView *) tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
 {
     VPFeedView *view = [tableView makeViewWithIdentifier:@"CELL" owner:self];
+    view.translatesAutoresizingMaskIntoConstraints = NO;
     VPFeed *feed = [array objectAtIndex:row];
     
     if (feed.caption.text) {
@@ -161,13 +162,8 @@
     
     [view.container setWantsLayer:YES];
     [view.container setLayer:containerLayer];
-    
-    return view;
-}
 
--(CGFloat) tableView:(NSTableView *)tableView heightOfRow:(NSInteger)row
-{
-    return 373;
+    return view;
 }
 
 -(BOOL) tableView:(NSTableView *)tableView shouldSelectRow:(NSInteger)row

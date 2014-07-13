@@ -60,8 +60,7 @@ static CFMutableDictionaryRef currentBindings;
     NSURLConnection *conn = CFDictionaryGetValue(currentBindings, (__bridge const void *)(imageView));
     if ([connection isEqual:conn]){
         imageView.image = [[NSImage alloc]initWithData:receivedData];
-    } else {
-        NSLog(@"you're too late, bro");
+        CFDictionaryRemoveValue(currentBindings, (__bridge const void *)(imageView));
     }
 }
 @end
