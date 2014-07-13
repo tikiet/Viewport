@@ -11,13 +11,12 @@
 #import "VPFeed.h"
 #import "VPInfo.h"
 #import "VPConnectionDataDepot.h"
-#import "EQSTRScrollView.h"
 #import "TKImageLoader.h"
 
 @interface VPFeedsViewController : NSViewController <NSTableViewDataSource, NSTableViewDelegate>
 
 @property (weak) IBOutlet NSTableView *tableview;
-@property (weak) IBOutlet EQSTRScrollView *scrollView;
+@property (weak) IBOutlet NSScrollView *scrollView;
 @property NSURL *requestUrl;
 
 -(void)updateData:(NSData*)jsonData;

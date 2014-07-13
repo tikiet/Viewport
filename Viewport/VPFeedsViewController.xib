@@ -17,7 +17,7 @@
             <rect key="frame" x="0.0" y="0.0" width="354" height="383"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <scrollView autohidesScrollers="YES" horizontalLineScroll="379" horizontalPageScroll="10" verticalLineScroll="379" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uA2-gE-nNI" customClass="EQSTRScrollView">
+                <scrollView autohidesScrollers="YES" horizontalLineScroll="379" horizontalPageScroll="10" verticalLineScroll="379" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uA2-gE-nNI">
                     <rect key="frame" x="0.0" y="0.0" width="354" height="383"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <clipView key="contentView" id="DVm-eJ-GOI">

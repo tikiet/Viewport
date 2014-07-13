@@ -46,9 +46,10 @@
     hasMore = YES;
     self.tableview.dataSource = self;
     self.tableview.delegate = self;
+    /*
     self.scrollView.refreshBlock = ^(EQSTRScrollView *scrollView){
         [self startRequest];
-    };
+    };*/
     
     NSNib *nib = [[NSNib alloc] initWithNibNamed:@"VPFeedView" bundle:nil];
     [self.tableview registerNib:nib forIdentifier:@"CELL"];
@@ -179,12 +180,10 @@
         [[NSURLConnection alloc] initWithRequest:request
                                         delegate:[[VPConnectionDataDepot alloc]
                                                   initWithSuccessBlock:^(NSData *data){
-                                                      [self.scrollView stopLoading];
                                                       [self updateData:data];
                                                       triggeredBottom = NO;
                                                   } failBlock:^(NSError *error){
                                                       NSLog(@"error:%@", error);
-                                                      [self.scrollView stopLoading];
                                                   }]
                                 startImmediately:NO];
         

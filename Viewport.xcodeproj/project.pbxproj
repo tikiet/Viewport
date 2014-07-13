@@ -20,8 +20,6 @@
 		BA47A47B196EE11B0005997B /* heart.png in Resources */ = {isa = PBXBuildFile; fileRef = BA47A479196EE11B0005997B /* heart.png */; };
 		BA47A47D196EEC140005997B /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = BA47A47C196EEC140005997B /* home.png */; };
 		BA8F3DF31967A9D2009E7E70 /* VPFeedView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA8F3DF21967A9D2009E7E70 /* VPFeedView.m */; };
-		BA9D814E196AFEE200D0BC9A /* EQSTRClipView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA9D814B196AFEE200D0BC9A /* EQSTRClipView.m */; };
-		BA9D814F196AFEE200D0BC9A /* EQSTRScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA9D814D196AFEE200D0BC9A /* EQSTRScrollView.m */; };
 		BAAFC769196302ED004E3408 /* VPUser.m in Sources */ = {isa = PBXBuildFile; fileRef = BAAFC768196302ED004E3408 /* VPUser.m */; };
 		BAAFC76C19630B8E004E3408 /* VPComment.m in Sources */ = {isa = PBXBuildFile; fileRef = BAAFC76B19630B8E004E3408 /* VPComment.m */; };
 		BAAFC76F19630F5E004E3408 /* VPComments.m in Sources */ = {isa = PBXBuildFile; fileRef = BAAFC76E19630F5E004E3408 /* VPComments.m */; };
@@ -88,10 +86,6 @@
 		BA47A47C196EEC140005997B /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
 		BA8F3DF11967A9D2009E7E70 /* VPFeedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VPFeedView.h; sourceTree = "<group>"; };
 		BA8F3DF21967A9D2009E7E70 /* VPFeedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VPFeedView.m; sourceTree = "<group>"; };
-		BA9D814A196AFEE200D0BC9A /* EQSTRClipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EQSTRClipView.h; sourceTree = "<group>"; };
-		BA9D814B196AFEE200D0BC9A /* EQSTRClipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EQSTRClipView.m; sourceTree = "<group>"; };
-		BA9D814C196AFEE200D0BC9A /* EQSTRScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EQSTRScrollView.h; sourceTree = "<group>"; };
-		BA9D814D196AFEE200D0BC9A /* EQSTRScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EQSTRScrollView.m; sourceTree = "<group>"; };
 		BAAFC767196302ED004E3408 /* VPUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VPUser.h; sourceTree = "<group>"; };
 		BAAFC768196302ED004E3408 /* VPUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VPUser.m; sourceTree = "<group>"; };
 		BAAFC76A19630B8E004E3408 /* VPComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VPComment.h; sourceTree = "<group>"; };
@@ -211,18 +205,6 @@
 			name = VPFeedView;
 			sourceTree = "<group>";
 		};
-		BA9D8149196AFEE200D0BC9A /* ScrollToRefresh */ = {
-			isa = PBXGroup;
-			children = (
-				BA9D814A196AFEE200D0BC9A /* EQSTRClipView.h */,
-				BA9D814B196AFEE200D0BC9A /* EQSTRClipView.m */,
-				BA9D814C196AFEE200D0BC9A /* EQSTRScrollView.h */,
-				BA9D814D196AFEE200D0BC9A /* EQSTRScrollView.m */,
-			);
-			name = ScrollToRefresh;
-			path = src;
-			sourceTree = "<group>";
-		};
 		BAAFC76619630231004E3408 /* model */ = {
 			isa = PBXGroup;
 			children = (
@@ -254,7 +236,6 @@
 			isa = PBXGroup;
 			children = (
 				BA07C61C19725B3300027EC1 /* TKImageLoader */,
-				BA9D8149196AFEE200D0BC9A /* ScrollToRefresh */,
 				BA355DE2196986F900D542BB /* INAppStoreWindow */,
 				BAD91D971969239300BED591 /* login */,
 				BAD91DA419694B5700BED591 /* VPURLParser.h */,
@@ -506,9 +487,7 @@
 				BAEBEFEF196463FE0074D049 /* VPFeed.m in Sources */,
 				BAAFC76C19630B8E004E3408 /* VPComment.m in Sources */,
 				BAAFC77819639B01004E3408 /* VPVideos.m in Sources */,
-				BA9D814F196AFEE200D0BC9A /* EQSTRScrollView.m in Sources */,
 				BAD91DA619694B5700BED591 /* VPURLParser.m in Sources */,
-				BA9D814E196AFEE200D0BC9A /* EQSTRClipView.m in Sources */,
 				BAD91DB31969709F00BED591 /* VPFeedsViewController.m in Sources */,
 				BA355DFC1969A69F00D542BB /* VPInfo.m in Sources */,
 				BA8F3DF31967A9D2009E7E70 /* VPFeedView.m in Sources */,
