@@ -17,6 +17,8 @@
 	<string>Viewport.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+		<key>5E1EEE2F-E2F9-484E-9F8F-528A0F70B63F</key>
+		<string>../Viewport/MASPreferences</string>
 		<key>9530CF50-5C2B-4699-8DA2-5B8B9FE57511</key>
 		<string>..</string>
 	</dict>
@@ -28,6 +30,14 @@
 	<string>9530CF50-5C2B-4699-8DA2-5B8B9FE57511</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>5E1EEE2F-E2F9-484E-9F8F-528A0F70B63F</string>
+			<key>IDESourceControlWCCName</key>
+			<string>MASPreferences</string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>

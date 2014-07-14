@@ -12,6 +12,8 @@
 #import "VPLoginViewController.h"
 #import "VPFeedsViewController.h"
 #import "VPInfo.h"
+#import "MASPreferencesWindowController.h"
+#import "VPPreferenceAdvancedViewController.h"
 
 @interface VPAppDelegate : NSObject <NSApplicationDelegate, VPLoginViewDelegate>
 

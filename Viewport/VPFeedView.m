@@ -10,4 +10,9 @@
 
 @implementation VPFeedView
 
+-(NSSize) intrinsicContentSize
+{
+    NSSize size = NSSizeFromCGSize(CGSizeMake(300, 360));
+    return size;
+}
 @end

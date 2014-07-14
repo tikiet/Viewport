@@ -16,8 +16,20 @@
     VPFeedsViewController *feedsViewController;
     VPFeedsViewController *popularViewController;
     VPFeedsViewController *favoritesViewController;
+    MASPreferencesWindowController *preferencesWindowController;
     
     INAppStoreWindow *iasWindow;
+}
+
+- (IBAction)openPreference:(id)sender {
+    if (!preferencesWindowController) {
+        VPPreferenceAdvancedViewController *advanced = [[VPPreferenceAdvancedViewController alloc]init];
+        NSArray *controllers = [NSArray arrayWithObjects:advanced, nil];
+        NSString *title = @"Preferences";
+        
+        preferencesWindowController = [[MASPreferencesWindowController alloc]initWithViewControllers:controllers title:title];
+    }
+    [preferencesWindowController showWindow:nil];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)notification
