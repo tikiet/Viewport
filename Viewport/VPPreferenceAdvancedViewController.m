@@ -19,15 +19,6 @@
     return [super initWithNibName:@"VPPreferenceAdvancedViewController" bundle:nil];
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Initialization code here.
-    }
-    return self;
-}
-
 - (NSString*)identifier
 {
     return @"Advanced";
@@ -42,4 +33,9 @@
 {
     return @"Advanced";
 }
+
+- (IBAction)resetCache:(id)sender {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"VPClearCache" object:self];
+}
+
 @end

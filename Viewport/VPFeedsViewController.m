@@ -14,12 +14,13 @@
     BOOL hasMore;
     BOOL triggeredBottom;
     NSString *identifier;
+    NSURL *currentUrl;
 }
 @end
 
 @implementation VPFeedsViewController
 
-@synthesize requestUrl;
+@synthesize requestUrl = _requestUrl;
 
 -(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -31,8 +32,28 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         identifier = idt;
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(clearCache) name:@"VPClearCache" object:nil];
     }
     return self;
+}
+
+-(void)setRequestUrl:(NSURL *)requestUrl
+{
+    _requestUrl = requestUrl;
+    currentUrl = requestUrl;
+}
+
+-(void)clearCache
+{
+    NSLog(@"received notification for view controller with identifier %@", identifier);
+    hasMore = YES;
+    array = nil;
+    triggeredBottom = NO;
+    currentUrl = self.requestUrl;
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:identifier];
+    
+    [self.tableview reloadData];
+    [self startRequest];
 }
 
 -(void)archiveData
@@ -46,10 +67,6 @@
     hasMore = YES;
     self.tableview.dataSource = self;
     self.tableview.delegate = self;
-    /*
-    self.scrollView.refreshBlock = ^(EQSTRScrollView *scrollView){
-        [self startRequest];
-    };*/
     
     NSNib *nib = [[NSNib alloc] initWithNibNamed:@"VPFeedView" bundle:nil];
     [self.tableview registerNib:nib forIdentifier:@"CELL"];
@@ -112,7 +129,7 @@
     if (pagination && !([pagination isEqual: [NSNull null]])){
         NSString *next_url = [pagination objectForKey:@"next_url"];
         if (next_url && !([next_url isEqual:[NSNull null]])) {
-            requestUrl = [NSURL URLWithString:next_url];
+            currentUrl = [NSURL URLWithString:next_url];
             hasMore = YES;
         } else {
             hasMore = NO;
@@ -175,7 +192,7 @@
 -(void)startRequest
 {
     if (hasMore) {
-        NSURLRequest *request = [NSURLRequest requestWithURL:self.requestUrl];
+        NSURLRequest *request = [NSURLRequest requestWithURL:currentUrl];
         NSURLConnection *con =
         [[NSURLConnection alloc] initWithRequest:request
                                         delegate:[[VPConnectionDataDepot alloc]

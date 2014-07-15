@@ -17,7 +17,7 @@
 
 @property (weak) IBOutlet NSTableView *tableview;
 @property (weak) IBOutlet NSScrollView *scrollView;
-@property NSURL *requestUrl;
+@property (nonatomic) NSURL *requestUrl;
 
 -(void)updateData:(NSData*)jsonData;
 -(void)startRequest;
