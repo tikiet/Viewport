@@ -8,11 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
+#define NOTIFICATION_CLEAR_CACHE @"VPClearCache"
+
 @interface VPInfo : NSObject
 
-+(NSURL *) retrieveSelfTimelineUrl;
-+(NSURL *) retrievePopularUrl;
-+(NSURL *) retrieveFavoritesUrl;
++(NSURL *)retrieveSelfTimelineUrl;
++(NSURL *)retrievePopularUrl;
++(NSURL *)retrieveFavoritesUrl;
+
++(void)cacheFeedData:(NSData*)data withIdentifier:(NSString*)identifier;
++(NSData*)retrieveCachedFeedDataWithIdentifier:(NSString*)identifier;
 
 +(void)setAccessToken:(NSString*)token;
 +(NSString*)accessToken;

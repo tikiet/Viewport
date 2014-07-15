@@ -32,7 +32,10 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         identifier = idt;
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(clearCache) name:@"VPClearCache" object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(clearCache)
+                                                     name:NOTIFICATION_CLEAR_CACHE
+                                                   object:nil];
     }
     return self;
 }
@@ -50,7 +53,6 @@
     array = nil;
     triggeredBottom = NO;
     currentUrl = self.requestUrl;
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:identifier];
     
     [self.tableview reloadData];
     [self startRequest];
@@ -59,7 +61,7 @@
 -(void)archiveData
 {
     NSData *data = [NSKeyedArchiver archivedDataWithRootObject:array];
-    [[NSUserDefaults standardUserDefaults] setObject:data forKey:identifier];
+    [VPInfo cacheFeedData:data withIdentifier:identifier];
 }
 
 -(void)prepare
@@ -77,7 +79,7 @@
                                                  name:NSViewBoundsDidChangeNotification
                                                object:clipView];
     
-    NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:identifier];
+    NSData *data = [VPInfo retrieveCachedFeedDataWithIdentifier:identifier];
     if (data && ![data isEqualTo:[NSNull null]]) {
         NSArray *archivedArray = [NSKeyedUnarchiver unarchiveObjectWithData:data];
         array = archivedArray;
@@ -180,7 +182,7 @@
     
     [view.container setWantsLayer:YES];
     [view.container setLayer:containerLayer];
-
+    
     return view;
 }
 

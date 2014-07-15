@@ -8,6 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "MASPreferencesViewController.h"
+#import "VPInfo.h"
 
 @interface VPPreferenceAdvancedViewController : NSViewController <MASPreferencesViewController>
 

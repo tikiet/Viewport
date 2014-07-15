@@ -35,7 +35,7 @@
 }
 
 - (IBAction)resetCache:(id)sender {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"VPClearCache" object:self];
+    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_CLEAR_CACHE object:self];
 }
 
 @end

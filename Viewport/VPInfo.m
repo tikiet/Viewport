@@ -16,9 +16,15 @@ static NSString *favoritesUrl = @"https://api.instagram.com/v1/users/self/media/
 
 #define ACCESS_TOKEN @"ACCESS_TOKEN"
 #define CLIENT_ID @"CLIENT_ID"
+#define FEED_CACHE @"feed_cache"
 
 +(void)initialize
 {
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(clearCache)
+                                                 name:NOTIFICATION_CLEAR_CACHE
+                                               object:nil];
+    
     if (![self clientId]) {
         NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"AppInfo" ofType:@"plist"];
         NSData *plistXML = [[NSFileManager defaultManager] contentsAtPath:plistPath];
@@ -32,6 +38,35 @@ static NSString *favoritesUrl = @"https://api.instagram.com/v1/users/self/media/
         } else {
             [self setClientId:[temp objectForKey:@"CLIENT_ID"]];
         }}
+}
+
++(void)clearCache
+{
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:FEED_CACHE];
+}
+
++(NSData*)retrieveCachedFeedDataWithIdentifier:(NSString *)identifier
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if (!defaults){
+        return nil;
+    }
+    
+    NSMutableDictionary *dic = [defaults objectForKey:FEED_CACHE];
+    return [dic objectForKey:identifier];
+}
+
++(void)cacheFeedData:(NSData *)data withIdentifier:(NSString *)identifier
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSMutableDictionary *feedCache = [defaults objectForKey:FEED_CACHE];
+    if (!feedCache) {
+        feedCache = [[NSMutableDictionary alloc]init];
+    } else {
+        feedCache = [NSMutableDictionary dictionaryWithDictionary:feedCache];
+    }
+    [feedCache setObject:data forKey:identifier];
+    [defaults setObject:feedCache forKey:FEED_CACHE];
 }
 
 +(NSURL*)retrievePopularUrl
