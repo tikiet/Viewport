@@ -47,7 +47,6 @@ static NSCache *cache;
     }
     
     NSImage *image = [cache objectForKey:url];
-    NSLog(@"image:%@", image);
     if (image) {
         imageView.image = image;
     } else {

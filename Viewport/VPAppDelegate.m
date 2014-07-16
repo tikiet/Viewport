@@ -32,14 +32,6 @@
     [preferencesWindowController showWindow:nil];
 }
 
-- (void)applicationWillTerminate:(NSNotification *)notification
-{
-    NSLog(@"will terminate");
-    [feedsViewController archiveData];
-    [popularViewController archiveData];
-    [favoritesViewController archiveData];
-}
-
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     // configure title bar

@@ -58,12 +58,6 @@
     [self startRequest];
 }
 
--(void)archiveData
-{
-    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:array];
-    [VPInfo cacheFeedData:data withIdentifier:identifier];
-}
-
 -(void)prepare
 {
     hasMore = YES;
@@ -78,13 +72,6 @@
                                              selector:@selector(myBoundsChangeNotificationHandler:)
                                                  name:NSViewBoundsDidChangeNotification
                                                object:clipView];
-    
-    NSData *data = [VPInfo retrieveCachedFeedDataWithIdentifier:identifier];
-    if (data && ![data isEqualTo:[NSNull null]]) {
-        NSArray *archivedArray = [NSKeyedUnarchiver unarchiveObjectWithData:data];
-        array = archivedArray;
-        [self.tableview reloadData];
-    }
 }
 
 - (void)myBoundsChangeNotificationHandler:(NSNotification *)aNotification
