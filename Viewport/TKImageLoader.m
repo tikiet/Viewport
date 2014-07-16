@@ -13,10 +13,11 @@
     NSURL *url;
     NSImageView *imageView;
     NSMutableData *receivedData;
-    NSCache *cache;
 }
 
+
 static CFMutableDictionaryRef currentBindings;
+static NSCache *cache;
 
 +(void)initialize
 {
@@ -24,6 +25,8 @@ static CFMutableDictionaryRef currentBindings;
                                                 0,
                                                 &kCFTypeDictionaryKeyCallBacks,
                                                 &kCFTypeDictionaryValueCallBacks);
+    cache = [[NSCache alloc] init];
+    cache.totalCostLimit = 30 * 1024 * 1024;
 }
 
 -(id)initWithURL:(NSURL *)u imageView:(NSImageView *)iv
@@ -33,8 +36,6 @@ static CFMutableDictionaryRef currentBindings;
         url = u;
         imageView = iv;
         receivedData = [[NSMutableData alloc] init];
-        cache = [[NSCache alloc] init];
-        cache.totalCostLimit = 30 * 1024 * 1024;
     }
     return self;
 }
@@ -46,6 +47,7 @@ static CFMutableDictionaryRef currentBindings;
     }
     
     NSImage *image = [cache objectForKey:url];
+    NSLog(@"image:%@", image);
     if (image) {
         imageView.image = image;
     } else {
