@@ -156,7 +156,6 @@
         [view.caption setStringValue:@""];
     }
     
-    [view.pic setImage:nil];
     [[[TKImageLoader alloc] initWithURL:[NSURL URLWithString:feed.images.standardResolution.url] imageView:view.pic] start];
     
     CALayer *profileLayer = [CALayer layer];
@@ -165,7 +164,6 @@
     view.userProfile.wantsLayer = YES;
     view.userProfile.layer = profileLayer;
     
-    [view.userProfile setImage:nil];
     [[[TKImageLoader alloc] initWithURL:[NSURL URLWithString:feed.user.profilePicture] imageView:view.userProfile] start];
     
     CALayer *viewLayer = [CALayer layer];

@@ -13,6 +13,7 @@
     NSURL *url;
     NSImageView *imageView;
     NSMutableData *receivedData;
+    NSCache *cache;
 }
 
 static CFMutableDictionaryRef currentBindings;
@@ -32,22 +33,35 @@ static CFMutableDictionaryRef currentBindings;
         url = u;
         imageView = iv;
         receivedData = [[NSMutableData alloc] init];
+        cache = [[NSCache alloc] init];
+        cache.totalCostLimit = 30 * 1024 * 1024;
     }
     return self;
 }
 
 -(void)start
 {
-    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:[NSURLRequest requestWithURL:url] delegate:self];
-    NSURLConnection *previousConnection = CFDictionaryGetValue(currentBindings, (__bridge const void*)(imageView));
-    
-    if (previousConnection && ![previousConnection isEqual:[NSNull null]]) {
-        CFDictionaryReplaceValue(currentBindings, (__bridge const void *)(imageView), (__bridge const void *)(connection));
-    } else {
-        CFDictionaryAddValue(currentBindings, (__bridge const void *)(imageView), (__bridge const void *)(connection));
+    if ([url isEqual:imageView.tag]){
+        return;
     }
     
-    [connection start];
+    NSImage *image = [cache objectForKey:url];
+    if (image) {
+        imageView.image = image;
+    } else {
+        imageView.image = nil;
+        
+        NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:[NSURLRequest requestWithURL:url] delegate:self];
+        NSURLConnection *previousConnection = CFDictionaryGetValue(currentBindings, (__bridge const void*)(imageView));
+        
+        if (previousConnection && ![previousConnection isEqual:[NSNull null]]) {
+            CFDictionaryReplaceValue(currentBindings, (__bridge const void *)(imageView), (__bridge const void *)(connection));
+        } else {
+            CFDictionaryAddValue(currentBindings, (__bridge const void *)(imageView), (__bridge const void *)(connection));
+        }
+        
+        [connection start];
+    }
 }
 
 -(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
@@ -59,7 +73,11 @@ static CFMutableDictionaryRef currentBindings;
 {
     NSURLConnection *conn = CFDictionaryGetValue(currentBindings, (__bridge const void *)(imageView));
     if ([connection isEqual:conn]){
-        imageView.image = [[NSImage alloc]initWithData:receivedData];
+        NSImage *image = [[NSImage alloc]initWithData:receivedData];
+        imageView.image = image;
+        imageView.tag = url;
+        [cache setObject:image forKey:url cost:receivedData.length];
+        
         CFDictionaryRemoveValue(currentBindings, (__bridge const void *)(imageView));
     }
 }

@@ -29,6 +29,7 @@
 		BAD260E119742994005F2E7D /* MASPreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD260DD19742994005F2E7D /* MASPreferencesWindowController.m */; };
 		BAD260E719742BCF005F2E7D /* VPPreferenceAdvancedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD260E519742BCF005F2E7D /* VPPreferenceAdvancedViewController.m */; };
 		BAD260E819742BCF005F2E7D /* VPPreferenceAdvancedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAD260E619742BCF005F2E7D /* VPPreferenceAdvancedViewController.xib */; };
+		BAD260EB19760C64005F2E7D /* NSImageView+Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD260EA19760C64005F2E7D /* NSImageView+Tag.m */; };
 		BAD91D9B196923C500BED591 /* VPLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD91D99196923C500BED591 /* VPLoginViewController.m */; };
 		BAD91D9C196923C500BED591 /* VPLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAD91D9A196923C500BED591 /* VPLoginViewController.xib */; };
 		BAD91DA11969264200BED591 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAD91DA01969264200BED591 /* WebKit.framework */; };
@@ -107,6 +108,8 @@
 		BAD260E419742BCF005F2E7D /* VPPreferenceAdvancedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VPPreferenceAdvancedViewController.h; sourceTree = "<group>"; };
 		BAD260E519742BCF005F2E7D /* VPPreferenceAdvancedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VPPreferenceAdvancedViewController.m; sourceTree = "<group>"; };
 		BAD260E619742BCF005F2E7D /* VPPreferenceAdvancedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VPPreferenceAdvancedViewController.xib; sourceTree = "<group>"; };
+		BAD260E919760C64005F2E7D /* NSImageView+Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSImageView+Tag.h"; sourceTree = "<group>"; };
+		BAD260EA19760C64005F2E7D /* NSImageView+Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSImageView+Tag.m"; sourceTree = "<group>"; };
 		BAD91D98196923C500BED591 /* VPLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VPLoginViewController.h; sourceTree = "<group>"; };
 		BAD91D99196923C500BED591 /* VPLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VPLoginViewController.m; sourceTree = "<group>"; };
 		BAD91D9A196923C500BED591 /* VPLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VPLoginViewController.xib; sourceTree = "<group>"; };
@@ -278,6 +281,8 @@
 				BA355DF5196993D900D542BB /* VPConnectionDataDepot.m */,
 				BA355DFA1969A69F00D542BB /* VPInfo.h */,
 				BA355DFB1969A69F00D542BB /* VPInfo.m */,
+				BAD260E919760C64005F2E7D /* NSImageView+Tag.h */,
+				BAD260EA19760C64005F2E7D /* NSImageView+Tag.m */,
 			);
 			name = utility;
 			sourceTree = "<group>";
@@ -504,6 +509,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAF657FC1960323300593F2D /* VPAppDelegate.m in Sources */,
+				BAD260EB19760C64005F2E7D /* NSImageView+Tag.m in Sources */,
 				BA355DF0196986F900D542BB /* INWindowBackgroundView+CoreUIRendering.m in Sources */,
 				BA355DF6196993D900D542BB /* VPConnectionDataDepot.m in Sources */,
 				BAAFC76F19630F5E004E3408 /* VPComments.m in Sources */,
