@@ -62,6 +62,16 @@
     [loginViewController stop];
     [loginViewController.view removeFromSuperview];
     loginViewController = nil;
+    
+    [self resetUrls];
+    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_CLEAR_CACHE object:self];
+}
+
+-(void)resetUrls
+{
+    popularViewController.requestUrl = [VPInfo retrievePopularUrl];
+    feedsViewController.requestUrl = [VPInfo retrieveSelfTimelineUrl];
+    favoritesViewController.requestUrl = [VPInfo retrieveFavoritesUrl];
 }
 
 -(void)hideAllViews
