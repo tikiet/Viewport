@@ -112,6 +112,7 @@
         
         [popularViewController prepare];
         popularViewController.requestUrl = [VPInfo retrievePopularUrl];
+        popularViewController.loginDelegate = self;
         [popularViewController startRequest];
     }
 }
@@ -144,6 +145,7 @@
         
         [feedsViewController prepare];
         feedsViewController.requestUrl = [VPInfo retrieveSelfTimelineUrl];
+        feedsViewController.loginDelegate = self;
         [feedsViewController startRequest];
     }
 }
@@ -202,7 +204,27 @@
         
         [favoritesViewController prepare];
         favoritesViewController.requestUrl = [VPInfo retrieveFavoritesUrl];
+        favoritesViewController.loginDelegate = self;
         [favoritesViewController startRequest];
     }
+}
+
+-(void)loginDidFail
+{
+    NSAlert *alert = [[NSAlert alloc]init];
+    NSButton *authorize = [alert addButtonWithTitle:@"Authorize"];
+    authorize.tag = NSModalResponseOK;
+    
+    NSButton *cancel = [alert addButtonWithTitle:@"Cancel"];
+    [alert setAlertStyle:NSWarningAlertStyle];
+    cancel.tag = NSModalResponseCancel;
+    
+    [alert beginSheetModalForWindow:[self window] completionHandler:^(NSModalResponse res) {
+        if (res == NSModalResponseOK) {
+            [self hideAllViews];
+            [self showLoginView];
+        }
+    }];
+    
 }
 @end

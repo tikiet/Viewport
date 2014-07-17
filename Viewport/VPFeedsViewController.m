@@ -21,6 +21,7 @@
 @implementation VPFeedsViewController
 
 @synthesize requestUrl = _requestUrl;
+@synthesize loginDelegate;
 
 -(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -90,6 +91,13 @@
 -(void)updateData:(NSData*) jsonData
 {
     NSDictionary *data = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
+    NSDictionary *meta = [data objectForKey:@"meta"];
+    int code =  [[meta objectForKey:@"code"]intValue];
+    if (code == 400) {
+        [self reportLoginError];
+        return;
+    }
+    
     NSArray *rawFeeds = [data objectForKey:@"data"];
     
     NSMutableSet *feeds = [[NSMutableSet alloc] init];
@@ -195,4 +203,10 @@
     }
 }
 
+-(void)reportLoginError
+{
+    if(self.loginDelegate){
+        [self.loginDelegate loginDidFail];
+    }
+}
 @end

@@ -15,7 +15,7 @@
 #import "MASPreferencesWindowController.h"
 #import "VPPreferenceAdvancedViewController.h"
 
-@interface VPAppDelegate : NSObject <NSApplicationDelegate, VPLoginViewDelegate>
+@interface VPAppDelegate : NSObject <NSApplicationDelegate, VPLoginViewDelegate, VPLoginDelegate>
 
 @property (assign) IBOutlet NSWindow *window;
 @property (strong) IBOutlet NSView *contentArea;

@@ -13,11 +13,18 @@
 #import "VPConnectionDataDepot.h"
 #import "TKImageLoader.h"
 
+@protocol VPLoginDelegate <NSObject>
+
+-(void)loginDidFail;
+
+@end
+
 @interface VPFeedsViewController : NSViewController <NSTableViewDataSource, NSTableViewDelegate>
 
 @property (weak) IBOutlet NSTableView *tableview;
 @property (weak) IBOutlet NSScrollView *scrollView;
 @property (nonatomic) NSURL *requestUrl;
+@property  NSObject<VPLoginDelegate> *loginDelegate;
 
 -(void)updateData:(NSData*)jsonData;
 -(void)startRequest;
