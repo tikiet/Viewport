@@ -9,8 +9,13 @@
 #import <Foundation/Foundation.h>
 
 #define NOTIFICATION_CLEAR_CACHE @"VPClearCache"
+#define ID_SELF @"self"
+#define ID_POPULAR @"popular"
+#define ID_FAVORITES @"favorites"
 
 @interface VPInfo : NSObject
+
++(NSURL *)retrieveUrlWithIdentifier:(NSString*)identifier;
 
 +(NSURL *)retrieveSelfTimelineUrl;
 +(NSURL *)retrievePopularUrl;

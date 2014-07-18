@@ -20,7 +20,6 @@
 
 @implementation VPFeedsViewController
 
-@synthesize requestUrl = _requestUrl;
 @synthesize loginDelegate;
 
 -(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -33,6 +32,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         identifier = idt;
+        currentUrl = [VPInfo retrieveUrlWithIdentifier:identifier];
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(clearCache)
                                                      name:NOTIFICATION_CLEAR_CACHE
@@ -41,19 +41,13 @@
     return self;
 }
 
--(void)setRequestUrl:(NSURL *)requestUrl
-{
-    _requestUrl = requestUrl;
-    currentUrl = requestUrl;
-}
-
 -(void)clearCache
 {
     NSLog(@"received notification for view controller with identifier %@", identifier);
     hasMore = YES;
     array = nil;
     triggeredBottom = NO;
-    currentUrl = self.requestUrl;
+    currentUrl = [VPInfo retrieveUrlWithIdentifier:identifier];
     
     [self.tableview reloadData];
     [self startRequest];
@@ -200,6 +194,7 @@
                                 startImmediately:NO];
         
         [con start];
+        NSLog(@"started request with url:%@", currentUrl);
     }
 }
 

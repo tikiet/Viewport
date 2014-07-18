@@ -23,7 +23,6 @@
 
 @property (weak) IBOutlet NSTableView *tableview;
 @property (weak) IBOutlet NSScrollView *scrollView;
-@property (nonatomic) NSURL *requestUrl;
 @property  NSObject<VPLoginDelegate> *loginDelegate;
 
 -(void)updateData:(NSData*)jsonData;

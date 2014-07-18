@@ -13,6 +13,7 @@
 static NSString *popularUrl = @"https://api.instagram.com/v1/media/popular?client_id=%@";
 static NSString *selfTimelineUrl = @"https://api.instagram.com/v1/users/self/feed?access_token=%@";
 static NSString *favoritesUrl = @"https://api.instagram.com/v1/users/self/media/liked?access_token=%@";
+static NSMutableDictionary *mapping;
 
 #define ACCESS_TOKEN @"ACCESS_TOKEN"
 #define CLIENT_ID @"CLIENT_ID"
@@ -37,7 +38,21 @@ static NSString *favoritesUrl = @"https://api.instagram.com/v1/users/self/media/
             NSLog(@"Error reading plist");
         } else {
             [self setClientId:[temp objectForKey:@"CLIENT_ID"]];
-        }}
+        }
+    }
+}
+
++(NSURL*)retrieveUrlWithIdentifier:(NSString *)identifier
+{
+    if ([ID_FAVORITES isEqual:identifier]) {
+        return [self retrieveFavoritesUrl];
+    } else if ([ID_POPULAR isEqual:identifier]) {
+        return [self retrievePopularUrl];
+    } else if ([ID_SELF isEqual:ID_SELF]) {
+        return [self retrieveSelfTimelineUrl];
+    } else {
+        return nil;
+    }
 }
 
 +(void)clearCache

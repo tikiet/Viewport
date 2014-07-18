@@ -48,7 +48,7 @@
     }
 }
 
--(void)loginFaildWithError:(NSString *)error reason:(NSString *)reason description:(NSString *)description
+-(void)loginFailedWithError:(NSString *)error reason:(NSString *)reason description:(NSString *)description
 {
     NSLog(@"login failed:%@", error);
     [loginViewController stop];
@@ -63,15 +63,8 @@
     [loginViewController.view removeFromSuperview];
     loginViewController = nil;
     
-    [self resetUrls];
     [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_CLEAR_CACHE object:self];
-}
-
--(void)resetUrls
-{
-    popularViewController.requestUrl = [VPInfo retrievePopularUrl];
-    feedsViewController.requestUrl = [VPInfo retrieveSelfTimelineUrl];
-    favoritesViewController.requestUrl = [VPInfo retrieveFavoritesUrl];
+    [self showFeedsView];
 }
 
 -(void)hideAllViews
@@ -101,7 +94,9 @@
     if (popularViewController){
         [popularViewController.view setHidden:NO];
     } else {
-        popularViewController = [[VPFeedsViewController alloc] initWithNibName:@"VPFeedsViewController" identifier:@"popular" bundle:nil];
+        popularViewController = [[VPFeedsViewController alloc] initWithNibName:@"VPFeedsViewController"
+                                                                    identifier:ID_POPULAR
+                                                                        bundle:nil];
         NSView *parent = self.contentArea;
         
         [parent addSubview:popularViewController.view];
@@ -121,7 +116,6 @@
         [parent addConstraints:constraint2];
         
         [popularViewController prepare];
-        popularViewController.requestUrl = [VPInfo retrievePopularUrl];
         popularViewController.loginDelegate = self;
         [popularViewController startRequest];
     }
@@ -133,7 +127,7 @@
         [feedsViewController.view  setHidden:NO];
     } else {
         feedsViewController = [[VPFeedsViewController alloc] initWithNibName:@"VPFeedsViewController"
-                                                                  identifier:@"self"
+                                                                  identifier:ID_SELF
                                                                       bundle:nil];
         NSView *parent = self.contentArea;
         
@@ -154,7 +148,6 @@
         [parent addConstraints:constraint2];
         
         [feedsViewController prepare];
-        feedsViewController.requestUrl = [VPInfo retrieveSelfTimelineUrl];
         feedsViewController.loginDelegate = self;
         [feedsViewController startRequest];
     }
@@ -192,7 +185,7 @@
         [favoritesViewController.view setHidden:NO];
     } else {
         favoritesViewController = [[VPFeedsViewController alloc] initWithNibName:@"VPFeedsViewController"
-                                                                      identifier:@"favorites"
+                                                                      identifier:ID_FAVORITES
                                                                           bundle:nil];
         NSView *parent = self.contentArea;
         
@@ -213,7 +206,6 @@
         [parent addConstraints:constraint2];
         
         [favoritesViewController prepare];
-        favoritesViewController.requestUrl = [VPInfo retrieveFavoritesUrl];
         favoritesViewController.loginDelegate = self;
         [favoritesViewController startRequest];
     }
