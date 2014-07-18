@@ -194,7 +194,6 @@
                                 startImmediately:NO];
         
         [con start];
-        NSLog(@"started request with url:%@", currentUrl);
     }
 }
 

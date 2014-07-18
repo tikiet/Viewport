@@ -214,6 +214,7 @@
 -(void)loginDidFail
 {
     NSAlert *alert = [[NSAlert alloc]init];
+    [alert setMessageText:@"Your authorization is expired. Need to authorize again."];
     NSButton *authorize = [alert addButtonWithTitle:@"Authorize"];
     authorize.tag = NSModalResponseOK;
     
