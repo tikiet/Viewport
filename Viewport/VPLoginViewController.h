@@ -13,7 +13,7 @@
 @protocol VPLoginViewDelegate
 
 -(void) loginSucceededWithAccessToken:(NSString*)token;
--(void) loginFaildWithError:(NSString *)error reason:(NSString*)reason description:(NSString*)description;
+-(void) loginFailedWithError:(NSString *)error reason:(NSString*)reason description:(NSString*)description;
 
 @end
 

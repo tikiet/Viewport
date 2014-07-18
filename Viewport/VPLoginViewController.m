@@ -37,7 +37,7 @@ NSString* kAccessToken = @"access_token=";
         } else {
             VPURLParser *parser = [[VPURLParser alloc] initWithString:fragment];
             if (delegate){
-                [self.delegate loginFaildWithError:[parser parameterForKey:@"error"]
+                [self.delegate loginFailedWithError:[parser parameterForKey:@"error"]
                                             reason:[parser parameterForKey:@"error_reason"]
                                        description:[parser parameterForKey:@"error_description"]];
             }

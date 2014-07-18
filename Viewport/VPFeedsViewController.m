@@ -113,6 +113,7 @@
         }
     }];
     
+    triggeredBottom = NO;
     [self.tableview reloadData];
     
     NSDictionary *pagination = [data objectForKey:@"pagination"];
@@ -187,7 +188,6 @@
                                         delegate:[[VPConnectionDataDepot alloc]
                                                   initWithSuccessBlock:^(NSData *data){
                                                       [self updateData:data];
-                                                      triggeredBottom = NO;
                                                   } failBlock:^(NSError *error){
                                                       NSLog(@"error:%@", error);
                                                   }]
