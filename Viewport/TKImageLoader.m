@@ -42,14 +42,11 @@ static NSCache *cache;
 
 -(void)start
 {
-    if ([url isEqual:imageView.tag]){
-        return;
-    }
-    
     NSImage *image = [cache objectForKey:url];
     if (image) {
         imageView.image = image;
     } else {
+        
         imageView.image = nil;
         
         NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:[NSURLRequest requestWithURL:url] delegate:self];
