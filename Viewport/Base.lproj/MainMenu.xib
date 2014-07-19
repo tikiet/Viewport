@@ -675,19 +675,20 @@
         </menu>
         <window title="Viewport" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g" customClass="INAppStoreWindow">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-            <rect key="contentRect" x="513" y="172" width="350" height="500"/>
+            <rect key="contentRect" x="513" y="172" width="490" height="560"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1280" height="800"/>
-            <value key="minSize" type="size" width="350" height="500"/>
+            <value key="minSize" type="size" width="490" height="520"/>
+            <value key="maxSize" type="size" width="490" height="800"/>
             <view key="contentView" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="350" height="500"/>
+                <rect key="frame" x="0.0" y="0.0" width="490" height="560"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="z2b-Z9-2oC">
-                        <rect key="frame" x="0.0" y="0.0" width="60" height="500"/>
+                        <rect key="frame" x="0.0" y="0.0" width="60" height="560"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <subviews>
                             <button translatesAutoresizingMaskIntoConstraints="NO" id="e0e-Yf-dSQ">
-                                <rect key="frame" x="18" y="465" width="25" height="25"/>
+                                <rect key="frame" x="18" y="525" width="25" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="25" id="ZOD-FW-XMb"/>
@@ -702,7 +703,7 @@
                                 </connections>
                             </button>
                             <button translatesAutoresizingMaskIntoConstraints="NO" id="xtf-oo-NcF">
-                                <rect key="frame" x="18" y="430" width="25" height="25"/>
+                                <rect key="frame" x="18" y="490" width="25" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="9SV-mc-Eow"/>
@@ -717,7 +718,7 @@
                                 </connections>
                             </button>
                             <button translatesAutoresizingMaskIntoConstraints="NO" id="Wgr-Ja-Jjr">
-                                <rect key="frame" x="18" y="395" width="25" height="25"/>
+                                <rect key="frame" x="18" y="455" width="25" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="25" id="JPF-87-vOJ"/>
@@ -743,7 +744,7 @@
                         </constraints>
                     </customView>
                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="jLF-ZD-66n">
-                        <rect key="frame" x="60" y="0.0" width="290" height="500"/>
+                        <rect key="frame" x="60" y="0.0" width="430" height="560"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     </customView>
                 </subviews>
