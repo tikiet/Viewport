@@ -14,13 +14,24 @@
     BOOL hasMore;
     BOOL triggeredBottom;
     NSString *identifier;
-    NSURL *currentUrl;
+    NSString *nextMaxId;
 }
 @end
 
 @implementation VPFeedsViewController
 
 @synthesize loginDelegate;
+
+-(void)awakeFromNib
+{
+    self.scrollView.refreshableSides = BSRefreshableScrollViewSideTop;
+    self.scrollView.refreshableDelegate = self;
+}
+
+-(BOOL)scrollView:(BSRefreshableScrollView *)aScrollView startRefreshSide:(BSRefreshableScrollViewSide)refreshableSide
+{
+    return [self startRequestWithNextMaxId:NO];
+}
 
 -(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -32,7 +43,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         identifier = idt;
-        currentUrl = [VPInfo retrieveUrlWithIdentifier:identifier];
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(clearCache)
                                                      name:NOTIFICATION_CLEAR_CACHE
@@ -47,10 +57,9 @@
     hasMore = YES;
     array = nil;
     triggeredBottom = NO;
-    currentUrl = [VPInfo retrieveUrlWithIdentifier:identifier];
     
     [self.tableview reloadData];
-    [self startRequest];
+    [self startRequestWithNextMaxId:NO];
 }
 
 -(void)prepare
@@ -76,7 +85,7 @@
             NSHeight([[self.tableview enclosingScrollView].documentView bounds]) ){
             if (!triggeredBottom) {
                 triggeredBottom = YES;
-                [self startRequest];
+                [self startRequestWithNextMaxId:YES];
             }
         }
     }
@@ -120,16 +129,22 @@
     NSDictionary *pagination = [data objectForKey:@"pagination"];
     NSLog(@"pagination:%@", pagination);
     
-    if (pagination && !([pagination isEqual: [NSNull null]])){
-        NSString *next_url = [pagination objectForKey:@"next_url"];
-        if (next_url && !([next_url isEqual:[NSNull null]])) {
-            currentUrl = [NSURL URLWithString:next_url];
-            hasMore = YES;
+    if (hasMore) {
+        if (pagination && !([pagination isEqual: [NSNull null]])){
+            NSString *maxId = [pagination objectForKey:@"next_max_id"];
+            if (maxId && !([maxId isEqual:[NSNull null]])) {
+                hasMore = YES;
+                
+                NSLog(@"max id:%@ next max id:%@", maxId, nextMaxId);
+                if (!nextMaxId || [maxId longLongValue] < [nextMaxId longLongValue]) {
+                    nextMaxId = maxId;
+                }
+            } else {
+                hasMore = NO;
+            }
         } else {
             hasMore = NO;
         }
-    } else {
-        hasMore = NO;
     }
 }
 
@@ -183,23 +198,27 @@
     return NO;
 }
 
--(void)startRequest
+-(BOOL)startRequestWithNextMaxId:(BOOL) useNextId
 {
     if (hasMore) {
-        NSLog(@"%@", currentUrl);
-        NSURLRequest *request = [NSURLRequest requestWithURL:currentUrl];
+        NSURLRequest *request = [NSURLRequest requestWithURL:[VPInfo retrieveUrlWithIdentifier:identifier
+                                                                                     nextMaxId:useNextId ? nextMaxId : nil]];
         NSURLConnection *con =
         [[NSURLConnection alloc] initWithRequest:request
                                         delegate:[[VPConnectionDataDepot alloc]
                                                   initWithSuccessBlock:^(NSData *data){
                                                       [self updateData:data];
+                                                      [self.scrollView stopRefreshingSide:BSRefreshableScrollViewSideTop];
                                                   } failBlock:^(NSError *error){
                                                       NSLog(@"error:%@", error);
+                                                      [self.scrollView stopRefreshingSide:BSRefreshableScrollViewSideTop];
                                                   }]
                                 startImmediately:NO];
         
         [con start];
+        return true;
     }
+    return false;
 }
 
 -(void)reportLoginError

@@ -12,6 +12,7 @@
 #import "VPInfo.h"
 #import "VPConnectionDataDepot.h"
 #import "TKImageLoader.h"
+#import "BSRefreshableScrollView.h"
 
 @protocol VPLoginDelegate <NSObject>
 
@@ -19,14 +20,14 @@
 
 @end
 
-@interface VPFeedsViewController : NSViewController <NSTableViewDataSource, NSTableViewDelegate>
+@interface VPFeedsViewController : NSViewController <NSTableViewDataSource, NSTableViewDelegate, BSRefreshableScrollViewDelegate>
 
 @property (weak) IBOutlet NSTableView *tableview;
-@property (weak) IBOutlet NSScrollView *scrollView;
+@property (weak) IBOutlet BSRefreshableScrollView *scrollView;
 @property  NSObject<VPLoginDelegate> *loginDelegate;
 
 -(void)updateData:(NSData*)jsonData;
--(void)startRequest;
+-(BOOL)startRequestWithNextMaxId:(BOOL)useNextMaxId;
 -(void)prepare;
 -(id)initWithNibName:(NSString *)nibNameOrNil identifier:(NSString*) identifier bundle:(NSBundle *)nibBundleOrNil;
 @end

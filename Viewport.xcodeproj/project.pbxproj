@@ -30,6 +30,8 @@
 		BAD260E719742BCF005F2E7D /* VPPreferenceAdvancedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD260E519742BCF005F2E7D /* VPPreferenceAdvancedViewController.m */; };
 		BAD260E819742BCF005F2E7D /* VPPreferenceAdvancedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAD260E619742BCF005F2E7D /* VPPreferenceAdvancedViewController.xib */; };
 		BAD260EB19760C64005F2E7D /* NSImageView+Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD260EA19760C64005F2E7D /* NSImageView+Tag.m */; };
+		BAD43034197AB2740084C415 /* BSRefreshableClipView.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD4302F197AB2740084C415 /* BSRefreshableClipView.m */; };
+		BAD43035197AB2740084C415 /* BSRefreshableScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD43031197AB2740084C415 /* BSRefreshableScrollView.m */; };
 		BAD91D9B196923C500BED591 /* VPLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD91D99196923C500BED591 /* VPLoginViewController.m */; };
 		BAD91D9C196923C500BED591 /* VPLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAD91D9A196923C500BED591 /* VPLoginViewController.xib */; };
 		BAD91DA11969264200BED591 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAD91DA01969264200BED591 /* WebKit.framework */; };
@@ -110,6 +112,11 @@
 		BAD260E619742BCF005F2E7D /* VPPreferenceAdvancedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VPPreferenceAdvancedViewController.xib; sourceTree = "<group>"; };
 		BAD260E919760C64005F2E7D /* NSImageView+Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSImageView+Tag.h"; sourceTree = "<group>"; };
 		BAD260EA19760C64005F2E7D /* NSImageView+Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSImageView+Tag.m"; sourceTree = "<group>"; };
+		BAD4302E197AB2740084C415 /* BSRefreshableClipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSRefreshableClipView.h; sourceTree = "<group>"; };
+		BAD4302F197AB2740084C415 /* BSRefreshableClipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSRefreshableClipView.m; sourceTree = "<group>"; };
+		BAD43030197AB2740084C415 /* BSRefreshableScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSRefreshableScrollView.h; sourceTree = "<group>"; };
+		BAD43031197AB2740084C415 /* BSRefreshableScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSRefreshableScrollView.m; sourceTree = "<group>"; };
+		BAD43032197AB2740084C415 /* BSRefreshableScrollView_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSRefreshableScrollView_Private.h; sourceTree = "<group>"; };
 		BAD91D98196923C500BED591 /* VPLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VPLoginViewController.h; sourceTree = "<group>"; };
 		BAD91D99196923C500BED591 /* VPLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VPLoginViewController.m; sourceTree = "<group>"; };
 		BAD91D9A196923C500BED591 /* VPLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VPLoginViewController.xib; sourceTree = "<group>"; };
@@ -268,9 +275,23 @@
 			name = preference;
 			sourceTree = "<group>";
 		};
+		BAD4302C197AB2740084C415 /* BSRefreshableScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				BAD4302E197AB2740084C415 /* BSRefreshableClipView.h */,
+				BAD4302F197AB2740084C415 /* BSRefreshableClipView.m */,
+				BAD43030197AB2740084C415 /* BSRefreshableScrollView.h */,
+				BAD43031197AB2740084C415 /* BSRefreshableScrollView.m */,
+				BAD43032197AB2740084C415 /* BSRefreshableScrollView_Private.h */,
+			);
+			name = BSRefreshableScrollView;
+			path = osx;
+			sourceTree = "<group>";
+		};
 		BAD91D961969238B00BED591 /* utility */ = {
 			isa = PBXGroup;
 			children = (
+				BAD4302C197AB2740084C415 /* BSRefreshableScrollView */,
 				BAD260E319742AFC005F2E7D /* preference */,
 				BA07C61C19725B3300027EC1 /* TKImageLoader */,
 				BA355DE2196986F900D542BB /* INAppStoreWindow */,
@@ -521,6 +542,7 @@
 				BAEBEFE919645BA90074D049 /* VPCaption.m in Sources */,
 				BAEBEFEC196461140074D049 /* VPLikes.m in Sources */,
 				BAF657F51960323300593F2D /* main.m in Sources */,
+				BAD43034197AB2740084C415 /* BSRefreshableClipView.m in Sources */,
 				BA355DEF196986F900D542BB /* INAppStoreWindowSwizzling.c in Sources */,
 				BA355DF2196986F900D542BB /* INAppStoreWindow.m in Sources */,
 				BA07C61F19725BAD00027EC1 /* TKImageLoader.m in Sources */,
@@ -530,6 +552,7 @@
 				BAEBEFEF196463FE0074D049 /* VPFeed.m in Sources */,
 				BAAFC76C19630B8E004E3408 /* VPComment.m in Sources */,
 				BAAFC77819639B01004E3408 /* VPVideos.m in Sources */,
+				BAD43035197AB2740084C415 /* BSRefreshableScrollView.m in Sources */,
 				BAD260E719742BCF005F2E7D /* VPPreferenceAdvancedViewController.m in Sources */,
 				BAD91DA619694B5700BED591 /* VPURLParser.m in Sources */,
 				BAD91DB31969709F00BED591 /* VPFeedsViewController.m in Sources */,

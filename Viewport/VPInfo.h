@@ -15,11 +15,7 @@
 
 @interface VPInfo : NSObject
 
-+(NSURL *)retrieveUrlWithIdentifier:(NSString*)identifier;
-
-+(NSURL *)retrieveSelfTimelineUrl;
-+(NSURL *)retrievePopularUrl;
-+(NSURL *)retrieveFavoritesUrl;
++(NSURL *)retrieveUrlWithIdentifier:(NSString*)identifier nextMaxId:(NSString*)nextMaxId;
 
 +(void)cacheFeedData:(NSData*)data withIdentifier:(NSString*)identifier;
 +(NSData*)retrieveCachedFeedDataWithIdentifier:(NSString*)identifier;

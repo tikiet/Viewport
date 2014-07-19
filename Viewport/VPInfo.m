@@ -42,14 +42,14 @@ static NSMutableDictionary *mapping;
     }
 }
 
-+(NSURL*)retrieveUrlWithIdentifier:(NSString *)identifier
++(NSURL*)retrieveUrlWithIdentifier:(NSString *)identifier nextMaxId:(NSString*)nextMaxId
 {
     if ([ID_FAVORITES isEqual:identifier]) {
-        return [self retrieveFavoritesUrl];
+        return [self retrieveFavoritesUrlWithNextMaxId:nextMaxId];
     } else if ([ID_POPULAR isEqual:identifier]) {
-        return [self retrievePopularUrl];
+        return [self retrievePopularUrlWithNextMaxId:nextMaxId];
     } else if ([ID_SELF isEqual:ID_SELF]) {
-        return [self retrieveSelfTimelineUrl];
+        return [self retrieveSelfTimelineUrlWithNextMatId:nextMaxId];
     } else {
         return nil;
     }
@@ -84,19 +84,31 @@ static NSMutableDictionary *mapping;
     [defaults setObject:feedCache forKey:FEED_CACHE];
 }
 
-+(NSURL*)retrievePopularUrl
++(NSURL*)retrievePopularUrlWithNextMaxId:(NSString*)nextMaxId
 {
-    return [NSURL URLWithString:[NSString stringWithFormat:popularUrl, [self clientId]]];
+    NSString *url = [NSString stringWithFormat:popularUrl, [self clientId]];
+    if (nextMaxId) {
+        url = [NSString stringWithFormat:@"%@&max_id=%@", url, nextMaxId];
+    }
+    return [NSURL URLWithString:url];
 }
 
-+(NSURL*)retrieveSelfTimelineUrl
++(NSURL*)retrieveSelfTimelineUrlWithNextMatId:(NSString*)nextMaxId
 {
-    return [NSURL URLWithString:[NSString stringWithFormat:selfTimelineUrl, [self accessToken]]];
+    NSString *url = [NSString stringWithFormat:selfTimelineUrl, [self accessToken]];
+    if (nextMaxId) {
+        url = [NSString stringWithFormat:@"%@&max_id=%@", url, nextMaxId];
+    }
+    return [NSURL URLWithString: url];
 }
 
-+(NSURL*)retrieveFavoritesUrl
++(NSURL*)retrieveFavoritesUrlWithNextMaxId:(NSString*)nextMaxId;
 {
-    return [NSURL URLWithString:[NSString stringWithFormat:favoritesUrl, [self accessToken]]];
+    NSString *url = [NSString stringWithFormat:favoritesUrl, [self accessToken]];
+    if (nextMaxId) {
+        url = [NSString stringWithFormat:@"%@&max_id=%@", url, nextMaxId];
+    }
+    return [NSURL URLWithString: url];
 }
 
 +(NSString*)clientId
