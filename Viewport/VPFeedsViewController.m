@@ -20,7 +20,7 @@
 
 @implementation VPFeedsViewController
 
-@synthesize loginDelegate;
+@synthesize loginDelegate, accumulateData;
 
 -(void)awakeFromNib
 {
@@ -83,7 +83,7 @@
     if ([aNotification object] == [[self.tableview enclosingScrollView] contentView]){
         if ( NSMaxY([self.tableview enclosingScrollView].documentVisibleRect) >=
             NSHeight([[self.tableview enclosingScrollView].documentView bounds]) ){
-            if (!triggeredBottom) {
+            if (!triggeredBottom && accumulateData) {
                 triggeredBottom = YES;
                 [self startRequestWithNextMaxId:YES];
             }
@@ -108,7 +108,10 @@
     for (NSDictionary *dic in rawFeeds){
         [feeds addObject: [[VPFeed alloc] initWithDictionray:dic]];
     }
-    [feeds addObjectsFromArray:array];
+    
+    if (accumulateData) {
+        [feeds addObjectsFromArray:array];
+    }
     
     array = [[feeds allObjects] sortedArrayUsingComparator:^NSComparisonResult(id a, id b){
         VPFeed *fa = (VPFeed*)a;
@@ -200,7 +203,7 @@
 
 -(BOOL)startRequestWithNextMaxId:(BOOL) useNextId
 {
-    if (hasMore) {
+    if (hasMore || !accumulateData) {
         NSURLRequest *request = [NSURLRequest requestWithURL:[VPInfo retrieveUrlWithIdentifier:identifier
                                                                                      nextMaxId:useNextId ? nextMaxId : nil]];
         NSURLConnection *con =

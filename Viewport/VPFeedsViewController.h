@@ -25,6 +25,7 @@
 @property (weak) IBOutlet NSTableView *tableview;
 @property (weak) IBOutlet BSRefreshableScrollView *scrollView;
 @property  NSObject<VPLoginDelegate> *loginDelegate;
+@property BOOL accumulateData;
 
 -(void)updateData:(NSData*)jsonData;
 -(BOOL)startRequestWithNextMaxId:(BOOL)useNextMaxId;

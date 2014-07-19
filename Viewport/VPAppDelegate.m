@@ -117,6 +117,7 @@
         
         [popularViewController prepare];
         popularViewController.loginDelegate = self;
+        popularViewController.accumulateData = NO;
         [popularViewController startRequestWithNextMaxId:NO];
     }
 }
@@ -149,6 +150,7 @@
         
         [feedsViewController prepare];
         feedsViewController.loginDelegate = self;
+        feedsViewController.accumulateData = YES;
         [feedsViewController startRequestWithNextMaxId:NO];
     }
 }
@@ -207,6 +209,7 @@
         
         [favoritesViewController prepare];
         favoritesViewController.loginDelegate = self;
+        favoritesViewController.accumulateData = YES;
         [favoritesViewController startRequestWithNextMaxId:NO];
     }
 }
