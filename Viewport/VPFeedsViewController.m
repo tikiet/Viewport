@@ -86,6 +86,7 @@
 {
     NSDictionary *data = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
     NSDictionary *meta = [data objectForKey:@"meta"];
+    NSLog(@"meta:%@", meta);
     int code =  [[meta objectForKey:@"code"]intValue];
     if (code == 400) {
         [self reportLoginError];
@@ -117,6 +118,7 @@
     [self.tableview reloadData];
     
     NSDictionary *pagination = [data objectForKey:@"pagination"];
+    NSLog(@"pagination:%@", pagination);
     
     if (pagination && !([pagination isEqual: [NSNull null]])){
         NSString *next_url = [pagination objectForKey:@"next_url"];
@@ -126,6 +128,8 @@
         } else {
             hasMore = NO;
         }
+    } else {
+        hasMore = NO;
     }
 }
 
@@ -182,6 +186,7 @@
 -(void)startRequest
 {
     if (hasMore) {
+        NSLog(@"%@", currentUrl);
         NSURLRequest *request = [NSURLRequest requestWithURL:currentUrl];
         NSURLConnection *con =
         [[NSURLConnection alloc] initWithRequest:request
