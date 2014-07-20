@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "NSImageView+Tag.h"
 
 @interface TKImageLoader : NSObject <NSURLConnectionDataDelegate>
 

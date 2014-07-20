@@ -10,5 +10,6 @@
 @property VPFeed *feed;
 
 -(void)show;
+-(void)prepare;
 
 @end

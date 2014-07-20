@@ -10,7 +10,7 @@
 
 @interface VPFeedView : NSTableCellView
 
-@property (retain, nonatomic) IBOutlet NSImageView *pic;
+@property (retain, nonatomic) IBOutlet NSButton *pic;
 @property (retain, nonatomic) IBOutlet NSImageView *userProfile;
 @property (retain, nonatomic) IBOutlet NSTextField *caption;
 @property (retain, nonatomic) IBOutlet NSView *container;

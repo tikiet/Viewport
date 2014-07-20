@@ -155,7 +155,6 @@
 -(NSView *) tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
 {
     VPFeedView *view = [tableView makeViewWithIdentifier:@"CELL" owner:self];
-    view.translatesAutoresizingMaskIntoConstraints = NO;
     VPFeed *feed = [array objectAtIndex:row];
     
     if (feed.caption.text) {
@@ -164,7 +163,8 @@
         [view.caption setStringValue:@""];
     }
     
-    [[[TKImageLoader alloc] initWithURL:[NSURL URLWithString:feed.images.standardResolution.url] imageView:view.pic] start];
+    [[[TKImageLoader alloc] initWithURL:[NSURL URLWithString:feed.images.standardResolution.url]
+                              imageView:view.pic] start];
     
     CALayer *profileLayer = [CALayer layer];
     profileLayer.cornerRadius = 3;
@@ -172,7 +172,8 @@
     view.userProfile.wantsLayer = YES;
     view.userProfile.layer = profileLayer;
     
-    [[[TKImageLoader alloc] initWithURL:[NSURL URLWithString:feed.user.profilePicture] imageView:view.userProfile] start];
+    [[[TKImageLoader alloc] initWithURL:[NSURL URLWithString:feed.user.profilePicture]
+                              imageView:view.userProfile] start];
     
     CALayer *viewLayer = [CALayer layer];
     [viewLayer setBackgroundColor:CGColorCreateGenericRGB(0.835, 0.835, 0.835, 1)];
@@ -189,7 +190,19 @@
     [view.container setWantsLayer:YES];
     [view.container setLayer:containerLayer];
     
+    
+    view.pic.target = self;
+    view.pic.action = @selector(viewPicDidSelect:);
+    view.pic.tag = row;
+    
     return view;
+}
+
+-(IBAction) viewPicDidSelect:(id)sender
+{
+    if (self.modelDelegate){
+        [self.modelDelegate modelDidSelect:array[((NSButton*) sender).tag ]];
+    }
 }
 
 -(BOOL) tableView:(NSTableView *)tableView shouldSelectRow:(NSInteger)row

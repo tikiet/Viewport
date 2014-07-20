@@ -33,7 +33,6 @@
 		BAD260E119742994005F2E7D /* MASPreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD260DD19742994005F2E7D /* MASPreferencesWindowController.m */; };
 		BAD260E719742BCF005F2E7D /* VPPreferenceAdvancedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD260E519742BCF005F2E7D /* VPPreferenceAdvancedViewController.m */; };
 		BAD260E819742BCF005F2E7D /* VPPreferenceAdvancedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAD260E619742BCF005F2E7D /* VPPreferenceAdvancedViewController.xib */; };
-		BAD260EB19760C64005F2E7D /* NSImageView+Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD260EA19760C64005F2E7D /* NSImageView+Tag.m */; };
 		BAD43034197AB2740084C415 /* BSRefreshableClipView.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD4302F197AB2740084C415 /* BSRefreshableClipView.m */; };
 		BAD43035197AB2740084C415 /* BSRefreshableScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD43031197AB2740084C415 /* BSRefreshableScrollView.m */; };
 		BAD43039197B67510084C415 /* TKNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD43037197B67510084C415 /* TKNavigationController.m */; };
@@ -125,8 +124,6 @@
 		BAD260E419742BCF005F2E7D /* VPPreferenceAdvancedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VPPreferenceAdvancedViewController.h; sourceTree = "<group>"; };
 		BAD260E519742BCF005F2E7D /* VPPreferenceAdvancedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VPPreferenceAdvancedViewController.m; sourceTree = "<group>"; };
 		BAD260E619742BCF005F2E7D /* VPPreferenceAdvancedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VPPreferenceAdvancedViewController.xib; sourceTree = "<group>"; };
-		BAD260E919760C64005F2E7D /* NSImageView+Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSImageView+Tag.h"; sourceTree = "<group>"; };
-		BAD260EA19760C64005F2E7D /* NSImageView+Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSImageView+Tag.m"; sourceTree = "<group>"; };
 		BAD4302E197AB2740084C415 /* BSRefreshableClipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSRefreshableClipView.h; sourceTree = "<group>"; };
 		BAD4302F197AB2740084C415 /* BSRefreshableClipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSRefreshableClipView.m; sourceTree = "<group>"; };
 		BAD43030197AB2740084C415 /* BSRefreshableScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSRefreshableScrollView.h; sourceTree = "<group>"; };
@@ -352,8 +349,6 @@
 				BA355DF5196993D900D542BB /* VPConnectionDataDepot.m */,
 				BA355DFA1969A69F00D542BB /* VPInfo.h */,
 				BA355DFB1969A69F00D542BB /* VPInfo.m */,
-				BAD260E919760C64005F2E7D /* NSImageView+Tag.h */,
-				BAD260EA19760C64005F2E7D /* NSImageView+Tag.m */,
 			);
 			name = utility;
 			sourceTree = "<group>";
@@ -586,7 +581,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAF657FC1960323300593F2D /* VPAppDelegate.m in Sources */,
-				BAD260EB19760C64005F2E7D /* NSImageView+Tag.m in Sources */,
 				BA355DF0196986F900D542BB /* INWindowBackgroundView+CoreUIRendering.m in Sources */,
 				BA355DF6196993D900D542BB /* VPConnectionDataDepot.m in Sources */,
 				BA414B60197BE1570061BA59 /* VPFeedDetailPhotoView.m in Sources */,

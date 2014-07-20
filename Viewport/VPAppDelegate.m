@@ -1,6 +1,7 @@
 #import "VPAppDelegate.h"
 #import "INAppStoreWindow.h"
 #import "VPConnectionDataDepot.h"
+#import "VPFeedDetailViewController.h"
 
 @implementation VPAppDelegate
 {
@@ -123,6 +124,7 @@
         [feedsViewController prepare];
         feedsViewController.loginDelegate = self;
         feedsViewController.accumulateData = YES;
+        feedsViewController.modelDelegate = self;
         [feedsViewController startRequestWithNextMaxId:NO];
     }
 }
@@ -188,5 +190,18 @@
         }
     }];
     
+}
+
+-(void)modelDidSelect:(id)model
+{
+    VPFeedDetailViewController *controller = [[VPFeedDetailViewController alloc]
+                                              initWithNibName:@"VPFeedDetailViewController"
+                                              bundle:nil];
+    controller.feed = (VPFeed*)model;
+    [navController addViewController:controller retain:NO];
+    [controller prepare];
+    [controller show];
+    
+    //NSLog(@"view controllers:%@", navController.viewControllers);
 }
 @end

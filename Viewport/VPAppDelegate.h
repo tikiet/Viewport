@@ -8,7 +8,7 @@
 #import "VPPreferenceAdvancedViewController.h"
 #import "TKNavigationController.h"
 
-@interface VPAppDelegate : NSObject <NSApplicationDelegate, VPLoginViewDelegate, VPLoginDelegate>
+@interface VPAppDelegate : NSObject <NSApplicationDelegate, VPLoginViewDelegate, VPLoginDelegate, VPModelDelegate>
 
 @property (assign) IBOutlet NSWindow *window;
 @property (strong) IBOutlet NSView *contentArea;

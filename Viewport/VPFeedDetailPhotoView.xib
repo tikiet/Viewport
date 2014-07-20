@@ -17,9 +17,9 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ieU-yr-LXm">
-                    <rect key="frame" x="-3" y="-3" width="436" height="436"/>
+                    <rect key="frame" x="0.0" y="0.0" width="430" height="430"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="Nv9-AT-sLy"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="Nv9-AT-sLy"/>
                 </imageView>
             </subviews>
             <constraints>

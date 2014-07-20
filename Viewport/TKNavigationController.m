@@ -8,7 +8,7 @@
 
 @implementation TKNavigationController
 
-@synthesize viewControllers;
+@synthesize viewControllers = _viewControllers;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -22,6 +22,7 @@
 {
     NSLog(@"awakeFromNib");
     retainedViewControllers = [[NSMutableArray alloc]init];
+    _viewControllers = [[NSMutableArray alloc]init];
 }
 
 -(void)addViewController:(NSViewController *)viewController retain:(BOOL)retain
@@ -30,7 +31,7 @@
         [retainedViewControllers addObject:viewController];
     }
     
-    [self.viewControllers addObject:viewControllers];
+    [self.viewControllers addObject:viewController];
     CATransition *transition = [CATransition animation];
     [transition setType:kCATransitionPush];
     [transition setSubtype:kCATransitionFromRight];

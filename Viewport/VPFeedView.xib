@@ -16,14 +16,6 @@
                     <rect key="frame" x="40" y="10" width="400" height="460"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <subviews>
-                        <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kBi-HT-HMb">
-                            <rect key="frame" x="0.0" y="60" width="400" height="400"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <constraints>
-                                <constraint firstAttribute="height" secondItem="kBi-HT-HMb" secondAttribute="width" id="3cs-fM-2y2"/>
-                            </constraints>
-                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="edu-7G-Mgf"/>
-                        </imageView>
                         <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0sE-HS-Xrp">
                             <rect key="frame" x="5" y="5" width="50" height="50"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -42,19 +34,30 @@
                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                             </textFieldCell>
                         </textField>
+                        <button translatesAutoresizingMaskIntoConstraints="NO" id="UcK-Us-0tT">
+                            <rect key="frame" x="0.0" y="60" width="400" height="400"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="height" secondItem="UcK-Us-0tT" secondAttribute="width" id="N9z-pI-eDY"/>
+                            </constraints>
+                            <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="AZC-Df-vc6">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system" size="10"/>
+                            </buttonCell>
+                        </button>
                     </subviews>
                     <constraints>
                         <constraint firstAttribute="width" constant="400" id="16J-RO-63i"/>
-                        <constraint firstItem="kBi-HT-HMb" firstAttribute="centerX" secondItem="NJx-qp-Rk9" secondAttribute="centerX" id="7lc-ri-ADt"/>
-                        <constraint firstItem="kBi-HT-HMb" firstAttribute="top" secondItem="NJx-qp-Rk9" secondAttribute="top" id="KeV-Wa-cYp"/>
+                        <constraint firstItem="UcK-Us-0tT" firstAttribute="top" secondItem="NJx-qp-Rk9" secondAttribute="top" id="CRl-6d-bRb"/>
                         <constraint firstItem="UMV-xP-3ZX" firstAttribute="bottom" secondItem="0sE-HS-Xrp" secondAttribute="bottom" constant="-5" id="R70-uL-cG0"/>
+                        <constraint firstItem="UcK-Us-0tT" firstAttribute="centerX" secondItem="NJx-qp-Rk9" secondAttribute="centerX" id="YTZ-uN-iDd"/>
                         <constraint firstItem="UMV-xP-3ZX" firstAttribute="trailing" secondItem="NJx-qp-Rk9" secondAttribute="trailing" constant="-10" id="Yh8-rH-ayv"/>
+                        <constraint firstItem="UcK-Us-0tT" firstAttribute="width" secondItem="NJx-qp-Rk9" secondAttribute="width" id="Ymy-SN-85t"/>
                         <constraint firstItem="0sE-HS-Xrp" firstAttribute="bottom" secondItem="NJx-qp-Rk9" secondAttribute="bottom" constant="-5" id="eQB-88-Li9"/>
                         <constraint firstAttribute="height" constant="460" id="jOQ-fx-xbK"/>
                         <constraint firstItem="0sE-HS-Xrp" firstAttribute="leading" secondItem="NJx-qp-Rk9" secondAttribute="leading" constant="5" id="rfr-yj-xkE"/>
                         <constraint firstItem="UMV-xP-3ZX" firstAttribute="leading" secondItem="0sE-HS-Xrp" secondAttribute="trailing" constant="10" id="uk4-Au-X37"/>
                         <constraint firstItem="UMV-xP-3ZX" firstAttribute="top" secondItem="0sE-HS-Xrp" secondAttribute="top" constant="5" id="vTd-zS-ne5"/>
-                        <constraint firstItem="kBi-HT-HMb" firstAttribute="width" secondItem="NJx-qp-Rk9" secondAttribute="width" id="xsr-9I-rt9"/>
                     </constraints>
                 </customView>
             </subviews>
@@ -67,7 +70,7 @@
             <connections>
                 <outlet property="caption" destination="UMV-xP-3ZX" id="kCW-NX-5NW"/>
                 <outlet property="container" destination="NJx-qp-Rk9" id="iYZ-E4-ssP"/>
-                <outlet property="pic" destination="kBi-HT-HMb" id="fYC-lc-8Gu"/>
+                <outlet property="pic" destination="UcK-Us-0tT" id="rQl-qk-vHT"/>
                 <outlet property="userProfile" destination="0sE-HS-Xrp" id="Wcp-FC-zI6"/>
             </connections>
         </customView>

@@ -3,7 +3,7 @@
 
 @interface TKNavigationController : NSViewController
 
-@property NSMutableArray *viewControllers;
+@property (strong) NSMutableArray *viewControllers;
 
 -(void)addViewController:(NSViewController*) viewController retain:(BOOL)retain;
 -(void)moveToTop:(NSViewController*) viewController;

@@ -20,15 +20,27 @@
 
 @end
 
+@protocol VPModelDelegate <NSObject>
+
+-(void)modelDidSelect:(id)model;
+
+@end
+
 @interface VPFeedsViewController : NSViewController <NSTableViewDataSource, NSTableViewDelegate, BSRefreshableScrollViewDelegate>
 
 @property (weak) IBOutlet NSTableView *tableview;
 @property (weak) IBOutlet BSRefreshableScrollView *scrollView;
-@property  NSObject<VPLoginDelegate> *loginDelegate;
+
+@property NSObject<VPLoginDelegate> *loginDelegate;
+@property NSObject<VPModelDelegate> *modelDelegate;
+
 @property BOOL accumulateData;
 
 -(void)updateData:(NSData*)jsonData;
 -(BOOL)startRequestWithNextMaxId:(BOOL)useNextMaxId;
 -(void)prepare;
 -(id)initWithNibName:(NSString *)nibNameOrNil identifier:(NSString*) identifier bundle:(NSBundle *)nibBundleOrNil;
+
+-(IBAction)viewPicDidSelect:(id)sender;
+
 @end
