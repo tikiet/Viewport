@@ -1,7 +1,9 @@
 #import "TKNavigationController.h"
 
 @interface TKNavigationController ()
-
+{
+    NSMutableArray *retainedViewControllers;
+}
 @end
 
 @implementation TKNavigationController
@@ -16,13 +18,23 @@
     return self;
 }
 
--(void)addViewController:(NSViewController *)viewController
+- (void)awakeFromNib
 {
+    NSLog(@"awakeFromNib");
+    retainedViewControllers = [[NSMutableArray alloc]init];
+}
+
+-(void)addViewController:(NSViewController *)viewController retain:(BOOL)retain
+{
+    if(retain){
+        [retainedViewControllers addObject:viewController];
+    }
+    
     [self.viewControllers addObject:viewControllers];
     CATransition *transition = [CATransition animation];
     [transition setType:kCATransitionPush];
     [transition setSubtype:kCATransitionFromRight];
-
+    
     [self.view setAnimations:[NSDictionary dictionaryWithObject:transition forKey:@"subviews"]];
     self.view.wantsLayer = YES;
     [[self.view animator] addSubview:viewController.view];
@@ -49,6 +61,18 @@
     NSMutableArray *subviews = [NSMutableArray arrayWithArray:self.view.subviews];
     [subviews removeObject:viewController.view];
     [subviews addObject:viewController.view];
+    
+    NSMutableArray *viewControllersToDelete = [[NSMutableArray alloc]init];
+    NSMutableArray *viewsToDelete = [[NSMutableArray alloc]init];
+    for (NSViewController *controller in self.viewControllers) {
+        if (![retainedViewControllers containsObject:controller]) {
+            [viewControllersToDelete addObject:controller];
+            [viewsToDelete addObject:controller.view];
+        }
+    }
+    
+    [subviews removeObjectsInArray:viewsToDelete];
+    [self.viewControllers removeObjectsInArray:viewControllersToDelete];
     
     self.view.subviews = subviews;
 }

@@ -130,15 +130,11 @@
     [self.tableview reloadData];
     
     NSDictionary *pagination = [data objectForKey:@"pagination"];
-    NSLog(@"pagination:%@", pagination);
-    
     if (hasMore) {
         if (pagination && !([pagination isEqual: [NSNull null]])){
             NSString *maxId = [pagination objectForKey:@"next_max_id"];
             if (maxId && !([maxId isEqual:[NSNull null]])) {
                 hasMore = YES;
-                
-                NSLog(@"max id:%@ next max id:%@", maxId, nextMaxId);
                 if (!nextMaxId || [maxId longLongValue] < [nextMaxId longLongValue]) {
                     nextMaxId = maxId;
                 }

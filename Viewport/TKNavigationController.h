@@ -5,7 +5,7 @@
 
 @property NSMutableArray *viewControllers;
 
--(void)addViewController:(NSViewController*) viewController;
+-(void)addViewController:(NSViewController*) viewController retain:(BOOL)retain;
 -(void)moveToTop:(NSViewController*) viewController;
 
 @end

@@ -101,7 +101,7 @@
         popularViewController = [[VPFeedsViewController alloc] initWithNibName:@"VPFeedsViewController"
                                                                     identifier:ID_POPULAR
                                                                         bundle:nil];
-        [navController addViewController:popularViewController];
+        [navController addViewController:popularViewController retain:YES];
         
         [popularViewController prepare];
         popularViewController.loginDelegate = self;
@@ -119,7 +119,7 @@
         feedsViewController = [[VPFeedsViewController alloc] initWithNibName:@"VPFeedsViewController"
                                                                   identifier:ID_SELF
                                                                       bundle:nil];
-        [navController addViewController:feedsViewController];
+        [navController addViewController:feedsViewController retain:YES];
         [feedsViewController prepare];
         feedsViewController.loginDelegate = self;
         feedsViewController.accumulateData = YES;
@@ -162,7 +162,7 @@
         favoritesViewController = [[VPFeedsViewController alloc] initWithNibName:@"VPFeedsViewController"
                                                                       identifier:ID_FAVORITES
                                                                           bundle:nil];
-        [navController addViewController:favoritesViewController];
+        [navController addViewController:favoritesViewController retain:YES];
         [favoritesViewController prepare];
         favoritesViewController.loginDelegate = self;
         favoritesViewController.accumulateData = YES;
