@@ -1,11 +1,3 @@
-//
-//  VPAppDelegate.h
-//  Viewport
-//
-//  Created by 吴旭东 on 14-6-29.
-//  Copyright (c) 2014年 xudongwu.com. All rights reserved.
-//
-
 #import <Cocoa/Cocoa.h>
 #import "VPFeed.h"
 #import "VPFeedView.h"
@@ -14,6 +6,7 @@
 #import "VPInfo.h"
 #import "MASPreferencesWindowController.h"
 #import "VPPreferenceAdvancedViewController.h"
+#import "TKNavigationController.h"
 
 @interface VPAppDelegate : NSObject <NSApplicationDelegate, VPLoginViewDelegate, VPLoginDelegate>
 

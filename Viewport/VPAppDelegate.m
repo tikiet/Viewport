@@ -1,11 +1,3 @@
-//
-//  VPAppDelegate.m
-//  Viewport
-//
-//  Created by 吴旭东 on 14-6-29.
-//  Copyright (c) 2014年 xudongwu.com. All rights reserved.
-//
-
 #import "VPAppDelegate.h"
 #import "INAppStoreWindow.h"
 #import "VPConnectionDataDepot.h"
@@ -17,6 +9,7 @@
     VPFeedsViewController *popularViewController;
     VPFeedsViewController *favoritesViewController;
     MASPreferencesWindowController *preferencesWindowController;
+    TKNavigationController *navController;
     
     INAppStoreWindow *iasWindow;
 }
@@ -40,6 +33,27 @@
     iasWindow.showsTitle = YES;
     iasWindow.title = @"Viewport";
     iasWindow.verticallyCenterTitle = YES;
+    
+    navController = [[TKNavigationController alloc]initWithNibName:@"TKNavigationController" bundle:nil];
+    [self.contentArea addSubview:navController.view];
+
+    NSView *parent = self.contentArea;
+    [parent addSubview: loginViewController.view];
+    
+    NSView *view = navController.view;
+    view.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    NSArray *constraint1 = [NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[view]-(0)-|"
+                                                                   options:0
+                                                                   metrics:nil
+                                                                     views:NSDictionaryOfVariableBindings(view)];
+    NSArray *constraint2 = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[view]-(0)-|"
+                                                                   options:0
+                                                                   metrics:nil
+                                                                     views:NSDictionaryOfVariableBindings(view)];
+    
+    [parent addConstraints:constraint1];
+    [parent addConstraints:constraint2];
     
     if ([VPInfo accessToken]) {
         [self showFeedsView];
@@ -69,9 +83,11 @@
 
 -(void)hideAllViews
 {
+    /*
     [popularViewController.view setHidden:YES];
     [favoritesViewController.view setHidden:YES];
     [feedsViewController.view setHidden:YES];
+     */
 }
 
 - (IBAction)showTimeline:(id)sender {
@@ -91,68 +107,39 @@
 
 - (void) showPopularView
 {
+    /*
     if (popularViewController){
         [popularViewController.view setHidden:NO];
     } else {
+     */
         popularViewController = [[VPFeedsViewController alloc] initWithNibName:@"VPFeedsViewController"
                                                                     identifier:ID_POPULAR
                                                                         bundle:nil];
-        NSView *parent = self.contentArea;
-        
-        [parent addSubview:popularViewController.view];
-        NSView *view = popularViewController.view;
-        view.translatesAutoresizingMaskIntoConstraints = NO;
-        
-        NSArray *constraint1 = [NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[view]-(0)-|"
-                                                                       options:0
-                                                                       metrics:nil
-                                                                         views:NSDictionaryOfVariableBindings(view)];
-        NSArray *constraint2 = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[view]-(0)-|"
-                                                                       options:0
-                                                                       metrics:nil
-                                                                         views:NSDictionaryOfVariableBindings(view)];
-        
-        [parent addConstraints:constraint1];
-        [parent addConstraints:constraint2];
+        [navController addViewController:popularViewController];
         
         [popularViewController prepare];
         popularViewController.loginDelegate = self;
         popularViewController.accumulateData = NO;
         [popularViewController startRequestWithNextMaxId:NO];
-    }
+    //}
 }
 
 - (void) showFeedsView
 {
+    /*
     if (feedsViewController) {
         [feedsViewController.view  setHidden:NO];
     } else {
+     */
         feedsViewController = [[VPFeedsViewController alloc] initWithNibName:@"VPFeedsViewController"
                                                                   identifier:ID_SELF
-                                                                      bundle:nil];
-        NSView *parent = self.contentArea;
-        
-        [parent addSubview:feedsViewController.view];
-        NSView *view = feedsViewController.view;
-        view.translatesAutoresizingMaskIntoConstraints = NO;
-        
-        NSArray *constraint1 = [NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[view]-(0)-|"
-                                                                       options:0
-                                                                       metrics:nil
-                                                                         views:NSDictionaryOfVariableBindings(view)];
-        NSArray *constraint2 = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[view]-(0)-|"
-                                                                       options:0
-                                                                       metrics:nil
-                                                                         views:NSDictionaryOfVariableBindings(view)];
-        
-        [parent addConstraints:constraint1];
-        [parent addConstraints:constraint2];
-        
+                                                                      bundle:nil];        
+        [navController addViewController:feedsViewController];
         [feedsViewController prepare];
         feedsViewController.loginDelegate = self;
         feedsViewController.accumulateData = YES;
         [feedsViewController startRequestWithNextMaxId:NO];
-    }
+    //}
 }
 
 - (void) showLoginView
@@ -183,35 +170,20 @@
 
 -(void) showFavoritesView
 {
+    /*
     if (favoritesViewController) {
         [favoritesViewController.view setHidden:NO];
     } else {
+     */
         favoritesViewController = [[VPFeedsViewController alloc] initWithNibName:@"VPFeedsViewController"
                                                                       identifier:ID_FAVORITES
                                                                           bundle:nil];
-        NSView *parent = self.contentArea;
-        
-        [parent addSubview:favoritesViewController.view];
-        NSView *view = favoritesViewController.view;
-        view.translatesAutoresizingMaskIntoConstraints = NO;
-        
-        NSArray *constraint1 = [NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[view]-(0)-|"
-                                                                       options:0
-                                                                       metrics:nil
-                                                                         views:NSDictionaryOfVariableBindings(view)];
-        NSArray *constraint2 = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[view]-(0)-|"
-                                                                       options:0
-                                                                       metrics:nil
-                                                                         views:NSDictionaryOfVariableBindings(view)];
-        
-        [parent addConstraints:constraint1];
-        [parent addConstraints:constraint2];
-        
+        [navController addViewController:favoritesViewController];
         [favoritesViewController prepare];
         favoritesViewController.loginDelegate = self;
         favoritesViewController.accumulateData = YES;
         [favoritesViewController startRequestWithNextMaxId:NO];
-    }
+    //}
 }
 
 -(void)loginDidFail

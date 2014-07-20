@@ -32,6 +32,9 @@
 		BAD260EB19760C64005F2E7D /* NSImageView+Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD260EA19760C64005F2E7D /* NSImageView+Tag.m */; };
 		BAD43034197AB2740084C415 /* BSRefreshableClipView.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD4302F197AB2740084C415 /* BSRefreshableClipView.m */; };
 		BAD43035197AB2740084C415 /* BSRefreshableScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD43031197AB2740084C415 /* BSRefreshableScrollView.m */; };
+		BAD43039197B67510084C415 /* TKNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD43037197B67510084C415 /* TKNavigationController.m */; };
+		BAD4303A197B67510084C415 /* TKNavigationController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAD43038197B67510084C415 /* TKNavigationController.xib */; };
+		BAD4303D197B71C30084C415 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAD4303C197B71C30084C415 /* QuartzCore.framework */; };
 		BAD91D9B196923C500BED591 /* VPLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD91D99196923C500BED591 /* VPLoginViewController.m */; };
 		BAD91D9C196923C500BED591 /* VPLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAD91D9A196923C500BED591 /* VPLoginViewController.xib */; };
 		BAD91DA11969264200BED591 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAD91DA01969264200BED591 /* WebKit.framework */; };
@@ -117,6 +120,10 @@
 		BAD43030197AB2740084C415 /* BSRefreshableScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSRefreshableScrollView.h; sourceTree = "<group>"; };
 		BAD43031197AB2740084C415 /* BSRefreshableScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSRefreshableScrollView.m; sourceTree = "<group>"; };
 		BAD43032197AB2740084C415 /* BSRefreshableScrollView_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSRefreshableScrollView_Private.h; sourceTree = "<group>"; };
+		BAD43036197B67510084C415 /* TKNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKNavigationController.h; sourceTree = "<group>"; };
+		BAD43037197B67510084C415 /* TKNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKNavigationController.m; sourceTree = "<group>"; };
+		BAD43038197B67510084C415 /* TKNavigationController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TKNavigationController.xib; sourceTree = "<group>"; };
+		BAD4303C197B71C30084C415 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		BAD91D98196923C500BED591 /* VPLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VPLoginViewController.h; sourceTree = "<group>"; };
 		BAD91D99196923C500BED591 /* VPLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VPLoginViewController.m; sourceTree = "<group>"; };
 		BAD91D9A196923C500BED591 /* VPLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VPLoginViewController.xib; sourceTree = "<group>"; };
@@ -164,6 +171,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAD4303D197B71C30084C415 /* QuartzCore.framework in Frameworks */,
 				BAD91DA11969264200BED591 /* WebKit.framework in Frameworks */,
 				BAF657E91960323300593F2D /* Cocoa.framework in Frameworks */,
 			);
@@ -288,9 +296,20 @@
 			path = osx;
 			sourceTree = "<group>";
 		};
+		BAD4303B197B67610084C415 /* TKNavigationController */ = {
+			isa = PBXGroup;
+			children = (
+				BAD43036197B67510084C415 /* TKNavigationController.h */,
+				BAD43037197B67510084C415 /* TKNavigationController.m */,
+				BAD43038197B67510084C415 /* TKNavigationController.xib */,
+			);
+			name = TKNavigationController;
+			sourceTree = "<group>";
+		};
 		BAD91D961969238B00BED591 /* utility */ = {
 			isa = PBXGroup;
 			children = (
+				BAD4303B197B67610084C415 /* TKNavigationController */,
 				BAD4302C197AB2740084C415 /* BSRefreshableScrollView */,
 				BAD260E319742AFC005F2E7D /* preference */,
 				BA07C61C19725B3300027EC1 /* TKImageLoader */,
@@ -350,6 +369,7 @@
 		BAF657E71960323300593F2D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BAD4303C197B71C30084C415 /* QuartzCore.framework */,
 				BAD91DA01969264200BED591 /* WebKit.framework */,
 				BAF657E81960323300593F2D /* Cocoa.framework */,
 				BAF658071960323300593F2D /* XCTest.framework */,
@@ -509,6 +529,7 @@
 				BAF657F91960323300593F2D /* Credits.rtf in Resources */,
 				BAF21C661971345300C2EAF0 /* logo.png in Resources */,
 				BA47A47A196EE11B0005997B /* internet.png in Resources */,
+				BAD4303A197B67510084C415 /* TKNavigationController.xib in Resources */,
 				BAD91DB41969709F00BED591 /* VPFeedsViewController.xib in Resources */,
 				BAF657FF1960323300593F2D /* MainMenu.xib in Resources */,
 			);
@@ -541,6 +562,7 @@
 				BAD260E119742994005F2E7D /* MASPreferencesWindowController.m in Sources */,
 				BAEBEFE919645BA90074D049 /* VPCaption.m in Sources */,
 				BAEBEFEC196461140074D049 /* VPLikes.m in Sources */,
+				BAD43039197B67510084C415 /* TKNavigationController.m in Sources */,
 				BAF657F51960323300593F2D /* main.m in Sources */,
 				BAD43034197AB2740084C415 /* BSRefreshableClipView.m in Sources */,
 				BA355DEF196986F900D542BB /* INAppStoreWindowSwizzling.c in Sources */,
