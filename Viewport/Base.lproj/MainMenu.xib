@@ -678,7 +678,7 @@
             <rect key="contentRect" x="513" y="172" width="490" height="560"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1280" height="800"/>
             <value key="minSize" type="size" width="490" height="520"/>
-            <value key="maxSize" type="size" width="490" height="800"/>
+            <value key="maxSize" type="size" width="590" height="800"/>
             <view key="contentView" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="490" height="560"/>
                 <autoresizingMask key="autoresizingMask"/>

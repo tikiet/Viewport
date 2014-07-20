@@ -8,20 +8,8 @@
 @end
 
 @implementation VPFeedDetailViewController
-{
-    BOOL woke;
-}
 
 @synthesize feed;
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        NSLog(@"VPFeedDetailViewController - initWithNibName");
-    }
-    return self;
-}
 
 -(void)prepare
 {
@@ -33,24 +21,19 @@
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    
-    woke = YES;
 }
 
 -(void)show
 {
-    NSLog(@"show");
     [self.tableView reloadData];
-    NSLog(@"delegate:%@, source:%@", self.tableView.delegate, self.tableView.dataSource);
 }
 
 -(CGFloat) tableView:(NSTableView *)tableView heightOfRow:(NSInteger)row
 {
-    NSLog(@"heigtOfRow");
     if (row == 0){
         return 430.0;
     } else {
-        return 100.0;
+        return 60.0;
     }
 }
 
@@ -61,7 +44,6 @@
 
 -(BOOL)tableView:(NSTableView *)tableView shouldSelectRow:(NSInteger)row
 {
-    NSLog(@"shouldSelectRow");
     return false;
 }
 
