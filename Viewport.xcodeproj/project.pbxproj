@@ -16,6 +16,10 @@
 		BA355DF6196993D900D542BB /* VPConnectionDataDepot.m in Sources */ = {isa = PBXBuildFile; fileRef = BA355DF5196993D900D542BB /* VPConnectionDataDepot.m */; };
 		BA355DFC1969A69F00D542BB /* VPInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = BA355DFB1969A69F00D542BB /* VPInfo.m */; };
 		BA355DFE1969AE1D00D542BB /* AppInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BA355DFD1969AE1D00D542BB /* AppInfo.plist */; };
+		BA414B58197BC5A50061BA59 /* VPFeedDetailPhotoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA414B56197BC5A50061BA59 /* VPFeedDetailPhotoView.xib */; };
+		BA414B5D197BC5FB0061BA59 /* VPFeedDetailCommentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA414B5B197BC5FB0061BA59 /* VPFeedDetailCommentView.xib */; };
+		BA414B60197BE1570061BA59 /* VPFeedDetailPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA414B5F197BE1570061BA59 /* VPFeedDetailPhotoView.m */; };
+		BA414B63197BE1780061BA59 /* VPFeedDetailCommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA414B62197BE1780061BA59 /* VPFeedDetailCommentView.m */; };
 		BA47A47A196EE11B0005997B /* internet.png in Resources */ = {isa = PBXBuildFile; fileRef = BA47A478196EE11B0005997B /* internet.png */; };
 		BA47A47B196EE11B0005997B /* heart.png in Resources */ = {isa = PBXBuildFile; fileRef = BA47A479196EE11B0005997B /* heart.png */; };
 		BA47A47D196EEC140005997B /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = BA47A47C196EEC140005997B /* home.png */; };
@@ -35,6 +39,8 @@
 		BAD43039197B67510084C415 /* TKNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD43037197B67510084C415 /* TKNavigationController.m */; };
 		BAD4303A197B67510084C415 /* TKNavigationController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAD43038197B67510084C415 /* TKNavigationController.xib */; };
 		BAD4303D197B71C30084C415 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAD4303C197B71C30084C415 /* QuartzCore.framework */; };
+		BAD43042197BAD3A0084C415 /* VPFeedDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD43040197BAD3A0084C415 /* VPFeedDetailViewController.m */; };
+		BAD43043197BAD3A0084C415 /* VPFeedDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAD43041197BAD3A0084C415 /* VPFeedDetailViewController.xib */; };
 		BAD91D9B196923C500BED591 /* VPLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD91D99196923C500BED591 /* VPLoginViewController.m */; };
 		BAD91D9C196923C500BED591 /* VPLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAD91D9A196923C500BED591 /* VPLoginViewController.xib */; };
 		BAD91DA11969264200BED591 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAD91DA01969264200BED591 /* WebKit.framework */; };
@@ -91,6 +97,12 @@
 		BA355DFA1969A69F00D542BB /* VPInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VPInfo.h; sourceTree = "<group>"; };
 		BA355DFB1969A69F00D542BB /* VPInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VPInfo.m; sourceTree = "<group>"; };
 		BA355DFD1969AE1D00D542BB /* AppInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AppInfo.plist; sourceTree = "<group>"; };
+		BA414B56197BC5A50061BA59 /* VPFeedDetailPhotoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VPFeedDetailPhotoView.xib; sourceTree = "<group>"; };
+		BA414B5B197BC5FB0061BA59 /* VPFeedDetailCommentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VPFeedDetailCommentView.xib; sourceTree = "<group>"; };
+		BA414B5E197BE1570061BA59 /* VPFeedDetailPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VPFeedDetailPhotoView.h; sourceTree = "<group>"; };
+		BA414B5F197BE1570061BA59 /* VPFeedDetailPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VPFeedDetailPhotoView.m; sourceTree = "<group>"; };
+		BA414B61197BE1780061BA59 /* VPFeedDetailCommentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VPFeedDetailCommentView.h; sourceTree = "<group>"; };
+		BA414B62197BE1780061BA59 /* VPFeedDetailCommentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VPFeedDetailCommentView.m; sourceTree = "<group>"; };
 		BA47A478196EE11B0005997B /* internet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = internet.png; sourceTree = "<group>"; };
 		BA47A479196EE11B0005997B /* heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart.png; sourceTree = "<group>"; };
 		BA47A47C196EEC140005997B /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
@@ -124,6 +136,9 @@
 		BAD43037197B67510084C415 /* TKNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKNavigationController.m; sourceTree = "<group>"; };
 		BAD43038197B67510084C415 /* TKNavigationController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TKNavigationController.xib; sourceTree = "<group>"; };
 		BAD4303C197B71C30084C415 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		BAD4303F197BAD3A0084C415 /* VPFeedDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VPFeedDetailViewController.h; sourceTree = "<group>"; };
+		BAD43040197BAD3A0084C415 /* VPFeedDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VPFeedDetailViewController.m; sourceTree = "<group>"; };
+		BAD43041197BAD3A0084C415 /* VPFeedDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VPFeedDetailViewController.xib; sourceTree = "<group>"; };
 		BAD91D98196923C500BED591 /* VPLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VPLoginViewController.h; sourceTree = "<group>"; };
 		BAD91D99196923C500BED591 /* VPLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VPLoginViewController.m; sourceTree = "<group>"; };
 		BAD91D9A196923C500BED591 /* VPLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VPLoginViewController.xib; sourceTree = "<group>"; };
@@ -306,6 +321,22 @@
 			name = TKNavigationController;
 			sourceTree = "<group>";
 		};
+		BAD4303E197BAD200084C415 /* VPFeedDetailViewController */ = {
+			isa = PBXGroup;
+			children = (
+				BAD4303F197BAD3A0084C415 /* VPFeedDetailViewController.h */,
+				BAD43040197BAD3A0084C415 /* VPFeedDetailViewController.m */,
+				BAD43041197BAD3A0084C415 /* VPFeedDetailViewController.xib */,
+				BA414B61197BE1780061BA59 /* VPFeedDetailCommentView.h */,
+				BA414B62197BE1780061BA59 /* VPFeedDetailCommentView.m */,
+				BA414B5B197BC5FB0061BA59 /* VPFeedDetailCommentView.xib */,
+				BA414B5E197BE1570061BA59 /* VPFeedDetailPhotoView.h */,
+				BA414B5F197BE1570061BA59 /* VPFeedDetailPhotoView.m */,
+				BA414B56197BC5A50061BA59 /* VPFeedDetailPhotoView.xib */,
+			);
+			name = VPFeedDetailViewController;
+			sourceTree = "<group>";
+		};
 		BAD91D961969238B00BED591 /* utility */ = {
 			isa = PBXGroup;
 			children = (
@@ -392,6 +423,7 @@
 		BAF657EE1960323300593F2D /* Viewport */ = {
 			isa = PBXGroup;
 			children = (
+				BAD4303E197BAD200084C415 /* VPFeedDetailViewController */,
 				BAD91D961969238B00BED591 /* utility */,
 				BA8F3DF01967A9B8009E7E70 /* VPFeedView */,
 				BAD91DAF1969704D00BED591 /* VPFeedsController */,
@@ -520,6 +552,7 @@
 				BAF657F31960323300593F2D /* InfoPlist.strings in Resources */,
 				BAF658011960323300593F2D /* Images.xcassets in Resources */,
 				BA47A47D196EEC140005997B /* home.png in Resources */,
+				BA414B5D197BC5FB0061BA59 /* VPFeedDetailCommentView.xib in Resources */,
 				BA47A47B196EE11B0005997B /* heart.png in Resources */,
 				BAD91DA31969295D00BED591 /* VPFeedView.xib in Resources */,
 				BAD91D9C196923C500BED591 /* VPLoginViewController.xib in Resources */,
@@ -528,9 +561,11 @@
 				BA355DFE1969AE1D00D542BB /* AppInfo.plist in Resources */,
 				BAF657F91960323300593F2D /* Credits.rtf in Resources */,
 				BAF21C661971345300C2EAF0 /* logo.png in Resources */,
+				BAD43043197BAD3A0084C415 /* VPFeedDetailViewController.xib in Resources */,
 				BA47A47A196EE11B0005997B /* internet.png in Resources */,
 				BAD4303A197B67510084C415 /* TKNavigationController.xib in Resources */,
 				BAD91DB41969709F00BED591 /* VPFeedsViewController.xib in Resources */,
+				BA414B58197BC5A50061BA59 /* VPFeedDetailPhotoView.xib in Resources */,
 				BAF657FF1960323300593F2D /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -554,6 +589,9 @@
 				BAD260EB19760C64005F2E7D /* NSImageView+Tag.m in Sources */,
 				BA355DF0196986F900D542BB /* INWindowBackgroundView+CoreUIRendering.m in Sources */,
 				BA355DF6196993D900D542BB /* VPConnectionDataDepot.m in Sources */,
+				BA414B60197BE1570061BA59 /* VPFeedDetailPhotoView.m in Sources */,
+				BAD43042197BAD3A0084C415 /* VPFeedDetailViewController.m in Sources */,
+				BA414B63197BE1780061BA59 /* VPFeedDetailCommentView.m in Sources */,
 				BAAFC76F19630F5E004E3408 /* VPComments.m in Sources */,
 				BA355DF3196986F900D542BB /* INWindowButton.m in Sources */,
 				BAAFC769196302ED004E3408 /* VPUser.m in Sources */,
