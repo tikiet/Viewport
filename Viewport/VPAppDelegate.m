@@ -36,7 +36,7 @@
     
     navController = [[TKNavigationController alloc]initWithNibName:@"TKNavigationController" bundle:nil];
     [self.contentArea addSubview:navController.view];
-
+    
     NSView *parent = self.contentArea;
     [parent addSubview: loginViewController.view];
     
@@ -81,37 +81,23 @@
     [self showFeedsView];
 }
 
--(void)hideAllViews
-{
-    /*
-    [popularViewController.view setHidden:YES];
-    [favoritesViewController.view setHidden:YES];
-    [feedsViewController.view setHidden:YES];
-     */
-}
-
 - (IBAction)showTimeline:(id)sender {
-    [self hideAllViews];
     [self showFeedsView];
 }
 
 - (IBAction)showPopular:(id)sender {
-    [self hideAllViews];
     [self showPopularView];
 }
 
 - (IBAction)showFavorites:(id)sender {
-    [self hideAllViews];
     [self showFavoritesView];
 }
 
 - (void) showPopularView
 {
-    /*
     if (popularViewController){
-        [popularViewController.view setHidden:NO];
+        [navController moveToTop:popularViewController];
     } else {
-     */
         popularViewController = [[VPFeedsViewController alloc] initWithNibName:@"VPFeedsViewController"
                                                                     identifier:ID_POPULAR
                                                                         bundle:nil];
@@ -121,25 +107,24 @@
         popularViewController.loginDelegate = self;
         popularViewController.accumulateData = NO;
         [popularViewController startRequestWithNextMaxId:NO];
-    //}
+    }
 }
 
 - (void) showFeedsView
 {
-    /*
+    
     if (feedsViewController) {
-        [feedsViewController.view  setHidden:NO];
+        [navController moveToTop:feedsViewController];
     } else {
-     */
         feedsViewController = [[VPFeedsViewController alloc] initWithNibName:@"VPFeedsViewController"
                                                                   identifier:ID_SELF
-                                                                      bundle:nil];        
+                                                                      bundle:nil];
         [navController addViewController:feedsViewController];
         [feedsViewController prepare];
         feedsViewController.loginDelegate = self;
         feedsViewController.accumulateData = YES;
         [feedsViewController startRequestWithNextMaxId:NO];
-    //}
+    }
 }
 
 - (void) showLoginView
@@ -170,11 +155,10 @@
 
 -(void) showFavoritesView
 {
-    /*
+    
     if (favoritesViewController) {
-        [favoritesViewController.view setHidden:NO];
+        [navController moveToTop:favoritesViewController];
     } else {
-     */
         favoritesViewController = [[VPFeedsViewController alloc] initWithNibName:@"VPFeedsViewController"
                                                                       identifier:ID_FAVORITES
                                                                           bundle:nil];
@@ -183,7 +167,7 @@
         favoritesViewController.loginDelegate = self;
         favoritesViewController.accumulateData = YES;
         [favoritesViewController startRequestWithNextMaxId:NO];
-    //}
+    }
 }
 
 -(void)loginDidFail
@@ -199,7 +183,7 @@
     
     [alert beginSheetModalForWindow:[self window] completionHandler:^(NSModalResponse res) {
         if (res == NSModalResponseOK) {
-            [self hideAllViews];
+            //TODO: [self hideAllViews];
             [self showLoginView];
         }
     }];

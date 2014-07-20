@@ -42,7 +42,15 @@
     
     [parent addConstraints:constraint1];
     [parent addConstraints:constraint2];
+}
+
+-(void)moveToTop:(NSViewController *)viewController
+{
+    NSMutableArray *subviews = [NSMutableArray arrayWithArray:self.view.subviews];
+    [subviews removeObject:viewController.view];
+    [subviews addObject:viewController.view];
     
+    self.view.subviews = subviews;
 }
 
 @end
