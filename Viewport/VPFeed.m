@@ -1,16 +1,8 @@
-//
-//  VPFeed.m
-//  Viewport
-//
-//  Created by 吴旭东 on 14-7-2.
-//  Copyright (c) 2014年 xudongwu.com. All rights reserved.
-//
-
 #import "VPFeed.h"
 
 @implementation VPFeed
 
-@synthesize user, images, createdTime, feedId;
+@synthesize user, images, createdTime, feedId, likes, comments;
 
 -(id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -18,6 +10,8 @@
     self.images = [aDecoder decodeObjectForKey:@"images"];
     self.createdTime = [aDecoder decodeIntForKey:@"createdTime"];
     self.feedId = [aDecoder decodeObjectForKey:@"feedId"];
+    self.comments = [aDecoder decodeObjectForKey:@"comments"];
+    self.likes = [aDecoder decodeObjectForKey:@"likes"];
     
     return self;
 }
@@ -28,9 +22,17 @@
     [aCoder encodeObject:self.images forKey:@"images"];
     [aCoder encodeObject:self.feedId forKey:@"feedId"];
     [aCoder encodeInt:self.createdTime forKey:@"createdTime"];
+    [aCoder encodeObject:self.likes forKey:@"likes"];
+    [aCoder encodeObject:self.comments forKey:@"comments"];
 }
 
--(id)initWithUser:(VPUser *)u images:(VPImages *)i caption:(VPCaption *)c createdTime:(int)ct id:(NSString*)fid
+-(id)initWithUser:(VPUser *)u
+           images:(VPImages *)i
+          caption:(VPCaption *)c
+      createdTime:(int)ct
+               id:(NSString*)fid
+            likes:(VPLikes *)l
+         comments:(VPComments *)cm
 {
     self = [super init];
     if (self) {
@@ -39,6 +41,8 @@
         self.caption = c;
         self.createdTime = ct;
         self.feedId = fid;
+        self.likes = l;
+        self.comments = cm;
     }
     return self;
 }
@@ -50,8 +54,10 @@
     VPCaption *c = [[VPCaption alloc] initWithDictionary:[dictionary objectForKey:@"caption"]];
     int ct = [[dictionary objectForKey:@"created_time"] intValue];
     NSString *fid = [dictionary objectForKey:@"id"];
+    VPLikes *l = [[VPLikes alloc] initWithDictionary: [dictionary objectForKey:@"likes"]];
+    VPComments *cm = [[VPComments alloc] initWithDictionary:[dictionary objectForKey:@"comments"]];
     
-    return [self initWithUser:u images:i caption:c createdTime:ct id:fid];
+    return [self initWithUser:u images:i caption:c createdTime:ct id:fid likes:l comments:cm];
 }
 
 -(NSUInteger) hash
@@ -67,7 +73,7 @@
     if (!other || !([other isKindOfClass:[self class]])) {
         return NO;
     }
-
+    
     VPFeed *feed = other;
     if (![self.feedId isEqualToString:feed.feedId]) {
         return NO;

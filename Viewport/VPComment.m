@@ -1,35 +1,27 @@
-//
-//  VPComment.m
-//  Viewport
-//
-//  Created by 吴旭东 on 14-7-1.
-//  Copyright (c) 2014年 xudongwu.com. All rights reserved.
-//
-
 #import "VPComment.h"
 
 @implementation VPComment
 
 @synthesize user, text, createdTime;
 
--(id) initWithUser:(VPUser *)user text:(NSString *)text createdTime:(long)createdTime
+-(id) initWithUser:(VPUser *)u text:(NSString *)t createdTime:(long)c
 {
     self = [super init];
     if(self){
-        self.user = user;
-        self.text = text;
-        self.createdTime = createdTime;
+        self.user = u;
+        self.text = t;
+        self.createdTime = c;
     }
     return self;
 }
 
 -(id)initWithDictionary:(NSDictionary *)dictionary
 {
-    VPUser *user = [[VPUser alloc] initWithDictionary:[dictionary objectForKey:@"from"]];
-    NSString *text = [dictionary objectForKey:@"text"];
-    long createdTime = [[dictionary objectForKey:@"created_time"] longValue];
+    VPUser *u = [[VPUser alloc] initWithDictionary:[dictionary objectForKey:@"from"]];
+    NSString *t = [dictionary objectForKey:@"text"];
+    long c = [[dictionary objectForKey:@"created_time"] intValue];
     
-    return [self initWithUser:user text:text createdTime:createdTime];
+    return [self initWithUser:u text:t createdTime:c];
 }
 
 -(id)init
