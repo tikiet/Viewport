@@ -12,5 +12,6 @@
 
 @property (weak) IBOutlet NSImageView *imageView;
 @property (weak) IBOutlet NSTextField *textView;
+@property (weak) IBOutlet NSTextField *userName;
 
 @end

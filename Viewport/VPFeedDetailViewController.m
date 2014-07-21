@@ -63,6 +63,14 @@
                                                          imageView:commentView.imageView];
         [loader start];
         commentView.textView.stringValue = comment.text;
+        commentView.userName.textColor = [NSColor colorWithCalibratedRed:0.19 green:0.36 blue:0.55 alpha:1];
+        commentView.userName.stringValue = comment.user.name;
+        commentView.imageView.wantsLayer = YES;
+        CALayer *layer = [CALayer layer];
+        layer.cornerRadius = 3;
+        layer.masksToBounds = YES;
+        commentView.imageView.layer = layer;
+        
         return commentView;
     }
 }
