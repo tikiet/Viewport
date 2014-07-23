@@ -20,6 +20,7 @@
 		BA414B5D197BC5FB0061BA59 /* VPFeedDetailCommentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA414B5B197BC5FB0061BA59 /* VPFeedDetailCommentView.xib */; };
 		BA414B60197BE1570061BA59 /* VPFeedDetailPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA414B5F197BE1570061BA59 /* VPFeedDetailPhotoView.m */; };
 		BA414B63197BE1780061BA59 /* VPFeedDetailCommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA414B62197BE1780061BA59 /* VPFeedDetailCommentView.m */; };
+		BA414B66197F45220061BA59 /* NSTextField+LayoutContraintTag.m in Sources */ = {isa = PBXBuildFile; fileRef = BA414B65197F45220061BA59 /* NSTextField+LayoutContraintTag.m */; };
 		BA47A47A196EE11B0005997B /* internet.png in Resources */ = {isa = PBXBuildFile; fileRef = BA47A478196EE11B0005997B /* internet.png */; };
 		BA47A47B196EE11B0005997B /* heart.png in Resources */ = {isa = PBXBuildFile; fileRef = BA47A479196EE11B0005997B /* heart.png */; };
 		BA47A47D196EEC140005997B /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = BA47A47C196EEC140005997B /* home.png */; };
@@ -102,6 +103,8 @@
 		BA414B5F197BE1570061BA59 /* VPFeedDetailPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VPFeedDetailPhotoView.m; sourceTree = "<group>"; };
 		BA414B61197BE1780061BA59 /* VPFeedDetailCommentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VPFeedDetailCommentView.h; sourceTree = "<group>"; };
 		BA414B62197BE1780061BA59 /* VPFeedDetailCommentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VPFeedDetailCommentView.m; sourceTree = "<group>"; };
+		BA414B64197F45220061BA59 /* NSTextField+LayoutContraintTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTextField+LayoutContraintTag.h"; sourceTree = "<group>"; };
+		BA414B65197F45220061BA59 /* NSTextField+LayoutContraintTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTextField+LayoutContraintTag.m"; sourceTree = "<group>"; };
 		BA47A478196EE11B0005997B /* internet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = internet.png; sourceTree = "<group>"; };
 		BA47A479196EE11B0005997B /* heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart.png; sourceTree = "<group>"; };
 		BA47A47C196EEC140005997B /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
@@ -349,6 +352,8 @@
 				BA355DF5196993D900D542BB /* VPConnectionDataDepot.m */,
 				BA355DFA1969A69F00D542BB /* VPInfo.h */,
 				BA355DFB1969A69F00D542BB /* VPInfo.m */,
+				BA414B64197F45220061BA59 /* NSTextField+LayoutContraintTag.h */,
+				BA414B65197F45220061BA59 /* NSTextField+LayoutContraintTag.m */,
 			);
 			name = utility;
 			sourceTree = "<group>";
@@ -612,6 +617,7 @@
 				BAD91DB31969709F00BED591 /* VPFeedsViewController.m in Sources */,
 				BA355DFC1969A69F00D542BB /* VPInfo.m in Sources */,
 				BA8F3DF31967A9D2009E7E70 /* VPFeedView.m in Sources */,
+				BA414B66197F45220061BA59 /* NSTextField+LayoutContraintTag.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

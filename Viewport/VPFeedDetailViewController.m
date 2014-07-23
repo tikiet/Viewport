@@ -2,6 +2,7 @@
 #import "TKImageLoader.h"
 #import "VPFeedDetailPhotoView.h"
 #import "VPFeedDetailCommentView.h"
+#import "NSTextField+LayoutContraintTag.h"
 
 @interface VPFeedDetailViewController ()
 
@@ -64,22 +65,27 @@
         TKImageLoader *loader = [[TKImageLoader alloc] initWithURL:[NSURL URLWithString: comment.user.profilePicture]
                                                          imageView:commentView.imageView];
         [loader start];
-        commentView.textView.stringValue = comment.text;
-        NSRect frame = commentView.textView.frame;
-        frame.size.height = [self resizeTextField:comment];
-        commentView.textView.frame = NSMakeRect(frame.origin.x, frame.origin.y, frame.size.width, frame.size.height);
-        commentView.textView.backgroundColor = [NSColor redColor];
-        commentView.textView.wantsLayer = YES;
-        
         commentView.userName.textColor = [NSColor colorWithCalibratedRed:0.19 green:0.36 blue:0.55 alpha:1];
         commentView.userName.stringValue = comment.user.name;
         commentView.imageView.wantsLayer = YES;
         CALayer *layer = [CALayer layer];
         layer.cornerRadius = 3;
         layer.masksToBounds = YES;
-        
         commentView.imageView.layer = layer;
         
+        NSTextField *textView = commentView.textView;
+        textView.stringValue = comment.text;
+        if (textView.tag) {
+            [textView removeConstraints:textView.tag];
+        }
+        textView.tag =
+        [NSLayoutConstraint constraintsWithVisualFormat:[NSString
+                                                         stringWithFormat:@"V:[textView(%f)]",
+                                                         ceil([self resizeTextField:comment])]
+                                                options:0
+                                                metrics:nil
+                                                  views:NSDictionaryOfVariableBindings(textView)];
+        [textView addConstraints:textView.tag];
         return commentView;
     }
 }
