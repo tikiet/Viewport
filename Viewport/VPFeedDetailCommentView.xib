@@ -28,8 +28,8 @@
                     </constraints>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="FOe-wK-1B3"/>
                 </imageView>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="psA-th-h8B">
-                    <rect key="frame" x="58" y="15" width="364" height="20"/>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="psA-th-h8B">
+                    <rect key="frame" x="60" y="15" width="360" height="20"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" allowsUndo="NO" sendsActionOnEndEditing="YES" title="Label" drawsBackground="YES" id="WLy-Sh-MQV">
                         <font key="font" metaFont="system"/>

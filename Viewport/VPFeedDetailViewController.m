@@ -3,12 +3,16 @@
 #import "VPFeedDetailPhotoView.h"
 #import "VPFeedDetailCommentView.h"
 #import "NSTextField+LayoutContraintTag.h"
+#import "NS(Attributed)String+Geometrics.h"
 
 @interface VPFeedDetailViewController ()
 
 @end
 
 @implementation VPFeedDetailViewController
+{
+    NSFont *defaultFont;
+}
 
 @synthesize feed;
 
@@ -22,6 +26,8 @@
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    
+    defaultFont = [NSFont fontWithName:@"Lucida Grande" size:13];
 }
 
 -(void)show
@@ -90,19 +96,19 @@
     }
 }
 
--(CGFloat)resizeTextField:(VPComment *) comment{
+-(CGFloat)resizeTextField:(VPComment *) comment
+{
     NSTextStorage *textStorage = [[NSTextStorage alloc] initWithString: comment.text];
     NSTextContainer *textContainer = [[NSTextContainer alloc] initWithContainerSize:NSMakeSize(360, FLT_MAX)] ;
     NSLayoutManager *layoutManager = [[NSLayoutManager alloc]init];
     
     [layoutManager addTextContainer:textContainer];
     [textStorage addLayoutManager:layoutManager];
-    [textContainer setLineFragmentPadding:2.0];
+    [textContainer setLineFragmentPadding:0.0];
     [layoutManager glyphRangeForTextContainer:textContainer];
-    
     NSLog(@"height:%f, text:%@",[layoutManager usedRectForTextContainer:textContainer].size.height, comment.text);
     
-    return [layoutManager usedRectForTextContainer:textContainer].size.height;
+    return [comment.text heightForWidth:360 font:defaultFont];
 }
 
 @end

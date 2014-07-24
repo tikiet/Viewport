@@ -30,6 +30,7 @@
 		BAAFC76F19630F5E004E3408 /* VPComments.m in Sources */ = {isa = PBXBuildFile; fileRef = BAAFC76E19630F5E004E3408 /* VPComments.m */; };
 		BAAFC77519631492004E3408 /* VPVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = BAAFC77419631492004E3408 /* VPVideo.m */; };
 		BAAFC77819639B01004E3408 /* VPVideos.m in Sources */ = {isa = PBXBuildFile; fileRef = BAAFC77719639B01004E3408 /* VPVideos.m */; };
+		BACFA4151981593C00D3E924 /* NS(Attributed)String+Geometrics.m in Sources */ = {isa = PBXBuildFile; fileRef = BACFA4141981593C00D3E924 /* NS(Attributed)String+Geometrics.m */; };
 		BAD260E019742994005F2E7D /* MASPreferencesWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAD260DB19742994005F2E7D /* MASPreferencesWindow.xib */; };
 		BAD260E119742994005F2E7D /* MASPreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD260DD19742994005F2E7D /* MASPreferencesWindowController.m */; };
 		BAD260E719742BCF005F2E7D /* VPPreferenceAdvancedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD260E519742BCF005F2E7D /* VPPreferenceAdvancedViewController.m */; };
@@ -120,6 +121,8 @@
 		BAAFC77419631492004E3408 /* VPVideo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VPVideo.m; sourceTree = "<group>"; };
 		BAAFC77619639B01004E3408 /* VPVideos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VPVideos.h; sourceTree = "<group>"; };
 		BAAFC77719639B01004E3408 /* VPVideos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VPVideos.m; sourceTree = "<group>"; };
+		BACFA4131981593C00D3E924 /* NS(Attributed)String+Geometrics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NS(Attributed)String+Geometrics.h"; sourceTree = "<group>"; };
+		BACFA4141981593C00D3E924 /* NS(Attributed)String+Geometrics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NS(Attributed)String+Geometrics.m"; sourceTree = "<group>"; };
 		BAD260DA19742994005F2E7D /* MASPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASPreferencesViewController.h; sourceTree = "<group>"; };
 		BAD260DB19742994005F2E7D /* MASPreferencesWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MASPreferencesWindow.xib; sourceTree = "<group>"; };
 		BAD260DC19742994005F2E7D /* MASPreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASPreferencesWindowController.h; sourceTree = "<group>"; };
@@ -423,6 +426,8 @@
 		BAF657EE1960323300593F2D /* Viewport */ = {
 			isa = PBXGroup;
 			children = (
+				BACFA4131981593C00D3E924 /* NS(Attributed)String+Geometrics.h */,
+				BACFA4141981593C00D3E924 /* NS(Attributed)String+Geometrics.m */,
 				BAD4303E197BAD200084C415 /* VPFeedDetailViewController */,
 				BAD91D961969238B00BED591 /* utility */,
 				BA8F3DF01967A9B8009E7E70 /* VPFeedView */,
@@ -611,6 +616,7 @@
 				BAEBEFEF196463FE0074D049 /* VPFeed.m in Sources */,
 				BAAFC76C19630B8E004E3408 /* VPComment.m in Sources */,
 				BAAFC77819639B01004E3408 /* VPVideos.m in Sources */,
+				BACFA4151981593C00D3E924 /* NS(Attributed)String+Geometrics.m in Sources */,
 				BAD43035197AB2740084C415 /* BSRefreshableScrollView.m in Sources */,
 				BAD260E719742BCF005F2E7D /* VPPreferenceAdvancedViewController.m in Sources */,
 				BAD91DA619694B5700BED591 /* VPURLParser.m in Sources */,
