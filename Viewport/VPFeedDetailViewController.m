@@ -10,11 +10,15 @@
 @end
 
 @implementation VPFeedDetailViewController
-{
-    NSFont *defaultFont;
-}
+
+static NSFont *defaultFont;
 
 @synthesize feed;
+
++(void)initialize
+{
+    defaultFont = [NSFont fontWithName:@"Lucida Grande" size:13];
+}
 
 -(void)prepare
 {
@@ -27,7 +31,6 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
-    defaultFont = [NSFont fontWithName:@"Lucida Grande" size:13];
 }
 
 -(void)show
