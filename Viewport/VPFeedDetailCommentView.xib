@@ -28,7 +28,7 @@
                     </constraints>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="FOe-wK-1B3"/>
                 </imageView>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="psA-th-h8B">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="psA-th-h8B">
                     <rect key="frame" x="60" y="15" width="360" height="20"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" allowsUndo="NO" sendsActionOnEndEditing="YES" title="Label" drawsBackground="YES" id="WLy-Sh-MQV">
@@ -51,7 +51,6 @@
                 <constraint firstItem="zcc-aM-YNX" firstAttribute="top" secondItem="DnB-AH-Kkn" secondAttribute="top" id="Cyf-qe-H53"/>
                 <constraint firstItem="psA-th-h8B" firstAttribute="top" secondItem="DnB-AH-Kkn" secondAttribute="centerY" id="HAD-zs-LiI"/>
                 <constraint firstItem="DnB-AH-Kkn" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="10" id="HCp-Qh-bTI"/>
-                <constraint firstItem="DnB-AH-Kkn" firstAttribute="bottom" secondItem="psA-th-h8B" secondAttribute="bottom" id="NIE-rc-apN"/>
                 <constraint firstItem="zcc-aM-YNX" firstAttribute="trailing" secondItem="Hz6-mo-xeY" secondAttribute="trailing" constant="-10" id="OEp-04-941"/>
                 <constraint firstItem="psA-th-h8B" firstAttribute="leading" secondItem="DnB-AH-Kkn" secondAttribute="trailing" constant="10" id="QSS-V9-yt0"/>
                 <constraint firstItem="zcc-aM-YNX" firstAttribute="leading" secondItem="DnB-AH-Kkn" secondAttribute="trailing" constant="10" id="cNo-Wa-779"/>

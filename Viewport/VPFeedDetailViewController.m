@@ -42,7 +42,7 @@
     } else {
         
         VPComment *comment = feed.comments.comments[row - 1];
-        return 60.0 + [self resizeTextField:comment];
+        return 60.0 + [self getTextHeight:comment];
     }
 }
 
@@ -87,7 +87,7 @@
         textView.tag =
         [NSLayoutConstraint constraintsWithVisualFormat:[NSString
                                                          stringWithFormat:@"V:[textView(%f)]",
-                                                         ceil([self resizeTextField:comment])]
+                                                         [self getTextHeight:comment]]
                                                 options:0
                                                 metrics:nil
                                                   views:NSDictionaryOfVariableBindings(textView)];
@@ -96,18 +96,8 @@
     }
 }
 
--(CGFloat)resizeTextField:(VPComment *) comment
+-(CGFloat)getTextHeight:(VPComment *) comment
 {
-    NSTextStorage *textStorage = [[NSTextStorage alloc] initWithString: comment.text];
-    NSTextContainer *textContainer = [[NSTextContainer alloc] initWithContainerSize:NSMakeSize(360, FLT_MAX)] ;
-    NSLayoutManager *layoutManager = [[NSLayoutManager alloc]init];
-    
-    [layoutManager addTextContainer:textContainer];
-    [textStorage addLayoutManager:layoutManager];
-    [textContainer setLineFragmentPadding:0.0];
-    [layoutManager glyphRangeForTextContainer:textContainer];
-    NSLog(@"height:%f, text:%@",[layoutManager usedRectForTextContainer:textContainer].size.height, comment.text);
-    
     return [comment.text heightForWidth:360 font:defaultFont];
 }
 
