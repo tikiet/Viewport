@@ -34,7 +34,7 @@
                     <textFieldCell key="cell" allowsUndo="NO" sendsActionOnEndEditing="YES" title="Label" drawsBackground="YES" id="WLy-Sh-MQV">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" red="0.93725496530532837" green="0.3490196168422699" blue="0.14117647707462311" alpha="1" colorSpace="deviceRGB"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zcc-aM-YNX">

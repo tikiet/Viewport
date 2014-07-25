@@ -42,7 +42,7 @@
     } else {
         
         VPComment *comment = feed.comments.comments[row - 1];
-        return 60.0 + [self getTextHeight:comment];
+        return 35 + [self getTextHeight:comment];
     }
 }
 
