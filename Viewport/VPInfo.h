@@ -16,6 +16,7 @@
 @interface VPInfo : NSObject
 
 +(NSURL *)retrieveUserDetailUrlWithUserId:(NSString*)userId;
++(NSURL *)retrieveUserRecentsUrlWithUserId:(NSString*)userId;
 
 +(NSURL *)retrieveUrlWithIdentifier:(NSString*)identifier nextMaxId:(NSString*)nextMaxId;
 

@@ -1,10 +1,14 @@
 #import "VPUserDetailViewController.h"
 #import "VPInfo.h"
 #import "VPConnectionDataDepot.h"
+#import "VPUserDetailPhotoView.h"
 #import "TKImageLoader.h"
+#import "VPFeed.h"
 
 @interface VPUserDetailViewController ()
-
+{
+    NSMutableArray *recents;
+}
 @end
 
 @implementation VPUserDetailViewController
@@ -25,6 +29,11 @@
     layer.backgroundColor = CGColorCreateGenericRGB(1, 1, 1, 1);
     self.view.wantsLayer = YES;
     self.view.layer = layer;
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    
+    NSNib *nib = [[NSNib alloc]initWithNibNamed:@"VPUserDetailPhotoView" bundle:nil];
+    [self.tableView registerNib:nib forIdentifier:@"photo"];
 }
 
 -(void)show
@@ -34,26 +43,31 @@
 
 -(void)prepare
 {
-    NSURLRequest *request =
-    [NSURLRequest requestWithURL:
-     [VPInfo retrieveUserDetailUrlWithUserId:
-      [@(self.user.userId) stringValue]]];
-    
-    NSURLConnection *con =
-    [[NSURLConnection alloc] initWithRequest:request
+    NSURLRequest *detailRequest =[NSURLRequest requestWithURL:[VPInfo retrieveUserDetailUrlWithUserId:[@(self.user.userId) stringValue]]];
+    NSURLConnection *detailConn =
+    [[NSURLConnection alloc] initWithRequest:detailRequest
                                     delegate:[[VPConnectionDataDepot alloc]
                                               initWithSuccessBlock:^(NSData *data){
-                                                  [self updateData:data];
+                                                  [self updateUserDetail:data];
                                               } failBlock:^(NSError *error){
                                                   NSLog(@"error:%@", error);
-                                              }]
-                            startImmediately:NO];
+                                              }]];
     
-    [con start];
+    [detailConn start];
     
+    NSURLRequest *recentsRequest = [NSURLRequest requestWithURL:[VPInfo retrieveUserRecentsUrlWithUserId:[@(self.user.userId) stringValue]]];
+    NSURLConnection *recentsConn =
+    [[NSURLConnection alloc] initWithRequest:recentsRequest
+                                    delegate:[[VPConnectionDataDepot alloc]
+                                              initWithSuccessBlock:^(NSData*data) {
+                                                  [self updateUserRecents:data];
+                                              } failBlock:^(NSError *error) {
+                                                  NSLog(@"error:%@", error);
+                                              }]];
+    [recentsConn start];
 }
 
--(void)updateData:(NSData*)data
+-(void)updateUserDetail:(NSData*)data
 {
     NSDictionary *raw = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
     self.user = [[VPUser alloc] initWithDictionary:[raw objectForKey:@"data"]];
@@ -67,5 +81,47 @@
     TKImageLoader *loader = [[TKImageLoader alloc] initWithURL:[NSURL URLWithString:self.user.profilePicture]
                                                      imageView:self.profile];
     [loader start];
+}
+
+-(void)updateUserRecents:(NSData*)data
+{
+    NSDictionary *raw = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    NSArray *recentsArray = [raw objectForKey:@"data"];
+    
+    recents = [[NSMutableArray alloc] init];
+    for (NSDictionary *dic in recentsArray) {
+        VPFeed *feed = [[VPFeed alloc] initWithDictionray:dic];
+        [recents addObject:feed];
+    }
+    
+    [self.tableView reloadData];
+}
+
+-(NSInteger)numberOfRowsInTableView:(NSTableView *)tableView
+{
+    if (recents)
+        return (int)ceil(recents.count/3.0);
+    return 0;
+}
+
+-(NSView*) tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
+{
+    VPUserDetailPhotoView *photoView = [self.tableView makeViewWithIdentifier:@"photo" owner:self];
+    long index = row * 3 + [tableColumn.identifier intValue];
+    if (index >= recents.count){
+        return nil;
+    }
+    
+    VPFeed *feed = recents[index];
+    TKImageLoader *loader = [[TKImageLoader alloc] initWithURL:[NSURL URLWithString: feed.images.lowResolution.url]
+                             imageView:photoView.imageView];
+    [loader start];
+    
+    return photoView;
+}
+
+-(BOOL)tableView:(NSTableView *)tableView shouldSelectRow:(NSInteger)row
+{
+    return NO;
 }
 @end

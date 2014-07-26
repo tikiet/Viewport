@@ -6,6 +6,7 @@ static NSString *popularUrl = @"https://api.instagram.com/v1/media/popular?clien
 static NSString *selfTimelineUrl = @"https://api.instagram.com/v1/users/self/feed?access_token=%@";
 static NSString *favoritesUrl = @"https://api.instagram.com/v1/users/self/media/liked?access_token=%@";
 static NSString *userDetailUrl = @"https://api.instagram.com/v1/users/%@/?access_token=%@";
+static NSString *userRecentUrl = @"https://api.instagram.com/v1/users/%@/media/recent/?access_token=%@";
 
 static NSMutableDictionary *mapping;
 
@@ -108,6 +109,11 @@ static NSMutableDictionary *mapping;
 +(NSURL*)retrieveUserDetailUrlWithUserId:(NSString *)userId
 {
     return [NSURL URLWithString:[NSString stringWithFormat:userDetailUrl, userId, [self accessToken]]];
+}
+
++(NSURL*)retrieveUserRecentsUrlWithUserId:(NSString *)userId
+{
+    return [NSURL URLWithString:[NSString stringWithFormat:userRecentUrl, userId, [self accessToken]]];
 }
 
 +(NSString*)clientId

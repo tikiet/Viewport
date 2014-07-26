@@ -46,7 +46,6 @@
         self.website = webSite;
         self.bio = biography;
         
-        NSLog(@"stats:%@", stats);
         if (stats && ![stats isEqual:[NSNull null]]) {
             self.followingCount = [[stats objectForKey:@"follows"] intValue];
             self.followerCount = [[stats objectForKey:@"followed_by"] intValue];
@@ -58,7 +57,6 @@
 
 -(id)initWithDictionary:(NSDictionary *)dictionary
 {
-    NSLog(@"dic:%@, counts:%@", dictionary, [dictionary valueForKey:@"counts"]);
     return [self initWithID:[[dictionary objectForKey:@"id"] intValue]
                        name:[dictionary objectForKey:@"username"]
                    fullName:[dictionary objectForKey:@"full_name"]

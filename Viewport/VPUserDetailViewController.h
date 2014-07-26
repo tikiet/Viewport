@@ -9,7 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import "VPUser.h"
 
-@interface VPUserDetailViewController : NSViewController
+@interface VPUserDetailViewController : NSViewController <NSTableViewDataSource, NSTableViewDelegate>
 
 @property (strong) VPUser *user;
 
@@ -19,9 +19,9 @@
 
 @property (weak) IBOutlet NSTextField *userName;
 @property (weak) IBOutlet NSTextField *bio;
-
 @property (weak) IBOutlet NSImageView *profile;
 
+@property (weak) IBOutlet NSTableView *tableView;
 -(void)prepare;
 -(void)show;
 
