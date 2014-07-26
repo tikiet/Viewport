@@ -4,6 +4,7 @@
 #import "VPUserDetailPhotoView.h"
 #import "TKImageLoader.h"
 #import "VPFeed.h"
+#import "NS(Attributed)String+Geometrics.h"
 
 @interface VPUserDetailViewController ()
 {
@@ -75,9 +76,15 @@
     self.followers.stringValue = [@(self.user.followerCount) stringValue];
     self.following.stringValue = [@(self.user.followingCount) stringValue];
     self.posts.stringValue = [@(self.user.postCount) stringValue];
+    self.userName.stringValue = self.user.fullName;
     self.bio.stringValue = self.user.bio;
-    self.userName.stringValue = self.user.name;
     
+    float height = [self.user.bio heightForWidth:400 font:[NSFont fontWithName:@"Lucida Grande" size:13]];
+    NSView *bio = self.bio;
+    [self.bio addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"V:[bio(%f)]", height]
+                                                                   options:0
+                                                                   metrics:nil
+                                                                      views:NSDictionaryOfVariableBindings(bio)]];
     TKImageLoader *loader = [[TKImageLoader alloc] initWithURL:[NSURL URLWithString:self.user.profilePicture]
                                                      imageView:self.profile];
     [loader start];

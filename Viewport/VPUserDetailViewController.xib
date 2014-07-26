@@ -24,16 +24,16 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OVe-In-mBX">
-                    <rect key="frame" x="15" y="304" width="100" height="100"/>
+                    <rect key="frame" x="15" y="324" width="80" height="80"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <constraints>
                         <constraint firstAttribute="height" secondItem="OVe-In-mBX" secondAttribute="width" multiplier="1:1" id="39f-d1-aOE"/>
-                        <constraint firstAttribute="width" constant="100" id="c8t-3i-eZg"/>
+                        <constraint firstAttribute="width" constant="80" id="c8t-3i-eZg"/>
                     </constraints>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" id="122-Bg-hlk"/>
                 </imageView>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="b5x-Gl-eal">
-                    <rect key="frame" x="233" y="382" width="41" height="17"/>
+                    <rect key="frame" x="188" y="372" width="41" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="0" id="hy3-h2-ffK">
                         <font key="font" metaFont="system"/>
@@ -42,7 +42,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="egC-XJ-AHr">
-                    <rect key="frame" x="285" y="382" width="61" height="17"/>
+                    <rect key="frame" x="240" y="372" width="61" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="0" id="68b-xW-7uW">
                         <font key="font" metaFont="system"/>
@@ -51,7 +51,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UGk-2e-WwL">
-                    <rect key="frame" x="357" y="382" width="60" height="17"/>
+                    <rect key="frame" x="312" y="372" width="60" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="0" id="Qgf-OI-XQQ">
                         <font key="font" metaFont="system"/>
@@ -60,7 +60,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nWn-Af-SwQ">
-                    <rect key="frame" x="233" y="363" width="41" height="19"/>
+                    <rect key="frame" x="188" y="353" width="41" height="19"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="posts" id="pcq-Wq-0YO">
                         <font key="font" size="13" name="HelveticaNeue"/>
@@ -69,7 +69,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="l68-Sm-dZQ">
-                    <rect key="frame" x="285" y="363" width="61" height="19"/>
+                    <rect key="frame" x="240" y="353" width="61" height="19"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="followers" id="0Wo-Ah-gOo">
                         <font key="font" size="13" name="HelveticaNeue"/>
@@ -78,7 +78,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yUe-hZ-9uu">
-                    <rect key="frame" x="357" y="363" width="60" height="19"/>
+                    <rect key="frame" x="312" y="353" width="60" height="19"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="following" id="6df-D5-W5D">
                         <font key="font" size="13" name="HelveticaNeue"/>
@@ -87,7 +87,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="F7Q-5Z-nbo">
-                    <rect key="frame" x="123" y="337" width="304" height="17"/>
+                    <rect key="frame" x="13" y="302" width="404" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="iAx-ml-wix">
                         <font key="font" metaFont="system"/>
@@ -96,7 +96,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Dl-ed-4P6">
-                    <rect key="frame" x="123" y="315" width="304" height="17"/>
+                    <rect key="frame" x="13" y="280" width="404" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Label" id="Qbp-Ao-IdG">
                         <font key="font" metaFont="system"/>
@@ -105,14 +105,14 @@
                     </textFieldCell>
                 </textField>
                 <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="102" horizontalPageScroll="10" verticalLineScroll="102" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zMR-9o-90X">
-                    <rect key="frame" x="0.0" y="0.0" width="430" height="299"/>
+                    <rect key="frame" x="0.0" y="0.0" width="430" height="275"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <clipView key="contentView" id="EV3-kN-2CQ">
-                        <rect key="frame" x="0.0" y="0.0" width="430" height="299"/>
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="275"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnResizing="NO" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" typeSelect="NO" rowHeight="100" viewBased="YES" floatsGroupRows="NO" id="KeX-c5-NoA">
-                                <rect key="frame" x="0.0" y="0.0" width="430" height="299"/>
+                                <rect key="frame" x="0.0" y="0.0" width="430" height="275"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <size key="intercellSpacing" width="3" height="2"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -175,23 +175,22 @@
             <constraints>
                 <constraint firstItem="yUe-hZ-9uu" firstAttribute="width" secondItem="UGk-2e-WwL" secondAttribute="width" id="1nm-lN-3zV"/>
                 <constraint firstItem="UGk-2e-WwL" firstAttribute="leading" secondItem="egC-XJ-AHr" secondAttribute="trailing" constant="15" id="2ht-Ef-YkU"/>
+                <constraint firstItem="F7Q-5Z-nbo" firstAttribute="top" secondItem="OVe-In-mBX" secondAttribute="bottom" constant="5" id="6LF-kO-ZMA"/>
                 <constraint firstItem="6Dl-ed-4P6" firstAttribute="top" secondItem="F7Q-5Z-nbo" secondAttribute="bottom" constant="5" id="9Kr-8f-Ecc"/>
+                <constraint firstItem="F7Q-5Z-nbo" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="15" id="A7S-T3-7Fg"/>
                 <constraint firstItem="yUe-hZ-9uu" firstAttribute="centerY" secondItem="l68-Sm-dZQ" secondAttribute="centerY" id="B1j-hk-Dwq"/>
                 <constraint firstItem="egC-XJ-AHr" firstAttribute="centerX" secondItem="l68-Sm-dZQ" secondAttribute="centerX" id="BXx-vt-bPQ"/>
-                <constraint firstItem="zMR-9o-90X" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6Dl-ed-4P6" secondAttribute="bottom" constant="5" id="Cgz-QS-YwC"/>
+                <constraint firstItem="zMR-9o-90X" firstAttribute="top" secondItem="6Dl-ed-4P6" secondAttribute="bottom" constant="5" id="Cgz-QS-YwC"/>
                 <constraint firstItem="zMR-9o-90X" firstAttribute="width" secondItem="Hz6-mo-xeY" secondAttribute="width" id="Mv6-wQ-jHL"/>
-                <constraint firstItem="UGk-2e-WwL" firstAttribute="trailing" secondItem="Hz6-mo-xeY" secondAttribute="trailing" constant="-15" id="NHU-Jk-h1s"/>
-                <constraint firstItem="zMR-9o-90X" firstAttribute="top" secondItem="OVe-In-mBX" secondAttribute="bottom" constant="5" id="OG9-wd-Ogm"/>
+                <constraint firstItem="UGk-2e-WwL" firstAttribute="trailing" secondItem="Hz6-mo-xeY" secondAttribute="trailing" constant="-60" id="NHU-Jk-h1s"/>
                 <constraint firstItem="l68-Sm-dZQ" firstAttribute="width" secondItem="egC-XJ-AHr" secondAttribute="width" id="Oto-hJ-z9I"/>
                 <constraint firstItem="nWn-Af-SwQ" firstAttribute="centerY" secondItem="l68-Sm-dZQ" secondAttribute="centerY" id="PLk-Qm-fgg"/>
                 <constraint firstItem="egC-XJ-AHr" firstAttribute="centerY" secondItem="UGk-2e-WwL" secondAttribute="centerY" id="QDK-Jc-G0T"/>
-                <constraint firstItem="F7Q-5Z-nbo" firstAttribute="trailing" secondItem="Hz6-mo-xeY" secondAttribute="trailing" constant="-5" id="Szn-VD-BZ4"/>
+                <constraint firstItem="F7Q-5Z-nbo" firstAttribute="trailing" secondItem="Hz6-mo-xeY" secondAttribute="trailing" constant="-15" id="Szn-VD-BZ4"/>
                 <constraint firstItem="OVe-In-mBX" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="15" id="TWN-xM-gGx"/>
-                <constraint firstItem="UGk-2e-WwL" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" id="X5I-bL-hX7"/>
+                <constraint firstItem="UGk-2e-WwL" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="30" id="X5I-bL-hX7"/>
                 <constraint firstItem="OVe-In-mBX" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="15" id="ZCs-oJ-Qod"/>
-                <constraint firstItem="F7Q-5Z-nbo" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="65" id="Zyl-yY-iIh"/>
                 <constraint firstItem="nWn-Af-SwQ" firstAttribute="centerX" secondItem="b5x-Gl-eal" secondAttribute="centerX" id="bbX-AD-wkN"/>
-                <constraint firstItem="F7Q-5Z-nbo" firstAttribute="leading" secondItem="OVe-In-mBX" secondAttribute="trailing" constant="10" id="dwa-l3-hom"/>
                 <constraint firstItem="yUe-hZ-9uu" firstAttribute="top" secondItem="UGk-2e-WwL" secondAttribute="bottom" id="eVO-a4-7B7"/>
                 <constraint firstItem="6Dl-ed-4P6" firstAttribute="centerX" secondItem="F7Q-5Z-nbo" secondAttribute="centerX" id="gcg-r8-JaH"/>
                 <constraint firstItem="egC-XJ-AHr" firstAttribute="centerY" secondItem="b5x-Gl-eal" secondAttribute="centerY" id="glG-nB-THb"/>

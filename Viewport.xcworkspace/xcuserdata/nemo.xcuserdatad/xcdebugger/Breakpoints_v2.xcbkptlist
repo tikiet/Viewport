@@ -238,11 +238,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Viewport/VPUserDetailViewController.m"
-            timestampString = "428075493.729441"
+            timestampString = "428080633.978838"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
             landmarkName = "-updateUserDetail:"
             landmarkType = "5">
          </BreakpointContent>
