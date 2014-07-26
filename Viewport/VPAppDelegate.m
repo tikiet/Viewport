@@ -2,6 +2,7 @@
 #import "INAppStoreWindow.h"
 #import "VPConnectionDataDepot.h"
 #import "VPFeedDetailViewController.h"
+#import "VPUserDetailViewController.h"
 
 @implementation VPAppDelegate
 {
@@ -194,14 +195,22 @@
 
 -(void)modelDidSelect:(id)model
 {
-    VPFeedDetailViewController *controller = [[VPFeedDetailViewController alloc]
-                                              initWithNibName:@"VPFeedDetailViewController"
-                                              bundle:nil];
-    controller.feed = (VPFeed*)model;
-    [navController addViewController:controller retain:NO];
-    [controller prepare];
-    [controller show];
-    
-    //NSLog(@"view controllers:%@", navController.viewControllers);
+    if ([model isKindOfClass:[VPFeed class]]) {
+        VPFeedDetailViewController *controller = [[VPFeedDetailViewController alloc]
+                                                  initWithNibName:@"VPFeedDetailViewController"
+                                                  bundle:nil];
+        controller.feed = (VPFeed*)model;
+        [navController addViewController:controller retain:NO];
+        [controller prepare];
+        [controller show];
+    } else if ([model isKindOfClass:[VPUser class]]) {
+        VPUserDetailViewController *controller = [[VPUserDetailViewController alloc]
+                                                  initWithNibName:@"VPUserDetailViewController"
+                                                  bundle:nil];
+        controller.user = (VPUser*)model;
+        [navController addViewController:controller retain:NO];
+        [controller prepare];
+        [controller show];
+    }
 }
 @end

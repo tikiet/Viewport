@@ -10,7 +10,7 @@
 
 @implementation VPUser
 
-@synthesize name, fullName, userId, profilePicture;
+@synthesize name, fullName, userId, profilePicture, followerCount, followingCount, postCount;
 
 -(id) initWithCoder:(NSCoder *)aDecoder
 {
@@ -29,13 +29,13 @@
     [aCoder encodeInt:self.userId forKey:@"userId"];
 }
 
--(id) initWithID:(int)uid name:(NSString *)n fullName:(NSString *)fn profilePicture:(NSString *)pp
-{
-    return [self initWithID:uid name:n fullName:fn profilePicture:pp];
-}
-
--(id)initWithID:(int) uid name:(NSString *) userName fullName:(NSString *)userFullname profilePicture:(NSString *) picture
-        webSite:(NSString *)webSite biography:(NSString *)biography
+-(id)initWithID:(int) uid
+           name:(NSString *) userName
+       fullName:(NSString *)userFullname
+ profilePicture:(NSString *) picture
+        webSite:(NSString *)webSite
+      biography:(NSString *)biography
+          stats:(NSDictionary *)stats
 {
     self = [super init];
     if (self) {
@@ -45,22 +45,32 @@
         self.profilePicture = picture;
         self.website = webSite;
         self.bio = biography;
+        
+        NSLog(@"stats:%@", stats);
+        if (stats && ![stats isEqual:[NSNull null]]) {
+            self.followingCount = [[stats objectForKey:@"follows"] intValue];
+            self.followerCount = [[stats objectForKey:@"followed_by"] intValue];
+            self.postCount = [[stats objectForKey:@"media"] intValue];
+        }
     }
     return self;
 }
 
 -(id)initWithDictionary:(NSDictionary *)dictionary
 {
+    NSLog(@"dic:%@, counts:%@", dictionary, [dictionary valueForKey:@"counts"]);
     return [self initWithID:[[dictionary objectForKey:@"id"] intValue]
                        name:[dictionary objectForKey:@"username"]
                    fullName:[dictionary objectForKey:@"full_name"]
              profilePicture:[dictionary objectForKey:@"profile_picture"]
                     webSite:[dictionary objectForKey:@"website"]
-                  biography:[dictionary objectForKey:@"bio"]];
+                  biography:[dictionary objectForKey:@"bio"]
+                      stats:[dictionary objectForKey:@"counts"]
+            ];
 }
 
 -(id)init
 {
-    return [self initWithID:0 name:nil fullName:nil profilePicture:nil];
+    return [self initWithID:0 name:nil fullName:nil profilePicture:nil webSite:nil biography:nil stats:nil];
 }
 @end

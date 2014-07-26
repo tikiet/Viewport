@@ -16,18 +16,12 @@
                     <rect key="frame" x="40" y="10" width="400" height="460"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <subviews>
-                        <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0sE-HS-Xrp">
-                            <rect key="frame" x="5" y="5" width="50" height="50"/>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UMV-xP-3ZX">
+                            <rect key="frame" x="58" y="10" width="334" height="40"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="50" id="Sgv-Rv-HjT"/>
-                                <constraint firstAttribute="height" constant="50" id="hPU-bJ-Ncn"/>
+                                <constraint firstAttribute="height" constant="40" id="8ys-6c-pek"/>
                             </constraints>
-                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="LIn-I0-3GS"/>
-                        </imageView>
-                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UMV-xP-3ZX">
-                            <rect key="frame" x="63" y="10" width="329" height="40"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <textFieldCell key="cell" truncatesLastVisibleLine="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" alignment="left" title="Label" id="1yI-rb-L35">
                                 <font key="font" metaFont="system"/>
                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -45,19 +39,30 @@
                                 <font key="font" metaFont="system" size="10"/>
                             </buttonCell>
                         </button>
+                        <button translatesAutoresizingMaskIntoConstraints="NO" id="ckF-pf-VMP">
+                            <rect key="frame" x="5" y="5" width="50" height="50"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="3Oo-dD-RCy"/>
+                                <constraint firstAttribute="width" constant="50" id="a3N-tF-hTv"/>
+                            </constraints>
+                            <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="hJc-9u-AEl">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system" size="10"/>
+                            </buttonCell>
+                        </button>
                     </subviews>
                     <constraints>
                         <constraint firstAttribute="width" constant="400" id="16J-RO-63i"/>
                         <constraint firstItem="UcK-Us-0tT" firstAttribute="top" secondItem="NJx-qp-Rk9" secondAttribute="top" id="CRl-6d-bRb"/>
-                        <constraint firstItem="UMV-xP-3ZX" firstAttribute="bottom" secondItem="0sE-HS-Xrp" secondAttribute="bottom" constant="-5" id="R70-uL-cG0"/>
                         <constraint firstItem="UcK-Us-0tT" firstAttribute="centerX" secondItem="NJx-qp-Rk9" secondAttribute="centerX" id="YTZ-uN-iDd"/>
                         <constraint firstItem="UMV-xP-3ZX" firstAttribute="trailing" secondItem="NJx-qp-Rk9" secondAttribute="trailing" constant="-10" id="Yh8-rH-ayv"/>
                         <constraint firstItem="UcK-Us-0tT" firstAttribute="width" secondItem="NJx-qp-Rk9" secondAttribute="width" id="Ymy-SN-85t"/>
-                        <constraint firstItem="0sE-HS-Xrp" firstAttribute="bottom" secondItem="NJx-qp-Rk9" secondAttribute="bottom" constant="-5" id="eQB-88-Li9"/>
+                        <constraint firstItem="UMV-xP-3ZX" firstAttribute="leading" secondItem="ckF-pf-VMP" secondAttribute="trailing" constant="5" id="br5-NQ-SyJ"/>
+                        <constraint firstItem="ckF-pf-VMP" firstAttribute="leading" secondItem="NJx-qp-Rk9" secondAttribute="leading" constant="5" id="fja-5a-yIT"/>
+                        <constraint firstItem="UMV-xP-3ZX" firstAttribute="centerY" secondItem="ckF-pf-VMP" secondAttribute="centerY" id="gcP-z4-YOA"/>
+                        <constraint firstItem="ckF-pf-VMP" firstAttribute="bottom" secondItem="NJx-qp-Rk9" secondAttribute="bottom" constant="-5" id="gen-ut-Pde"/>
                         <constraint firstAttribute="height" constant="460" id="jOQ-fx-xbK"/>
-                        <constraint firstItem="0sE-HS-Xrp" firstAttribute="leading" secondItem="NJx-qp-Rk9" secondAttribute="leading" constant="5" id="rfr-yj-xkE"/>
-                        <constraint firstItem="UMV-xP-3ZX" firstAttribute="leading" secondItem="0sE-HS-Xrp" secondAttribute="trailing" constant="10" id="uk4-Au-X37"/>
-                        <constraint firstItem="UMV-xP-3ZX" firstAttribute="top" secondItem="0sE-HS-Xrp" secondAttribute="top" constant="5" id="vTd-zS-ne5"/>
                     </constraints>
                 </customView>
             </subviews>
@@ -71,7 +76,7 @@
                 <outlet property="caption" destination="UMV-xP-3ZX" id="kCW-NX-5NW"/>
                 <outlet property="container" destination="NJx-qp-Rk9" id="iYZ-E4-ssP"/>
                 <outlet property="pic" destination="UcK-Us-0tT" id="rQl-qk-vHT"/>
-                <outlet property="userProfile" destination="0sE-HS-Xrp" id="Wcp-FC-zI6"/>
+                <outlet property="userProfile" destination="ckF-pf-VMP" id="5V6-gD-Fji"/>
             </connections>
         </customView>
     </objects>

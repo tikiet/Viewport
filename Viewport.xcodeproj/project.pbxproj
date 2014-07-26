@@ -33,6 +33,7 @@
 		BACFA4151981593C00D3E924 /* NS(Attributed)String+Geometrics.m in Sources */ = {isa = PBXBuildFile; fileRef = BACFA4141981593C00D3E924 /* NS(Attributed)String+Geometrics.m */; };
 		BACFA41B1982B18900D3E924 /* VPUserDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BACFA4191982B18900D3E924 /* VPUserDetailViewController.m */; };
 		BACFA41C1982B18900D3E924 /* VPUserDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BACFA41A1982B18900D3E924 /* VPUserDetailViewController.xib */; };
+		BACFA41E19834D4B00D3E924 /* VPUserDetailPhotoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BACFA41D19834D4B00D3E924 /* VPUserDetailPhotoView.xib */; };
 		BAD260E019742994005F2E7D /* MASPreferencesWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAD260DB19742994005F2E7D /* MASPreferencesWindow.xib */; };
 		BAD260E119742994005F2E7D /* MASPreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD260DD19742994005F2E7D /* MASPreferencesWindowController.m */; };
 		BAD260E719742BCF005F2E7D /* VPPreferenceAdvancedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD260E519742BCF005F2E7D /* VPPreferenceAdvancedViewController.m */; };
@@ -128,6 +129,7 @@
 		BACFA4181982B18900D3E924 /* VPUserDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VPUserDetailViewController.h; sourceTree = "<group>"; };
 		BACFA4191982B18900D3E924 /* VPUserDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VPUserDetailViewController.m; sourceTree = "<group>"; };
 		BACFA41A1982B18900D3E924 /* VPUserDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VPUserDetailViewController.xib; sourceTree = "<group>"; };
+		BACFA41D19834D4B00D3E924 /* VPUserDetailPhotoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VPUserDetailPhotoView.xib; sourceTree = "<group>"; };
 		BAD260DA19742994005F2E7D /* MASPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASPreferencesViewController.h; sourceTree = "<group>"; };
 		BAD260DB19742994005F2E7D /* MASPreferencesWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MASPreferencesWindow.xib; sourceTree = "<group>"; };
 		BAD260DC19742994005F2E7D /* MASPreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASPreferencesWindowController.h; sourceTree = "<group>"; };
@@ -290,6 +292,7 @@
 				BACFA4181982B18900D3E924 /* VPUserDetailViewController.h */,
 				BACFA4191982B18900D3E924 /* VPUserDetailViewController.m */,
 				BACFA41A1982B18900D3E924 /* VPUserDetailViewController.xib */,
+				BACFA41D19834D4B00D3E924 /* VPUserDetailPhotoView.xib */,
 			);
 			name = VPUserDetailViewController;
 			sourceTree = "<group>";
@@ -577,6 +580,7 @@
 				BA47A47B196EE11B0005997B /* heart.png in Resources */,
 				BAD91DA31969295D00BED591 /* VPFeedView.xib in Resources */,
 				BAD91D9C196923C500BED591 /* VPLoginViewController.xib in Resources */,
+				BACFA41E19834D4B00D3E924 /* VPUserDetailPhotoView.xib in Resources */,
 				BAD260E019742994005F2E7D /* MASPreferencesWindow.xib in Resources */,
 				BACFA41C1982B18900D3E924 /* VPUserDetailViewController.xib in Resources */,
 				BAD260E819742BCF005F2E7D /* VPPreferenceAdvancedViewController.xib in Resources */,

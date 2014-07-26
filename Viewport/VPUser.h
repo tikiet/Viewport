@@ -16,11 +16,18 @@
 @property NSString *profilePicture;
 @property NSString *website;
 @property NSString *bio;
+@property int followerCount;
+@property int followingCount;
+@property int postCount;
 
--(id)initWithID:(int) userId name:(NSString *) name fullName:(NSString*) fullName
- profilePicture:(NSString*) profilePicture webSite:(NSString*) webSite biography:(NSString*) biography;
+-(id)initWithID:(int) userId
+           name:(NSString *) name
+       fullName:(NSString*) fullName
+ profilePicture:(NSString*) profilePicture
+        webSite:(NSString*) webSite
+      biography:(NSString*) biography
+          stats:(NSDictionary*) stats;
 
--(id)initWithID:(int) userId name:(NSString *) name fullName:(NSString*) fullName profilePicture:(NSString*) profilePicture;
 
 -(id)initWithDictionary:(NSDictionary*) dictionary;
 

@@ -193,15 +193,25 @@
     
     view.pic.target = self;
     view.pic.action = @selector(viewPicDidSelect:);
-    view.pic.tag = row;
     
+    view.userProfile.target = self;
+    view.userProfile.action = @selector(userProfileDidSelect:);
     return view;
+}
+
+-(IBAction)userProfileDidSelect:(id)sender
+{
+    if (self.modelDelegate){
+        VPFeed *comment = array[[self.tableview rowForView:sender]];
+        [self.modelDelegate modelDidSelect:comment.user];
+    }
 }
 
 -(IBAction) viewPicDidSelect:(id)sender
 {
     if (self.modelDelegate){
-        [self.modelDelegate modelDidSelect:array[((NSButton*) sender).tag ]];
+        VPFeed *comment = array[[self.tableview rowForView:sender]];
+        [self.modelDelegate modelDidSelect:comment];
     }
 }
 

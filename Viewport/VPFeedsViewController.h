@@ -1,11 +1,3 @@
-//
-//  VPFeedsViewController.h
-//  Viewport
-//
-//  Created by 吴旭东 on 14-7-6.
-//  Copyright (c) 2014年 xudongwu.com. All rights reserved.
-//
-
 #import <Cocoa/Cocoa.h>
 #import "VPFeedView.h"
 #import "VPFeed.h"
@@ -41,6 +33,6 @@
 -(void)prepare;
 -(id)initWithNibName:(NSString *)nibNameOrNil identifier:(NSString*) identifier bundle:(NSBundle *)nibBundleOrNil;
 
--(IBAction)viewPicDidSelect:(id)sender;
+-(IBAction)modelDidSelect:(id)sender;
 
 @end

@@ -1,11 +1,3 @@
-//
-//  VPInfo.m
-//  Viewport
-//
-//  Created by 吴旭东 on 14-7-6.
-//  Copyright (c) 2014年 xudongwu.com. All rights reserved.
-//
-
 #import "VPInfo.h"
 
 @implementation VPInfo
@@ -13,6 +5,8 @@
 static NSString *popularUrl = @"https://api.instagram.com/v1/media/popular?client_id=%@";
 static NSString *selfTimelineUrl = @"https://api.instagram.com/v1/users/self/feed?access_token=%@";
 static NSString *favoritesUrl = @"https://api.instagram.com/v1/users/self/media/liked?access_token=%@";
+static NSString *userDetailUrl = @"https://api.instagram.com/v1/users/%@/?access_token=%@";
+
 static NSMutableDictionary *mapping;
 
 #define ACCESS_TOKEN @"ACCESS_TOKEN"
@@ -109,6 +103,11 @@ static NSMutableDictionary *mapping;
         url = [NSString stringWithFormat:@"%@&max_id=%@", url, nextMaxId];
     }
     return [NSURL URLWithString: url];
+}
+
++(NSURL*)retrieveUserDetailUrlWithUserId:(NSString *)userId
+{
+    return [NSURL URLWithString:[NSString stringWithFormat:userDetailUrl, userId, [self accessToken]]];
 }
 
 +(NSString*)clientId
