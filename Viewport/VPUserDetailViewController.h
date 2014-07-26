@@ -17,6 +17,11 @@
 @property (weak) IBOutlet NSTextField *followers;
 @property (weak) IBOutlet NSTextField *following;
 
+@property (weak) IBOutlet NSTextField *userName;
+@property (weak) IBOutlet NSTextField *bio;
+
+@property (weak) IBOutlet NSImageView *profile;
+
 -(void)prepare;
 -(void)show;
 

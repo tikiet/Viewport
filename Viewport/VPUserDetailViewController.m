@@ -1,6 +1,7 @@
 #import "VPUserDetailViewController.h"
 #import "VPInfo.h"
 #import "VPConnectionDataDepot.h"
+#import "TKImageLoader.h"
 
 @interface VPUserDetailViewController ()
 
@@ -16,6 +17,14 @@
     if (self) {
     }
     return self;
+}
+
+-(void)awakeFromNib
+{
+    CALayer *layer = [CALayer layer];
+    layer.backgroundColor = CGColorCreateGenericRGB(1, 1, 1, 1);
+    self.view.wantsLayer = YES;
+    self.view.layer = layer;
 }
 
 -(void)show
@@ -48,14 +57,15 @@
 {
     NSDictionary *raw = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
     self.user = [[VPUser alloc] initWithDictionary:[raw objectForKey:@"data"]];
-
+    
     self.followers.stringValue = [@(self.user.followerCount) stringValue];
     self.following.stringValue = [@(self.user.followingCount) stringValue];
     self.posts.stringValue = [@(self.user.postCount) stringValue];
+    self.bio.stringValue = self.user.bio;
+    self.userName.stringValue = self.user.name;
     
-    CALayer *layer = [CALayer layer];
-    layer.backgroundColor = CGColorCreateGenericRGB(1, 1, 1, 1);
-    self.view.wantsLayer = YES;
-    self.view.layer = layer;
+    TKImageLoader *loader = [[TKImageLoader alloc] initWithURL:[NSURL URLWithString:self.user.profilePicture]
+                                                     imageView:self.profile];
+    [loader start];
 }
 @end
