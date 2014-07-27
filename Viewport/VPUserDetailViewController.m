@@ -9,6 +9,9 @@
 @interface VPUserDetailViewController ()
 {
     NSMutableArray *recents;
+    BOOL triggeredBottom;
+    BOOL hasMore;
+    NSString *nextMaxId;
 }
 @end
 
@@ -33,9 +36,30 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
+    triggeredBottom = NO;
+    hasMore = YES;
+    
     NSNib *nib = [[NSNib alloc]initWithNibNamed:@"VPUserDetailPhotoView" bundle:nil];
     [self.tableView registerNib:nib forIdentifier:@"photo"];
+    id clipView = [[self.tableView enclosingScrollView] contentView];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(boundsChangeNotificationHandler:)
+                                                 name:NSViewBoundsDidChangeNotification
+                                               object:clipView];
 }
+
+- (void)boundsChangeNotificationHandler:(NSNotification *)aNotification
+{
+    if ([aNotification object] == [[self.tableView enclosingScrollView] contentView]){
+        if ( NSMaxY([self.tableView enclosingScrollView].documentVisibleRect) >=
+            NSHeight([[self.tableView enclosingScrollView].documentView bounds]) ){
+            if (!triggeredBottom) {
+                NSLog(@"triggered bottom");
+                triggeredBottom = YES;
+                [self startRequest];
+            }
+        }
+    }}
 
 -(void)show
 {
@@ -53,19 +77,9 @@
                                               } failBlock:^(NSError *error){
                                                   NSLog(@"error:%@", error);
                                               }]];
-    
     [detailConn start];
     
-    NSURLRequest *recentsRequest = [NSURLRequest requestWithURL:[VPInfo retrieveUserRecentsUrlWithUserId:[@(self.user.userId) stringValue]]];
-    NSURLConnection *recentsConn =
-    [[NSURLConnection alloc] initWithRequest:recentsRequest
-                                    delegate:[[VPConnectionDataDepot alloc]
-                                              initWithSuccessBlock:^(NSData*data) {
-                                                  [self updateUserRecents:data];
-                                              } failBlock:^(NSError *error) {
-                                                  NSLog(@"error:%@", error);
-                                              }]];
-    [recentsConn start];
+    [self startRequest];
 }
 
 -(void)updateUserDetail:(NSData*)data
@@ -82,12 +96,26 @@
     float height = [self.user.bio heightForWidth:400 font:[NSFont fontWithName:@"Lucida Grande" size:13]];
     NSView *bio = self.bio;
     [self.bio addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"V:[bio(%f)]", height]
-                                                                   options:0
-                                                                   metrics:nil
-                                                                      views:NSDictionaryOfVariableBindings(bio)]];
+                                                                     options:0
+                                                                     metrics:nil
+                                                                       views:NSDictionaryOfVariableBindings(bio)]];
     TKImageLoader *loader = [[TKImageLoader alloc] initWithURL:[NSURL URLWithString:self.user.profilePicture]
                                                      imageView:self.profile];
     [loader start];
+}
+
+-(void)startRequest
+{
+    NSURLRequest *recentsRequest = [NSURLRequest requestWithURL:[VPInfo retrieveUserRecentsUrlWithUserId:[@(self.user.userId) stringValue] nextMaxId:nextMaxId]];
+    NSURLConnection *recentsConn =
+    [[NSURLConnection alloc] initWithRequest:recentsRequest
+                                    delegate:[[VPConnectionDataDepot alloc]
+                                              initWithSuccessBlock:^(NSData*data) {
+                                                  [self updateUserRecents:data];
+                                              } failBlock:^(NSError *error) {
+                                                  NSLog(@"error:%@", error);
+                                              }]];
+    [recentsConn start];
 }
 
 -(void)updateUserRecents:(NSData*)data
@@ -101,7 +129,25 @@
         [recents addObject:feed];
     }
     
+    triggeredBottom = NO;
     [self.tableView reloadData];
+    
+    NSDictionary *pagination = [raw objectForKey:@"pagination"];
+    if (hasMore) {
+        if (pagination && !([pagination isEqual: [NSNull null]])){
+            NSString *maxId = [pagination objectForKey:@"next_max_id"];
+            if (maxId && !([maxId isEqual:[NSNull null]])) {
+                hasMore = YES;
+                if (!nextMaxId || [maxId longLongValue] < [nextMaxId longLongValue]) {
+                    nextMaxId = maxId;
+                }
+            } else {
+                hasMore = NO;
+            }
+        } else {
+            hasMore = NO;
+        }
+    }
 }
 
 -(NSInteger)numberOfRowsInTableView:(NSTableView *)tableView
@@ -121,7 +167,7 @@
     
     VPFeed *feed = recents[index];
     TKImageLoader *loader = [[TKImageLoader alloc] initWithURL:[NSURL URLWithString: feed.images.lowResolution.url]
-                             imageView:photoView.imageView];
+                                                     imageView:photoView.imageView];
     [loader start];
     
     return photoView;

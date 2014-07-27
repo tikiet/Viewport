@@ -6,7 +6,7 @@ static NSString *popularUrl = @"https://api.instagram.com/v1/media/popular?clien
 static NSString *selfTimelineUrl = @"https://api.instagram.com/v1/users/self/feed?access_token=%@";
 static NSString *favoritesUrl = @"https://api.instagram.com/v1/users/self/media/liked?access_token=%@";
 static NSString *userDetailUrl = @"https://api.instagram.com/v1/users/%@/?access_token=%@";
-static NSString *userRecentUrl = @"https://api.instagram.com/v1/users/%@/media/recent/?access_token=%@";
+static NSString *userRecentUrl = @"https://api.instagram.com/v1/users/%@/media/recent/?access_token=%@&count=60";
 
 static NSMutableDictionary *mapping;
 
@@ -111,9 +111,13 @@ static NSMutableDictionary *mapping;
     return [NSURL URLWithString:[NSString stringWithFormat:userDetailUrl, userId, [self accessToken]]];
 }
 
-+(NSURL*)retrieveUserRecentsUrlWithUserId:(NSString *)userId
++(NSURL*)retrieveUserRecentsUrlWithUserId:(NSString *)userId nextMaxId:(NSString *)maxId
 {
-    return [NSURL URLWithString:[NSString stringWithFormat:userRecentUrl, userId, [self accessToken]]];
+    NSString *url = [NSString stringWithFormat:userRecentUrl, userId, [self accessToken]];
+    if (maxId) {
+        url = [NSString stringWithFormat:@"%@&max_id=%@", url, maxId];
+    }
+    return [NSURL URLWithString:url];
 }
 
 +(NSString*)clientId

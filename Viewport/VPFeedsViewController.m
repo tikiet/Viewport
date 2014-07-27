@@ -234,9 +234,7 @@
                                                   } failBlock:^(NSError *error){
                                                       NSLog(@"error:%@", error);
                                                       [self.scrollView stopRefreshingSide:BSRefreshableScrollViewSideTop];
-                                                  }]
-                                startImmediately:NO];
-        
+                                                  }]];
         [con start];
         return true;
     }
