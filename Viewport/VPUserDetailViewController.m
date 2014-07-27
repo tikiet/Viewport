@@ -98,6 +98,12 @@
                                                                      options:0
                                                                      metrics:nil
                                                                        views:NSDictionaryOfVariableBindings(bio)]];
+    CALayer *layer = [CALayer layer];
+    layer.cornerRadius = 3;
+    layer.masksToBounds = YES;
+    self.profile.wantsLayer = YES;
+    self.profile.layer = layer;
+    
     TKImageLoader *loader = [[TKImageLoader alloc] initWithURL:[NSURL URLWithString:self.user.profilePicture]
                                                      imageView:self.profile];
     [loader start];
