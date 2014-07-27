@@ -11,22 +11,25 @@
             <rect key="frame" x="0.0" y="0.0" width="140" height="140"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Oqc-8F-R1U">
-                    <rect key="frame" x="0.0" y="0.0" width="140" height="140"/>
+                <button translatesAutoresizingMaskIntoConstraints="NO" id="lkw-4W-hHR">
+                    <rect key="frame" x="0.0" y="1" width="140" height="140"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="140" id="Uga-kb-H3f"/>
-                        <constraint firstAttribute="width" constant="140" id="ycU-5S-NI2"/>
+                        <constraint firstAttribute="height" constant="140" id="2R8-bG-JxA"/>
+                        <constraint firstAttribute="width" constant="140" id="adM-VS-Dj6"/>
                     </constraints>
-                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="rxa-cG-Agf"/>
-                </imageView>
+                    <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="Saa-dq-Wfd">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system" size="10"/>
+                    </buttonCell>
+                </button>
             </subviews>
             <constraints>
-                <constraint firstAttribute="centerX" secondItem="Oqc-8F-R1U" secondAttribute="centerX" id="HOx-0G-r90"/>
-                <constraint firstAttribute="centerY" secondItem="Oqc-8F-R1U" secondAttribute="centerY" id="p7N-fa-ehn"/>
+                <constraint firstAttribute="centerX" secondItem="lkw-4W-hHR" secondAttribute="centerX" id="3FG-nK-pJ2"/>
+                <constraint firstAttribute="centerY" secondItem="lkw-4W-hHR" secondAttribute="centerY" constant="0.5" id="OZu-x4-rND"/>
             </constraints>
             <connections>
-                <outlet property="imageView" destination="Oqc-8F-R1U" id="3Km-2Y-eGi"/>
+                <outlet property="imageView" destination="lkw-4W-hHR" id="ItM-Xx-T1d"/>
             </connections>
         </customView>
     </objects>

@@ -10,6 +10,6 @@
 
 @interface VPUserDetailPhotoView : NSView
 
-@property (weak) IBOutlet NSImageView *imageView;
+@property (weak) IBOutlet NSButton *imageView;
 
 @end

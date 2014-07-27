@@ -133,6 +133,7 @@
 		BACFA41D19834D4B00D3E924 /* VPUserDetailPhotoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VPUserDetailPhotoView.xib; sourceTree = "<group>"; };
 		BACFA41F1983E8FA00D3E924 /* VPUserDetailPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VPUserDetailPhotoView.h; sourceTree = "<group>"; };
 		BACFA4201983E8FA00D3E924 /* VPUserDetailPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VPUserDetailPhotoView.m; sourceTree = "<group>"; };
+		BACFA4221984A0E200D3E924 /* VPModelDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VPModelDelegate.h; sourceTree = "<group>"; };
 		BAD260DA19742994005F2E7D /* MASPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASPreferencesViewController.h; sourceTree = "<group>"; };
 		BAD260DB19742994005F2E7D /* MASPreferencesWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MASPreferencesWindow.xib; sourceTree = "<group>"; };
 		BAD260DC19742994005F2E7D /* MASPreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASPreferencesWindowController.h; sourceTree = "<group>"; };
@@ -463,6 +464,7 @@
 				BAF658001960323300593F2D /* Images.xcassets */,
 				BAF657EF1960323300593F2D /* Supporting Files */,
 				BA355DFD1969AE1D00D542BB /* AppInfo.plist */,
+				BACFA4221984A0E200D3E924 /* VPModelDelegate.h */,
 			);
 			path = Viewport;
 			sourceTree = "<group>";

@@ -108,6 +108,7 @@
         [popularViewController prepare];
         popularViewController.loginDelegate = self;
         popularViewController.accumulateData = NO;
+        popularViewController.modelDelegate = self;
         [popularViewController startRequestWithNextMaxId:NO];
     }
 }
@@ -169,6 +170,7 @@
         [favoritesViewController prepare];
         favoritesViewController.loginDelegate = self;
         favoritesViewController.accumulateData = YES;
+        favoritesViewController.modelDelegate = self;
         [favoritesViewController startRequestWithNextMaxId:NO];
     }
 }
@@ -200,17 +202,17 @@
                                                   initWithNibName:@"VPFeedDetailViewController"
                                                   bundle:nil];
         controller.feed = (VPFeed*)model;
+        controller.modelDelegate = self;
         [navController addViewController:controller retain:NO];
         [controller prepare];
-        [controller show];
     } else if ([model isKindOfClass:[VPUser class]]) {
         VPUserDetailViewController *controller = [[VPUserDetailViewController alloc]
                                                   initWithNibName:@"VPUserDetailViewController"
                                                   bundle:nil];
         controller.user = (VPUser*)model;
+        controller.modelDelegate = self;
         [navController addViewController:controller retain:NO];
         [controller prepare];
-        [controller show];
     }
 }
 @end

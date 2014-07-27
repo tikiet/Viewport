@@ -58,11 +58,7 @@
                 [self startRequest];
             }
         }
-    }}
-
--(void)show
-{
-    
+    }
 }
 
 -(void)prepare
@@ -84,6 +80,7 @@
 -(void)updateUserDetail:(NSData*)data
 {
     NSDictionary *raw = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    NSLog(@"raw:%@", raw);
     self.user = [[VPUser alloc] initWithDictionary:[raw objectForKey:@"data"]];
     
     self.followers.stringValue = [@(self.user.followerCount) stringValue];
@@ -127,7 +124,7 @@
 {
     NSDictionary *raw = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
     NSArray *rawFeeds = [raw objectForKey:@"data"];
-
+    
     NSMutableSet *feeds = [[NSMutableSet alloc] init];
     for (NSDictionary *dic in rawFeeds){
         [feeds addObject: [[VPFeed alloc] initWithDictionray:dic]];
@@ -188,9 +185,22 @@
     VPFeed *feed = recents[index];
     TKImageLoader *loader = [[TKImageLoader alloc] initWithURL:[NSURL URLWithString: feed.images.lowResolution.url]
                                                      imageView:photoView.imageView];
+    photoView.imageView.target = self;
+    photoView.imageView.action = @selector(viewPicDidSelect:);
     [loader start];
     
     return photoView;
+}
+
+-(IBAction) viewPicDidSelect:(id)sender
+{
+    if (self.modelDelegate){
+        long row = [self.tableView columnForView:sender];
+        long col = [self.tableView rowForView:sender];
+        
+        VPFeed *comment = recents[row * 3 + col];
+        [self.modelDelegate modelDidSelect:comment];
+    }
 }
 
 -(BOOL)tableView:(NSTableView *)tableView shouldSelectRow:(NSInteger)row

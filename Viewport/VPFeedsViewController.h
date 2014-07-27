@@ -5,16 +5,11 @@
 #import "VPConnectionDataDepot.h"
 #import "TKImageLoader.h"
 #import "BSRefreshableScrollView.h"
+#import "VPModelDelegate.h"
 
 @protocol VPLoginDelegate <NSObject>
 
 -(void)loginDidFail;
-
-@end
-
-@protocol VPModelDelegate <NSObject>
-
--(void)modelDidSelect:(id)model;
 
 @end
 

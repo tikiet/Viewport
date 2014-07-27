@@ -82,6 +82,9 @@ static NSFont *defaultFont;
         layer.masksToBounds = YES;
         commentView.imageView.layer = layer;
         
+        commentView.imageView.target = self;
+        commentView.imageView.action = @selector(userProfileDidSelect:);
+        
         NSTextField *textView = commentView.textView;
         textView.stringValue = comment.text;
         if (textView.tag) {
@@ -96,6 +99,14 @@ static NSFont *defaultFont;
                                                   views:NSDictionaryOfVariableBindings(textView)];
         [textView addConstraints:textView.tag];
         return commentView;
+    }
+}
+
+-(IBAction)userProfileDidSelect:(id)sender
+{
+    if (self.modelDelegate){
+        VPFeed *comment = feed.comments.comments[[self.tableView rowForView:sender] - 1];
+        [self.modelDelegate modelDidSelect:comment.user];
     }
 }
 

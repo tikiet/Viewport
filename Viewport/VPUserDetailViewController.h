@@ -8,6 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "VPUser.h"
+#import "VPModelDelegate.h"
 
 @interface VPUserDetailViewController : NSViewController <NSTableViewDataSource, NSTableViewDelegate>
 
@@ -22,6 +23,9 @@
 @property (weak) IBOutlet NSImageView *profile;
 
 @property (weak) IBOutlet NSTableView *tableView;
+
+@property NSObject<VPModelDelegate> *modelDelegate;
+
 -(void)prepare;
 -(void)show;
 
