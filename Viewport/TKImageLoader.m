@@ -71,10 +71,11 @@ static NSCache *cache;
     NSURLConnection *conn = CFDictionaryGetValue(currentBindings, (__bridge const void *)(imageView));
     if ([connection isEqual:conn]){
         NSImage *image = [[NSImage alloc]initWithData:receivedData];
-        imageView.image = image;
-        [cache setObject:image forKey:url cost:receivedData.length];
-        
-        CFDictionaryRemoveValue(currentBindings, (__bridge const void *)(imageView));
+        if (image) {
+            imageView.image = image;
+            [cache setObject:image forKey:url cost:receivedData.length];
+            CFDictionaryRemoveValue(currentBindings, (__bridge const void *)(imageView));
+        }
     }
 }
 @end

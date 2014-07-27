@@ -8,7 +8,7 @@
 
 @interface VPUserDetailViewController ()
 {
-    NSMutableArray *recents;
+    NSArray *recents;
     BOOL triggeredBottom;
     BOOL hasMore;
     NSString *nextMaxId;
@@ -54,7 +54,6 @@
         if ( NSMaxY([self.tableView enclosingScrollView].documentVisibleRect) >=
             NSHeight([[self.tableView enclosingScrollView].documentView bounds]) ){
             if (!triggeredBottom) {
-                NSLog(@"triggered bottom");
                 triggeredBottom = YES;
                 [self startRequest];
             }
@@ -121,13 +120,27 @@
 -(void)updateUserRecents:(NSData*)data
 {
     NSDictionary *raw = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-    NSArray *recentsArray = [raw objectForKey:@"data"];
-    
-    recents = [[NSMutableArray alloc] init];
-    for (NSDictionary *dic in recentsArray) {
-        VPFeed *feed = [[VPFeed alloc] initWithDictionray:dic];
-        [recents addObject:feed];
+    NSArray *rawFeeds = [raw objectForKey:@"data"];
+
+    NSMutableSet *feeds = [[NSMutableSet alloc] init];
+    for (NSDictionary *dic in rawFeeds){
+        [feeds addObject: [[VPFeed alloc] initWithDictionray:dic]];
     }
+    
+    [feeds addObjectsFromArray:recents];
+    
+    recents = [[feeds allObjects] sortedArrayUsingComparator:^NSComparisonResult(id a, id b){
+        VPFeed *fa = (VPFeed*)a;
+        VPFeed *fb = (VPFeed*)b;
+        int r = fa.createdTime - fb.createdTime;
+        if (r > 0){
+            return NSOrderedAscending;
+        } else if (r == 0){
+            return NSOrderedSame;
+        } else {
+            return NSOrderedDescending;
+        }
+    }];
     
     triggeredBottom = NO;
     [self.tableView reloadData];
@@ -152,8 +165,9 @@
 
 -(NSInteger)numberOfRowsInTableView:(NSTableView *)tableView
 {
-    if (recents)
+    if (recents) {
         return (int)ceil(recents.count/3.0);
+    }
     return 0;
 }
 
