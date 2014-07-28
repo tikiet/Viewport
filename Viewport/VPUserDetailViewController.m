@@ -80,7 +80,14 @@
 -(void)updateUserDetail:(NSData*)data
 {
     NSDictionary *raw = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-    NSLog(@"raw:%@", raw);
+    NSDictionary *meta = [raw objectForKey:@"meta"];
+    NSLog(@"meta:%@", meta);
+    int code =  [[meta objectForKey:@"code"] intValue];
+    if (code != 200) {
+        [self reportError:meta];
+        return;
+    }
+    
     self.user = [[VPUser alloc] initWithDictionary:[raw objectForKey:@"data"]];
     
     self.followers.stringValue = [@(self.user.followerCount) stringValue];
@@ -120,10 +127,23 @@
     [recentsConn start];
 }
 
+-(void)reportError:(NSDictionary*)meta
+{
+    
+}
+
 -(void)updateUserRecents:(NSData*)data
 {
     NSDictionary *raw = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
     NSArray *rawFeeds = [raw objectForKey:@"data"];
+    NSDictionary *meta = [raw objectForKey:@"meta"];
+    NSLog(@"meta:%@", meta);
+    int code =  [[meta objectForKey:@"code"] intValue];
+    if (code != 200) {
+        [self reportError:meta];
+        return;
+    }
+    
     
     NSMutableSet *feeds = [[NSMutableSet alloc] init];
     for (NSDictionary *dic in rawFeeds){
