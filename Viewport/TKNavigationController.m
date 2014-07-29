@@ -78,4 +78,11 @@
     self.view.subviews = subviews;
 }
 
+-(void)pop
+{
+    [self.viewControllers removeLastObject];
+    NSMutableArray *subviews = [[NSMutableArray alloc]initWithArray:self.view.subviews];
+    [subviews removeLastObject];
+    self.view.subviews = subviews;
+}
 @end

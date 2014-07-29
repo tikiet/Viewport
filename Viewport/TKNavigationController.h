@@ -7,5 +7,6 @@
 
 -(void)addViewController:(NSViewController*) viewController retain:(BOOL)retain;
 -(void)moveToTop:(NSViewController*) viewController;
+-(void)pop;
 
 @end
