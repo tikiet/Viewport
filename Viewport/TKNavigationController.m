@@ -81,8 +81,15 @@
 -(void)pop
 {
     [self.viewControllers removeLastObject];
-    NSMutableArray *subviews = [[NSMutableArray alloc]initWithArray:self.view.subviews];
-    [subviews removeLastObject];
-    self.view.subviews = subviews;
+    
+    CATransition *transition = [CATransition animation];
+    [transition setType:kCATransitionPush];
+    [transition setSubtype:kCATransitionFromLeft];
+    
+    NSView *lastView = [self.view.subviews lastObject];
+    
+    [self.view setAnimations:[NSDictionary dictionaryWithObject:transition forKey:@"subviews"]];
+    [[lastView animator] removeFromSuperview];
 }
+
 @end

@@ -732,6 +732,17 @@
                                     <action selector="showFavorites:" target="Voe-Tx-rLC" id="beI-fY-IK2"/>
                                 </connections>
                             </button>
+                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vNK-SZ-wE7">
+                                <rect key="frame" x="16" y="358" width="64" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="g0V-7Q-vYA">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system" size="10"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="back:" target="Voe-Tx-rLC" id="6Mm-IC-mma"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="Wgr-Ja-Jjr" firstAttribute="top" secondItem="xtf-oo-NcF" secondAttribute="bottom" constant="10" id="AxL-tv-szo"/>

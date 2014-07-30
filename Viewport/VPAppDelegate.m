@@ -36,7 +36,7 @@
     iasWindow.title = @"Viewport";
     iasWindow.verticallyCenterTitle = YES;
     
-    navController = [[TKNavigationController alloc]initWithNibName:@"TKNavigationController" bundle:nil];
+    navController = [[TKNavigationController alloc] initWithNibName:@"TKNavigationController" bundle:nil];
     [self.contentArea addSubview:navController.view];
     
     NSView *parent = self.contentArea;
@@ -215,4 +215,9 @@
         [controller prepare];
     }
 }
+
+- (IBAction)back:(id)sender {
+    [navController pop];
+}
+
 @end
