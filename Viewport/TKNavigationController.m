@@ -80,16 +80,18 @@
 
 -(void)pop
 {
-    [self.viewControllers removeLastObject];
-    
-    CATransition *transition = [CATransition animation];
-    [transition setType:kCATransitionPush];
-    [transition setSubtype:kCATransitionFromLeft];
-    
-    NSView *lastView = [self.view.subviews lastObject];
-    
-    [self.view setAnimations:[NSDictionary dictionaryWithObject:transition forKey:@"subviews"]];
-    [[lastView animator] removeFromSuperview];
+    if (![retainedViewControllers containsObject: [self.viewControllers lastObject]]) {
+        [self.viewControllers removeLastObject];
+        
+        CATransition *transition = [CATransition animation];
+        [transition setType:kCATransitionPush];
+        [transition setSubtype:kCATransitionFromLeft];
+        
+        NSView *lastView = [self.view.subviews lastObject];
+        
+        [self.view setAnimations:[NSDictionary dictionaryWithObject:transition forKey:@"subviews"]];
+        [[lastView animator] removeFromSuperview];
+    }
 }
 
 @end
