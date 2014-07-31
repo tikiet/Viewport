@@ -32,9 +32,15 @@
     }
     
     [self.viewControllers addObject:viewController];
+    
     CATransition *transition = [CATransition animation];
-    [transition setType:kCATransitionPush];
-    [transition setSubtype:kCATransitionFromRight];
+    
+    if (!retain) {
+        [transition setType:kCATransitionPush];
+        [transition setSubtype:kCATransitionFromRight];
+    } else {
+        [transition setType:kCATransitionFade];
+    }
     
     [self.view setAnimations:[NSDictionary dictionaryWithObject:transition forKey:@"subviews"]];
     self.view.wantsLayer = YES;
