@@ -35,8 +35,6 @@
 		BACFA41C1982B18900D3E924 /* VPUserDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BACFA41A1982B18900D3E924 /* VPUserDetailViewController.xib */; };
 		BACFA41E19834D4B00D3E924 /* VPUserDetailPhotoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BACFA41D19834D4B00D3E924 /* VPUserDetailPhotoView.xib */; };
 		BACFA4211983E8FA00D3E924 /* VPUserDetailPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = BACFA4201983E8FA00D3E924 /* VPUserDetailPhotoView.m */; };
-		BACFA4251989CD6100D3E924 /* VPTitleBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BACFA4241989CD6100D3E924 /* VPTitleBarView.xib */; };
-		BACFA4281989D2C300D3E924 /* VPTitleBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = BACFA4271989D2C300D3E924 /* VPTitleBarView.m */; };
 		BAD260E019742994005F2E7D /* MASPreferencesWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAD260DB19742994005F2E7D /* MASPreferencesWindow.xib */; };
 		BAD260E119742994005F2E7D /* MASPreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD260DD19742994005F2E7D /* MASPreferencesWindowController.m */; };
 		BAD260E719742BCF005F2E7D /* VPPreferenceAdvancedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD260E519742BCF005F2E7D /* VPPreferenceAdvancedViewController.m */; };
@@ -136,9 +134,6 @@
 		BACFA41F1983E8FA00D3E924 /* VPUserDetailPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VPUserDetailPhotoView.h; sourceTree = "<group>"; };
 		BACFA4201983E8FA00D3E924 /* VPUserDetailPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VPUserDetailPhotoView.m; sourceTree = "<group>"; };
 		BACFA4221984A0E200D3E924 /* VPModelDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VPModelDelegate.h; sourceTree = "<group>"; };
-		BACFA4241989CD6100D3E924 /* VPTitleBarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VPTitleBarView.xib; sourceTree = "<group>"; };
-		BACFA4261989D2C300D3E924 /* VPTitleBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VPTitleBarView.h; sourceTree = "<group>"; };
-		BACFA4271989D2C300D3E924 /* VPTitleBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VPTitleBarView.m; sourceTree = "<group>"; };
 		BAD260DA19742994005F2E7D /* MASPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASPreferencesViewController.h; sourceTree = "<group>"; };
 		BAD260DB19742994005F2E7D /* MASPreferencesWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MASPreferencesWindow.xib; sourceTree = "<group>"; };
 		BAD260DC19742994005F2E7D /* MASPreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASPreferencesWindowController.h; sourceTree = "<group>"; };
@@ -308,16 +303,6 @@
 			name = VPUserDetailViewController;
 			sourceTree = "<group>";
 		};
-		BACFA4231989CD4100D3E924 /* VPTitleBarView */ = {
-			isa = PBXGroup;
-			children = (
-				BACFA4241989CD6100D3E924 /* VPTitleBarView.xib */,
-				BACFA4261989D2C300D3E924 /* VPTitleBarView.h */,
-				BACFA4271989D2C300D3E924 /* VPTitleBarView.m */,
-			);
-			name = VPTitleBarView;
-			sourceTree = "<group>";
-		};
 		BAD260D819742994005F2E7D /* MASPreferences */ = {
 			isa = PBXGroup;
 			children = (
@@ -467,7 +452,6 @@
 		BAF657EE1960323300593F2D /* Viewport */ = {
 			isa = PBXGroup;
 			children = (
-				BACFA4231989CD4100D3E924 /* VPTitleBarView */,
 				BACFA4171982B15E00D3E924 /* VPUserDetailViewController */,
 				BAD4303E197BAD200084C415 /* VPFeedDetailViewController */,
 				BAD91D961969238B00BED591 /* utility */,
@@ -612,7 +596,6 @@
 				BAF21C661971345300C2EAF0 /* logo.png in Resources */,
 				BAD43043197BAD3A0084C415 /* VPFeedDetailViewController.xib in Resources */,
 				BA47A47A196EE11B0005997B /* internet.png in Resources */,
-				BACFA4251989CD6100D3E924 /* VPTitleBarView.xib in Resources */,
 				BAD4303A197B67510084C415 /* TKNavigationController.xib in Resources */,
 				BAD91DB41969709F00BED591 /* VPFeedsViewController.xib in Resources */,
 				BA414B58197BC5A50061BA59 /* VPFeedDetailPhotoView.xib in Resources */,
@@ -644,7 +627,6 @@
 				BA414B63197BE1780061BA59 /* VPFeedDetailCommentView.m in Sources */,
 				BACFA4211983E8FA00D3E924 /* VPUserDetailPhotoView.m in Sources */,
 				BAAFC76F19630F5E004E3408 /* VPComments.m in Sources */,
-				BACFA4281989D2C300D3E924 /* VPTitleBarView.m in Sources */,
 				BA355DF3196986F900D542BB /* INWindowButton.m in Sources */,
 				BAAFC769196302ED004E3408 /* VPUser.m in Sources */,
 				BAAFC77519631492004E3408 /* VPVideo.m in Sources */,

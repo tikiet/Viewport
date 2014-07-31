@@ -732,17 +732,6 @@
                                     <action selector="showFavorites:" target="Voe-Tx-rLC" id="beI-fY-IK2"/>
                                 </connections>
                             </button>
-                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vNK-SZ-wE7">
-                                <rect key="frame" x="16" y="358" width="64" height="64"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="g0V-7Q-vYA">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system" size="10"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="back:" target="Voe-Tx-rLC" id="6Mm-IC-mma"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="Wgr-Ja-Jjr" firstAttribute="top" secondItem="xtf-oo-NcF" secondAttribute="bottom" constant="10" id="AxL-tv-szo"/>
@@ -773,19 +762,22 @@
                 <allowedToolbarItems>
                     <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="eIN-Xx-1cJ"/>
                     <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="XhT-9T-mUs"/>
-                    <toolbarItem implicitItemIdentifier="C6FEF6E3-AEED-4930-9E94-05AAD1E7BE5B" label="Toolbar Item" paletteLabel="Toolbar Item" tag="-1" image="NSGoLeftTemplate" id="bmT-Et-1GQ">
+                    <toolbarItem implicitItemIdentifier="C6FEF6E3-AEED-4930-9E94-05AAD1E7BE5B" label="back" paletteLabel="Back" tag="-1" image="NSLeftFacingTriangleTemplate" autovalidates="NO" id="bmT-Et-1GQ">
                         <size key="maxSize" width="20" height="20"/>
+                        <connections>
+                            <action selector="back:" target="Voe-Tx-rLC" id="Nbp-Vv-ObI"/>
+                        </connections>
                     </toolbarItem>
                 </allowedToolbarItems>
                 <defaultToolbarItems>
-                    <toolbarItem reference="bmT-Et-1GQ"/>
                     <toolbarItem reference="XhT-9T-mUs"/>
+                    <toolbarItem reference="bmT-Et-1GQ"/>
                 </defaultToolbarItems>
             </toolbar>
         </window>
     </objects>
     <resources>
-        <image name="NSGoLeftTemplate" width="9" height="9"/>
+        <image name="NSLeftFacingTriangleTemplate" width="9" height="9"/>
         <image name="heart" width="1200" height="1200"/>
         <image name="home" width="12.800000190734863" height="12.800000190734863"/>
         <image name="internet" width="12" height="12"/>
