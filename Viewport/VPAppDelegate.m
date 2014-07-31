@@ -3,6 +3,7 @@
 #import "VPConnectionDataDepot.h"
 #import "VPFeedDetailViewController.h"
 #import "VPUserDetailViewController.h"
+#import "VPTitleBarView.h"
 
 @implementation VPAppDelegate
 {
@@ -31,6 +32,21 @@
 {
     // configure title bar
     iasWindow = (INAppStoreWindow*) self.window;
+    
+    NSNib *nib = [[NSNib alloc] initWithNibNamed:@"VPTitleBarView" bundle:nil];
+    NSArray *topLevelObjects;
+    if (![nib instantiateWithOwner:self topLevelObjects: &topLevelObjects]) {
+        NSLog(@"instantiation error");
+    }
+    NSView *titlebarView = nil;
+    for (id obj in topLevelObjects) {
+        if ([obj isKindOfClass:[VPTitleBarView class]]) {
+            titlebarView = (NSView*)obj;
+            break;
+        }
+    }
+    
+    iasWindow.titleBarView = titlebarView;
     iasWindow.titleBarHeight = 35;
     iasWindow.showsTitle = YES;
     iasWindow.title = @"Viewport";
