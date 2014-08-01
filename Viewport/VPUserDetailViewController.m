@@ -215,8 +215,8 @@
 -(IBAction) viewPicDidSelect:(id)sender
 {
     if (self.modelDelegate){
-        long row = [self.tableView columnForView:sender];
-        long col = [self.tableView rowForView:sender];
+        long col = [self.tableView columnForView:sender];
+        long row = [self.tableView rowForView:sender];
         
         VPFeed *comment = recents[row * 3 + col];
         [self.modelDelegate modelDidSelect:comment];
