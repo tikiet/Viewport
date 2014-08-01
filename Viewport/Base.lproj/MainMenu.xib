@@ -768,15 +768,22 @@
                             <action selector="back:" target="Voe-Tx-rLC" id="Nbp-Vv-ObI"/>
                         </connections>
                     </toolbarItem>
+                    <toolbarItem implicitItemIdentifier="A0F15417-E059-4C30-B79D-3F5F0C30C7A6" label="debug" paletteLabel="debug" tag="-1" image="NSActionTemplate" id="wR6-Ex-ye8">
+                        <connections>
+                            <action selector="debug:" target="Voe-Tx-rLC" id="lJk-Dx-wJU"/>
+                        </connections>
+                    </toolbarItem>
                 </allowedToolbarItems>
                 <defaultToolbarItems>
                     <toolbarItem reference="XhT-9T-mUs"/>
                     <toolbarItem reference="bmT-Et-1GQ"/>
+                    <toolbarItem reference="wR6-Ex-ye8"/>
                 </defaultToolbarItems>
             </toolbar>
         </window>
     </objects>
     <resources>
+        <image name="NSActionTemplate" width="14" height="14"/>
         <image name="NSLeftFacingTriangleTemplate" width="9" height="9"/>
         <image name="heart" width="1200" height="1200"/>
         <image name="home" width="12.800000190734863" height="12.800000190734863"/>

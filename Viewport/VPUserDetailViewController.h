@@ -27,6 +27,5 @@
 @property NSObject<VPModelDelegate> *modelDelegate;
 
 -(void)prepare;
--(void)show;
 
 @end

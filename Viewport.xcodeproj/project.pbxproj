@@ -371,7 +371,6 @@
 				BA414B65197F45220061BA59 /* NSTextField+LayoutContraintTag.m */,
 				BACFA4131981593C00D3E924 /* NS(Attributed)String+Geometrics.h */,
 				BACFA4141981593C00D3E924 /* NS(Attributed)String+Geometrics.m */,
-				BAD4303B197B67610084C415 /* TKNavigationController */,
 				BAD4302C197AB2740084C415 /* BSRefreshableScrollView */,
 				BAD260E319742AFC005F2E7D /* preference */,
 				BA07C61C19725B3300027EC1 /* TKImageLoader */,
@@ -452,6 +451,7 @@
 		BAF657EE1960323300593F2D /* Viewport */ = {
 			isa = PBXGroup;
 			children = (
+				BAD4303B197B67610084C415 /* TKNavigationController */,
 				BACFA4171982B15E00D3E924 /* VPUserDetailViewController */,
 				BAD4303E197BAD200084C415 /* VPFeedDetailViewController */,
 				BAD91D961969238B00BED591 /* utility */,
