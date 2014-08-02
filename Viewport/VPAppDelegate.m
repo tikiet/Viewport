@@ -211,4 +211,9 @@
     [navController pop];
 }
 
+- (IBAction)debug:(id)sender {
+    NSLog(@"view controllers:%@", navController.viewControllers);
+    NSLog(@"subviews:%@", navController.view.subviews);
+}
+
 @end

@@ -778,15 +778,33 @@
                             </connections>
                         </button>
                     </toolbarItem>
+                    <toolbarItem implicitItemIdentifier="FC752507-2B36-42FD-A89C-6DA43A1F2BA2" label="Debug" paletteLabel="Debug" image="NSAdvanced" id="NPX-0K-Nks">
+                        <nil key="toolTip"/>
+                        <size key="minSize" width="20" height="25"/>
+                        <size key="maxSize" width="44" height="44"/>
+                        <button key="view" verticalHuggingPriority="750" id="Ubb-ZF-rvH">
+                            <rect key="frame" x="0.0" y="14" width="44" height="25"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="NSAdvanced" imagePosition="only" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="odP-gv-RvP">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="debug:" target="Voe-Tx-rLC" id="Cn9-Io-h11"/>
+                            </connections>
+                        </button>
+                    </toolbarItem>
                 </allowedToolbarItems>
                 <defaultToolbarItems>
                     <toolbarItem reference="2b4-K4-f7E"/>
                     <toolbarItem reference="XhT-9T-mUs"/>
+                    <toolbarItem reference="NPX-0K-Nks"/>
                 </defaultToolbarItems>
             </toolbar>
         </window>
     </objects>
     <resources>
+        <image name="NSAdvanced" width="32" height="32"/>
         <image name="NSLeftFacingTriangleTemplate" width="9" height="9"/>
         <image name="heart" width="1200" height="1200"/>
         <image name="home" width="12.800000190734863" height="12.800000190734863"/>
