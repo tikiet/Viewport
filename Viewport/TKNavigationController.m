@@ -3,6 +3,7 @@
 @interface TKNavigationController ()
 {
     NSMutableArray *retainedViewControllers;
+    NSView *innermostSubview;
 }
 @end
 
@@ -20,9 +21,9 @@
 
 - (void)awakeFromNib
 {
-    NSLog(@"awakeFromNib");
     retainedViewControllers = [[NSMutableArray alloc]init];
     _viewControllers = [[NSMutableArray alloc]init];
+    innermostSubview = self.view;
 }
 
 -(void)addViewController:(NSViewController *)viewController retain:(BOOL)retain
@@ -42,9 +43,9 @@
         [transition setType:kCATransitionFade];
     }
     
-    [self.view setAnimations:[NSDictionary dictionaryWithObject:transition forKey:@"subviews"]];
-    self.view.wantsLayer = YES;
-    [[self.view animator] addSubview:viewController.view];
+    [innermostSubview setAnimations:[NSDictionary dictionaryWithObject:transition forKey:@"subviews"]];
+    innermostSubview.wantsLayer = YES;
+    [[innermostSubview animator] addSubview:viewController.view];
     
     NSView *parent = self.view;
     NSView *view = viewController.view;
@@ -61,15 +62,26 @@
     
     [parent addConstraints:constraint1];
     [parent addConstraints:constraint2];
+    
+    innermostSubview = view;
+}
+
+-(void)removeFromViewChain:(NSView*)view
+{
+    NSArray *subviews = view.subviews;
+    NSView *superview = view.superview;
+    
+    [view removeFromSuperview];
+    for (NSView *view in subviews) {
+        [superview addSubview:view];
+    }
 }
 
 -(void)moveToTop:(NSViewController *)viewController
 {
-    NSMutableArray *subviews = [NSMutableArray arrayWithArray:self.view.subviews];
-    [subviews removeObject:viewController.view];
-    [subviews addObject:viewController.view];
+    [self removeFromViewChain:viewController.view];
     
-    NSMutableArray *viewControllersToDelete = [[NSMutableArray alloc]init];
+    NSMutableArray *viewControllersToDelete = [[NSMutableArray alloc] init];
     NSMutableArray *viewsToDelete = [[NSMutableArray alloc]init];
     for (NSViewController *controller in self.viewControllers) {
         if (![retainedViewControllers containsObject:controller]) {
@@ -78,10 +90,11 @@
         }
     }
     
-    [subviews removeObjectsInArray:viewsToDelete];
-    [self.viewControllers removeObjectsInArray:viewControllersToDelete];
+    for (NSView *view in viewsToDelete) {
+        [self removeFromViewChain:view];
+    }
     
-    self.view.subviews = subviews;
+    [self.viewControllers removeObjectsInArray:viewControllersToDelete];
 }
 
 -(void)pop
@@ -93,10 +106,12 @@
         [transition setType:kCATransitionPush];
         [transition setSubtype:kCATransitionFromLeft];
         
-        NSView *lastView = [self.view.subviews lastObject];
+        NSView *superView = [innermostSubview superview];
         
-        [self.view setAnimations:[NSDictionary dictionaryWithObject:transition forKey:@"subviews"]];
-        [[lastView animator] removeFromSuperview];
+        [superView setAnimations:[NSDictionary dictionaryWithObject:transition forKey:@"subviews"]];
+        [[innermostSubview animator] removeFromSuperview];
+        
+        innermostSubview = superView;
     }
 }
 
