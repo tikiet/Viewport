@@ -1,5 +1,4 @@
 #import "VPAppDelegate.h"
-#import "INAppStoreWindow.h"
 #import "VPConnectionDataDepot.h"
 #import "VPFeedDetailViewController.h"
 #import "VPUserDetailViewController.h"
@@ -13,7 +12,6 @@
     MASPreferencesWindowController *preferencesWindowController;
     TKNavigationController *navController;
     
-    INAppStoreWindow *iasWindow;
 }
 
 - (IBAction)openPreference:(id)sender {
@@ -29,13 +27,6 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    // configure title bar
-    iasWindow = (INAppStoreWindow*) self.window;
-    iasWindow.titleBarHeight = 35;
-    iasWindow.showsTitle = YES;
-    iasWindow.title = @"Viewport";
-    iasWindow.verticallyCenterTitle = YES;
-    
     navController = [[TKNavigationController alloc] initWithNibName:@"TKNavigationController" bundle:nil];
     [self.contentArea addSubview:navController.view];
     
