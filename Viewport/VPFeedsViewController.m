@@ -8,6 +8,8 @@
 
 #import "VPFeedsViewController.h"
 
+#define DEBUG_MODE NO
+
 @interface VPFeedsViewController ()
 {
     NSArray *array;
@@ -103,6 +105,9 @@
     }
     
     NSArray *rawFeeds = [data objectForKey:@"data"];
+    if (DEBUG_MODE) {
+        NSLog(@"raw: %@", rawFeeds);
+    }
     
     NSMutableSet *feeds = [[NSMutableSet alloc] init];
     for (NSDictionary *dic in rawFeeds){

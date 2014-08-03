@@ -141,6 +141,7 @@
     int code =  [[meta objectForKey:@"code"] intValue];
     if (code != 200) {
         [self reportError:meta];
+        [self.privateUserHint setHidden:NO];
         return;
     }
     

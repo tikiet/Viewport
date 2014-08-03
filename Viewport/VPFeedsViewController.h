@@ -28,6 +28,4 @@
 -(void)prepare;
 -(id)initWithNibName:(NSString *)nibNameOrNil identifier:(NSString*) identifier bundle:(NSBundle *)nibBundleOrNil;
 
--(IBAction)modelDidSelect:(id)sender;
-
 @end

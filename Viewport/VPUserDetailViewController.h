@@ -23,6 +23,8 @@
 @property (weak) IBOutlet NSImageView *profile;
 
 @property (weak) IBOutlet NSTableView *tableView;
+@property (weak) IBOutlet NSTextField *privateUserHint;
+
 
 @property NSObject<VPModelDelegate> *modelDelegate;
 
