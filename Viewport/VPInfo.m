@@ -7,6 +7,7 @@ static NSString *selfTimelineUrl = @"https://api.instagram.com/v1/users/self/fee
 static NSString *favoritesUrl = @"https://api.instagram.com/v1/users/self/media/liked?access_token=%@";
 static NSString *userDetailUrl = @"https://api.instagram.com/v1/users/%@/?access_token=%@";
 static NSString *userRecentUrl = @"https://api.instagram.com/v1/users/%@/media/recent/?access_token=%@&count=60";
+static NSString *userRelationshipUrl = @"https://api.instagram.com/v1/users/%@/relationship?access_token=%@";
 
 static NSMutableDictionary *mapping;
 
@@ -117,6 +118,12 @@ static NSMutableDictionary *mapping;
     if (maxId) {
         url = [NSString stringWithFormat:@"%@&max_id=%@", url, maxId];
     }
+    return [NSURL URLWithString:url];
+}
+
++(NSURL*)retrieveUserRelationshipWithUserId:(NSString *)userId
+{
+    NSString *url = [NSString stringWithFormat:userRelationshipUrl, userId, [self accessToken]];
     return [NSURL URLWithString:url];
 }
 

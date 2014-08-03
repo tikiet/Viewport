@@ -5,6 +5,7 @@
 #import "TKImageLoader.h"
 #import "VPFeed.h"
 #import "NS(Attributed)String+Geometrics.h"
+#import "VPRelationship.h"
 
 @interface VPUserDetailViewController ()
 {
@@ -12,20 +13,11 @@
     BOOL triggeredBottom;
     BOOL hasMore;
     NSString *nextMaxId;
+    VPRelationship *relationship;
 }
 @end
 
 @implementation VPUserDetailViewController
-
-- (id)initWithNibName:(NSString *)nibNameOrNil
-               bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil
-                           bundle:nibBundleOrNil];
-    if (self) {
-    }
-    return self;
-}
 
 -(void)awakeFromNib
 {
@@ -74,7 +66,44 @@
                                               }]];
     [detailConn start];
     
+    NSURLRequest *relationshipRequest = [NSURLRequest requestWithURL:[VPInfo retrieveUserRelationshipWithUserId:[@(self.user.userId) stringValue]]];
+    NSURLConnection *relationshipConn =
+    [[NSURLConnection alloc] initWithRequest:relationshipRequest delegate:[[VPConnectionDataDepot alloc] initWithSuccessBlock:^(NSData*data) {
+        [self updateRelationship:data];
+    }failBlock:^(NSError *error) {
+        NSLog(@"error:%@", error);
+    }]];
+    [relationshipConn start];
+    
     [self startRequest];
+}
+
+-(void)updateRelationship:(NSData*) data
+{
+    NSDictionary *raw = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    NSDictionary *meta = [raw objectForKey:@"meta"];
+    NSLog(@"meta:%@", meta);
+    int code =  [[meta objectForKey:@"code"] intValue];
+    if (code != 200) {
+        [self reportError:meta];
+        return;
+    }
+    
+    relationship = [[VPRelationship alloc] initWithDictionary:[raw objectForKey:@"data"]];
+    NSLog(@"relationship.out = %d", relationship.outgoingStatus);
+    NSLog(@"relationship.in = %d", relationship.incomingStatus);
+    
+    if (relationship.incomingStatus == requested_by) {
+        self.relationshipButton.title = @"Confirm request";
+    } else if (relationship.incomingStatus == blocked_by_you) {
+        self.relationshipButton.title = @"Blocked";
+    } else if (relationship.outgoingStatus == requested) {
+        self.relationshipButton.title = @"Request sent";
+    } else if (relationship.outgoingStatus == follows) {
+        self.relationshipButton.title = @"Following";
+    } else if (relationship.outgoingStatus == none) {
+        self.relationshipButton.title = @"Follow";
+    }
 }
 
 -(void)updateUserDetail:(NSData*)data

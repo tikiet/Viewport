@@ -41,6 +41,7 @@
 		BAD4303D197B71C30084C415 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAD4303C197B71C30084C415 /* QuartzCore.framework */; };
 		BAD43042197BAD3A0084C415 /* VPFeedDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD43040197BAD3A0084C415 /* VPFeedDetailViewController.m */; };
 		BAD43043197BAD3A0084C415 /* VPFeedDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAD43041197BAD3A0084C415 /* VPFeedDetailViewController.xib */; };
+		BAD80B2A198E2AA30022FE69 /* VPRelationship.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD80B29198E2AA20022FE69 /* VPRelationship.m */; };
 		BAD91D9B196923C500BED591 /* VPLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD91D99196923C500BED591 /* VPLoginViewController.m */; };
 		BAD91D9C196923C500BED591 /* VPLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAD91D9A196923C500BED591 /* VPLoginViewController.xib */; };
 		BAD91DA11969264200BED591 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAD91DA01969264200BED591 /* WebKit.framework */; };
@@ -137,6 +138,8 @@
 		BAD4303F197BAD3A0084C415 /* VPFeedDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VPFeedDetailViewController.h; sourceTree = "<group>"; };
 		BAD43040197BAD3A0084C415 /* VPFeedDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VPFeedDetailViewController.m; sourceTree = "<group>"; };
 		BAD43041197BAD3A0084C415 /* VPFeedDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VPFeedDetailViewController.xib; sourceTree = "<group>"; };
+		BAD80B28198E2AA20022FE69 /* VPRelationship.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VPRelationship.h; sourceTree = "<group>"; };
+		BAD80B29198E2AA20022FE69 /* VPRelationship.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VPRelationship.m; sourceTree = "<group>"; };
 		BAD91D98196923C500BED591 /* VPLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VPLoginViewController.h; sourceTree = "<group>"; };
 		BAD91D99196923C500BED591 /* VPLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VPLoginViewController.m; sourceTree = "<group>"; };
 		BAD91D9A196923C500BED591 /* VPLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VPLoginViewController.xib; sourceTree = "<group>"; };
@@ -244,6 +247,8 @@
 				BAEBEFEB196461140074D049 /* VPLikes.m */,
 				BAEBEFED196463FE0074D049 /* VPFeed.h */,
 				BAEBEFEE196463FE0074D049 /* VPFeed.m */,
+				BAD80B28198E2AA20022FE69 /* VPRelationship.h */,
+				BAD80B29198E2AA20022FE69 /* VPRelationship.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -578,6 +583,7 @@
 				BAF657FC1960323300593F2D /* VPAppDelegate.m in Sources */,
 				BA355DF6196993D900D542BB /* VPConnectionDataDepot.m in Sources */,
 				BA414B60197BE1570061BA59 /* VPFeedDetailPhotoView.m in Sources */,
+				BAD80B2A198E2AA30022FE69 /* VPRelationship.m in Sources */,
 				BAD43042197BAD3A0084C415 /* VPFeedDetailViewController.m in Sources */,
 				BACFA41B1982B18900D3E924 /* VPUserDetailViewController.m in Sources */,
 				BA414B63197BE1780061BA59 /* VPFeedDetailCommentView.m in Sources */,

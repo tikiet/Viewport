@@ -13,6 +13,7 @@
                 <outlet property="posts" destination="b5x-Gl-eal" id="HK9-4h-TPf"/>
                 <outlet property="privateUserHint" destination="kIM-WK-cdh" id="Ce2-Sv-nR2"/>
                 <outlet property="profile" destination="OVe-In-mBX" id="n18-Oc-0Sb"/>
+                <outlet property="relationshipButton" destination="gZ9-Rz-UP8" id="ZXv-f4-DcQ"/>
                 <outlet property="tableView" destination="KeX-c5-NoA" id="aCX-W9-ZLh"/>
                 <outlet property="userName" destination="F7Q-5Z-nbo" id="DhO-yr-sad"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
@@ -34,7 +35,7 @@
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="NSUserGuest" id="122-Bg-hlk"/>
                 </imageView>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="b5x-Gl-eal">
-                    <rect key="frame" x="188" y="372" width="41" height="17"/>
+                    <rect key="frame" x="188" y="382" width="41" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="0" id="hy3-h2-ffK">
                         <font key="font" metaFont="system"/>
@@ -43,7 +44,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="egC-XJ-AHr">
-                    <rect key="frame" x="240" y="372" width="61" height="17"/>
+                    <rect key="frame" x="240" y="382" width="61" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="0" id="68b-xW-7uW">
                         <font key="font" metaFont="system"/>
@@ -52,7 +53,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UGk-2e-WwL">
-                    <rect key="frame" x="312" y="372" width="60" height="17"/>
+                    <rect key="frame" x="312" y="382" width="60" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="0" id="Qgf-OI-XQQ">
                         <font key="font" metaFont="system"/>
@@ -61,7 +62,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nWn-Af-SwQ">
-                    <rect key="frame" x="188" y="353" width="41" height="19"/>
+                    <rect key="frame" x="188" y="363" width="41" height="19"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="posts" id="pcq-Wq-0YO">
                         <font key="font" size="13" name="HelveticaNeue"/>
@@ -70,7 +71,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="l68-Sm-dZQ">
-                    <rect key="frame" x="240" y="353" width="61" height="19"/>
+                    <rect key="frame" x="240" y="363" width="61" height="19"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="followers" id="0Wo-Ah-gOo">
                         <font key="font" size="13" name="HelveticaNeue"/>
@@ -79,7 +80,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yUe-hZ-9uu">
-                    <rect key="frame" x="312" y="353" width="60" height="19"/>
+                    <rect key="frame" x="312" y="363" width="60" height="19"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="following" id="6df-D5-W5D">
                         <font key="font" size="13" name="HelveticaNeue"/>
@@ -241,6 +242,14 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gZ9-Rz-UP8">
+                    <rect key="frame" x="190" y="334" width="180" height="25"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="2fs-eX-60X">
+                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                </button>
             </subviews>
             <constraints>
                 <constraint firstItem="yUe-hZ-9uu" firstAttribute="width" secondItem="UGk-2e-WwL" secondAttribute="width" id="1nm-lN-3zV"/>
@@ -253,6 +262,7 @@
                 <constraint firstItem="yUe-hZ-9uu" firstAttribute="centerY" secondItem="l68-Sm-dZQ" secondAttribute="centerY" id="B1j-hk-Dwq"/>
                 <constraint firstItem="egC-XJ-AHr" firstAttribute="centerX" secondItem="l68-Sm-dZQ" secondAttribute="centerX" id="BXx-vt-bPQ"/>
                 <constraint firstItem="zMR-9o-90X" firstAttribute="top" secondItem="6Dl-ed-4P6" secondAttribute="bottom" constant="5" id="Cgz-QS-YwC"/>
+                <constraint firstItem="gZ9-Rz-UP8" firstAttribute="trailing" secondItem="UGk-2e-WwL" secondAttribute="trailing" id="DLK-dc-eFW"/>
                 <constraint firstItem="zMR-9o-90X" firstAttribute="width" secondItem="Hz6-mo-xeY" secondAttribute="width" id="Mv6-wQ-jHL"/>
                 <constraint firstItem="UGk-2e-WwL" firstAttribute="trailing" secondItem="Hz6-mo-xeY" secondAttribute="trailing" constant="-60" id="NHU-Jk-h1s"/>
                 <constraint firstItem="l68-Sm-dZQ" firstAttribute="width" secondItem="egC-XJ-AHr" secondAttribute="width" id="Oto-hJ-z9I"/>
@@ -260,11 +270,13 @@
                 <constraint firstItem="egC-XJ-AHr" firstAttribute="centerY" secondItem="UGk-2e-WwL" secondAttribute="centerY" id="QDK-Jc-G0T"/>
                 <constraint firstItem="F7Q-5Z-nbo" firstAttribute="trailing" secondItem="Hz6-mo-xeY" secondAttribute="trailing" constant="-15" id="Szn-VD-BZ4"/>
                 <constraint firstItem="OVe-In-mBX" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="15" id="TWN-xM-gGx"/>
-                <constraint firstItem="UGk-2e-WwL" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="30" id="X5I-bL-hX7"/>
+                <constraint firstItem="UGk-2e-WwL" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" id="X5I-bL-hX7"/>
                 <constraint firstItem="OVe-In-mBX" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="15" id="ZCs-oJ-Qod"/>
                 <constraint firstItem="nWn-Af-SwQ" firstAttribute="centerX" secondItem="b5x-Gl-eal" secondAttribute="centerX" id="bbX-AD-wkN"/>
                 <constraint firstItem="yUe-hZ-9uu" firstAttribute="top" secondItem="UGk-2e-WwL" secondAttribute="bottom" id="eVO-a4-7B7"/>
+                <constraint firstItem="gZ9-Rz-UP8" firstAttribute="leading" secondItem="b5x-Gl-eal" secondAttribute="leading" id="f3j-yL-TXi"/>
                 <constraint firstItem="6Dl-ed-4P6" firstAttribute="centerX" secondItem="F7Q-5Z-nbo" secondAttribute="centerX" id="gcg-r8-JaH"/>
+                <constraint firstItem="gZ9-Rz-UP8" firstAttribute="top" secondItem="yUe-hZ-9uu" secondAttribute="bottom" constant="5" id="gfa-cD-6xG"/>
                 <constraint firstItem="egC-XJ-AHr" firstAttribute="centerY" secondItem="b5x-Gl-eal" secondAttribute="centerY" id="glG-nB-THb"/>
                 <constraint firstItem="zMR-9o-90X" firstAttribute="bottom" secondItem="Hz6-mo-xeY" secondAttribute="bottom" id="hNY-Ap-Vz6"/>
                 <constraint firstItem="egC-XJ-AHr" firstAttribute="leading" secondItem="b5x-Gl-eal" secondAttribute="trailing" constant="15" id="mY1-Mm-OFj"/>

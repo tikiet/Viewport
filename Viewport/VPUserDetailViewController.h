@@ -24,6 +24,7 @@
 
 @property (weak) IBOutlet NSTableView *tableView;
 @property (weak) IBOutlet NSTextField *privateUserHint;
+@property (weak) IBOutlet NSButton *relationshipButton;
 
 
 @property NSObject<VPModelDelegate> *modelDelegate;
