@@ -82,6 +82,7 @@
 {
     NSDictionary *raw = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
     NSDictionary *meta = [raw objectForKey:@"meta"];
+    NSLog(@"raw:%@", raw);
     NSLog(@"meta:%@", meta);
     int code =  [[meta objectForKey:@"code"] intValue];
     if (code != 200) {
@@ -103,6 +104,36 @@
         self.relationshipButton.title = @"Following";
     } else if (relationship.outgoingStatus == none) {
         self.relationshipButton.title = @"Follow";
+    }
+}
+
+- (IBAction)changeRelationship:(id)sender {
+    NSString *action = nil;
+    if (relationship) {
+        if (relationship.incomingStatus == requested_by) {
+            action = @"approve";
+        } else if (relationship.incomingStatus == blocked_by_you) {
+            action = @"unblock";
+        } else if (relationship.outgoingStatus == requested) {
+            action = nil;
+        } else if (relationship.outgoingStatus == follows) {
+            action = @"unfollow";
+        } else if (relationship.outgoingStatus == none) {
+            action = @"follow";
+        }
+    }
+    
+    if (action) {
+        NSMutableURLRequest *relationshipRequest = [NSMutableURLRequest requestWithURL:[VPInfo retrieveUserRelationshipWithUserId:[@(self.user.userId) stringValue]]];
+        relationshipRequest.HTTPMethod = @"POST";
+        relationshipRequest.HTTPBody = [[NSString stringWithFormat:@"action=%@", action] dataUsingEncoding:NSUTF8StringEncoding];
+        NSURLConnection *relationshipConn =
+        [[NSURLConnection alloc] initWithRequest:relationshipRequest delegate:[[VPConnectionDataDepot alloc] initWithSuccessBlock:^(NSData*data) {
+            [self updateRelationship:data];
+        }failBlock:^(NSError *error) {
+            NSLog(@"error:%@", error);
+        }]];
+        [relationshipConn start];
     }
 }
 

@@ -57,6 +57,9 @@
 
 -(void)loginFailedWithError:(NSString *)error reason:(NSString *)reason description:(NSString *)description
 {
+    [self.navigationArea setHidden:NO];
+    [self.contentArea setHidden:NO];
+    
     NSLog(@"login failed:%@", error);
     [loginViewController stop];
     [loginViewController.view removeFromSuperview];
@@ -65,6 +68,9 @@
 
 -(void)loginSucceededWithAccessToken:(NSString *)token
 {
+    [self.navigationArea setHidden:NO];
+    [self.contentArea setHidden:NO];
+    
     [VPInfo setAccessToken:token];
     [loginViewController stop];
     [loginViewController.view removeFromSuperview];
@@ -146,6 +152,9 @@
     [parent addConstraints:constraint2];
     
     [loginViewController loadLoginPage];
+    
+    [self.navigationArea setHidden:YES];
+    [self.contentArea setHidden:YES];
 }
 
 -(void) showFavoritesView

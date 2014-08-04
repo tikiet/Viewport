@@ -49,7 +49,7 @@ NSString* kAccessToken = @"access_token=";
 {
     NSString *redirect_uri = @"https://wuxudong.wordpress.com/viewport";
     NSString *clientId = @"cef2651b8eb54e1b8b4c16dbe9ec0317";
-    NSString *url = @"https://instagram.com/oauth/authorize/?client_id=%@&redirect_uri=%@&response_type=token";
+    NSString *url = @"https://instagram.com/oauth/authorize/?client_id=%@&redirect_uri=%@&response_type=token&scope=relationships";
     NSString *loginUrl = [NSString stringWithFormat:url, clientId, redirect_uri];
     [[self.webview mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:loginUrl]]];
 }

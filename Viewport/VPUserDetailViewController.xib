@@ -249,6 +249,9 @@
                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
+                    <connections>
+                        <action selector="changeRelationship:" target="-2" id="il5-Qx-dgh"/>
+                    </connections>
                 </button>
             </subviews>
             <constraints>
