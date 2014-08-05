@@ -732,15 +732,29 @@
                                     <action selector="showFavorites:" target="Voe-Tx-rLC" id="beI-fY-IK2"/>
                                 </connections>
                             </button>
+                            <button translatesAutoresizingMaskIntoConstraints="NO" id="nzJ-4C-a4J">
+                                <rect key="frame" x="18" y="420" width="25" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="OqT-2U-cuv"/>
+                                    <constraint firstAttribute="width" constant="25" id="Wrr-2C-RkA"/>
+                                </constraints>
+                                <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="NSRevealFreestandingTemplate" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="bfX-tb-5vo">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system" size="10"/>
+                                </buttonCell>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="Wgr-Ja-Jjr" firstAttribute="top" secondItem="xtf-oo-NcF" secondAttribute="bottom" constant="10" id="AxL-tv-szo"/>
                             <constraint firstItem="xtf-oo-NcF" firstAttribute="top" secondItem="e0e-Yf-dSQ" secondAttribute="bottom" constant="10" id="JJi-s5-9EA"/>
                             <constraint firstItem="e0e-Yf-dSQ" firstAttribute="centerX" secondItem="z2b-Z9-2oC" secondAttribute="centerX" id="MwY-2t-yWO"/>
                             <constraint firstItem="xtf-oo-NcF" firstAttribute="centerX" secondItem="z2b-Z9-2oC" secondAttribute="centerX" id="NLz-kD-enE"/>
+                            <constraint firstItem="nzJ-4C-a4J" firstAttribute="centerX" secondItem="z2b-Z9-2oC" secondAttribute="centerX" id="Tcl-Gc-Nw5"/>
                             <constraint firstItem="e0e-Yf-dSQ" firstAttribute="top" secondItem="z2b-Z9-2oC" secondAttribute="top" constant="10" id="Ytn-pK-1W3"/>
                             <constraint firstAttribute="width" constant="60" id="bvv-LQ-fI3"/>
                             <constraint firstAttribute="centerX" secondItem="Wgr-Ja-Jjr" secondAttribute="centerX" id="eqx-rC-9xv"/>
+                            <constraint firstItem="nzJ-4C-a4J" firstAttribute="top" secondItem="Wgr-Ja-Jjr" secondAttribute="bottom" constant="10" id="kMo-zI-LUv"/>
                         </constraints>
                     </customView>
                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="jLF-ZD-66n">
@@ -805,6 +819,7 @@
     <resources>
         <image name="NSAdvanced" width="32" height="32"/>
         <image name="NSLeftFacingTriangleTemplate" width="9" height="9"/>
+        <image name="NSRevealFreestandingTemplate" width="14" height="14"/>
         <image name="heart" width="1200" height="1200"/>
         <image name="home" width="12.800000190734863" height="12.800000190734863"/>
         <image name="internet" width="12" height="12"/>
