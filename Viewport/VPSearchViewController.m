@@ -14,13 +14,12 @@
 
 @implementation VPSearchViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+-(void)awakeFromNib
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Initialization code here.
-    }
-    return self;
+}
+
+- (IBAction)enter:(id)sender {
+    NSLog(@"enter:%@", sender);
 }
 
 @end

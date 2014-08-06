@@ -10,4 +10,9 @@
 
 @interface VPSearchViewController : NSViewController
 
+@property (weak) IBOutlet NSSearchField *searchField;
+@property (weak) IBOutlet NSTableView *tableView;
+@property (weak) IBOutlet NSScrollView *scrollView;
+@property (weak) IBOutlet NSClipView *clipView;
+
 @end
