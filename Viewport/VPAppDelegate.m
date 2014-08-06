@@ -2,6 +2,7 @@
 #import "VPConnectionDataDepot.h"
 #import "VPFeedDetailViewController.h"
 #import "VPUserDetailViewController.h"
+#import "VPSearchViewController.h"
 
 @implementation VPAppDelegate
 {
@@ -11,7 +12,7 @@
     VPFeedsViewController *favoritesViewController;
     MASPreferencesWindowController *preferencesWindowController;
     TKNavigationController *navController;
-    
+    VPSearchViewController *searchController;
 }
 
 - (IBAction)openPreference:(id)sender {
@@ -90,6 +91,23 @@
 
 - (IBAction)showFavorites:(id)sender {
     [self showFavoritesView];
+}
+
+- (IBAction)showSearch:(id)sender {
+    [self showSearch];
+}
+
+- (void) showSearch
+{
+    if (searchController) {
+        [navController moveToTop:searchController];
+    } else {
+        searchController = [[VPSearchViewController alloc] initWithNibName:@"VPSearchViewController"
+                                                                    bundle:nil];
+        searchController.view.wantsLayer = YES;
+        searchController.view.layer.backgroundColor = CGColorCreateGenericRGB(0.84, 0.84, 0.84, 1);
+        [navController addViewController:searchController retain:YES];
+    }
 }
 
 - (void) showPopularView

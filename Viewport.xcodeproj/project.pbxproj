@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		BA07C61F19725BAD00027EC1 /* TKImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = BA07C61E19725BAD00027EC1 /* TKImageLoader.m */; };
+		BA294C261992776D004036CF /* VPSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA294C241992776D004036CF /* VPSearchViewController.m */; };
+		BA294C271992776D004036CF /* VPSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA294C251992776D004036CF /* VPSearchViewController.xib */; };
 		BA355DF6196993D900D542BB /* VPConnectionDataDepot.m in Sources */ = {isa = PBXBuildFile; fileRef = BA355DF5196993D900D542BB /* VPConnectionDataDepot.m */; };
 		BA355DFC1969A69F00D542BB /* VPInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = BA355DFB1969A69F00D542BB /* VPInfo.m */; };
 		BA355DFE1969AE1D00D542BB /* AppInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BA355DFD1969AE1D00D542BB /* AppInfo.plist */; };
@@ -82,6 +84,9 @@
 		B36829801D97485B8997B7E1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA07C61D19725BAD00027EC1 /* TKImageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKImageLoader.h; sourceTree = "<group>"; };
 		BA07C61E19725BAD00027EC1 /* TKImageLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKImageLoader.m; sourceTree = "<group>"; };
+		BA294C231992776D004036CF /* VPSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VPSearchViewController.h; sourceTree = "<group>"; };
+		BA294C241992776D004036CF /* VPSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VPSearchViewController.m; sourceTree = "<group>"; };
+		BA294C251992776D004036CF /* VPSearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VPSearchViewController.xib; sourceTree = "<group>"; };
 		BA355DF4196993D900D542BB /* VPConnectionDataDepot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VPConnectionDataDepot.h; sourceTree = "<group>"; };
 		BA355DF5196993D900D542BB /* VPConnectionDataDepot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VPConnectionDataDepot.m; sourceTree = "<group>"; };
 		BA355DFA1969A69F00D542BB /* VPInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VPInfo.h; sourceTree = "<group>"; };
@@ -212,6 +217,16 @@
 				BA07C61E19725BAD00027EC1 /* TKImageLoader.m */,
 			);
 			name = TKImageLoader;
+			sourceTree = "<group>";
+		};
+		BA294C2219927747004036CF /* VPSearchViewController */ = {
+			isa = PBXGroup;
+			children = (
+				BA294C231992776D004036CF /* VPSearchViewController.h */,
+				BA294C241992776D004036CF /* VPSearchViewController.m */,
+				BA294C251992776D004036CF /* VPSearchViewController.xib */,
+			);
+			name = VPSearchViewController;
 			sourceTree = "<group>";
 		};
 		BA8F3DF01967A9B8009E7E70 /* VPFeedView */ = {
@@ -413,6 +428,7 @@
 		BAF657EE1960323300593F2D /* Viewport */ = {
 			isa = PBXGroup;
 			children = (
+				BA294C2219927747004036CF /* VPSearchViewController */,
 				BAD4303B197B67610084C415 /* TKNavigationController */,
 				BACFA4171982B15E00D3E924 /* VPUserDetailViewController */,
 				BAD4303E197BAD200084C415 /* VPFeedDetailViewController */,
@@ -549,6 +565,7 @@
 				BA47A47B196EE11B0005997B /* heart.png in Resources */,
 				BAD91DA31969295D00BED591 /* VPFeedView.xib in Resources */,
 				BAD91D9C196923C500BED591 /* VPLoginViewController.xib in Resources */,
+				BA294C271992776D004036CF /* VPSearchViewController.xib in Resources */,
 				BACFA41E19834D4B00D3E924 /* VPUserDetailPhotoView.xib in Resources */,
 				BAD260E019742994005F2E7D /* MASPreferencesWindow.xib in Resources */,
 				BACFA41C1982B18900D3E924 /* VPUserDetailViewController.xib in Resources */,
@@ -593,6 +610,7 @@
 				BAAFC77519631492004E3408 /* VPVideo.m in Sources */,
 				BAD91D9B196923C500BED591 /* VPLoginViewController.m in Sources */,
 				BAD260E119742994005F2E7D /* MASPreferencesWindowController.m in Sources */,
+				BA294C261992776D004036CF /* VPSearchViewController.m in Sources */,
 				BAEBEFE919645BA90074D049 /* VPCaption.m in Sources */,
 				BAEBEFEC196461140074D049 /* VPLikes.m in Sources */,
 				BAD43039197B67510084C415 /* TKNavigationController.m in Sources */,

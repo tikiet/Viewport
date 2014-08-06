@@ -206,11 +206,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Viewport/VPAppDelegate.m"
-            timestampString = "428855126.442659"
+            timestampString = "429030166.86432"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "227"
-            endingLineNumber = "227"
+            startingLineNumber = "245"
+            endingLineNumber = "245"
             landmarkName = "@implementation VPAppDelegate"
             landmarkType = "3">
          </BreakpointContent>
