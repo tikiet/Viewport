@@ -8,7 +8,7 @@ static NSString *favoritesUrl = @"https://api.instagram.com/v1/users/self/media/
 static NSString *userDetailUrl = @"https://api.instagram.com/v1/users/%@/?access_token=%@";
 static NSString *userRecentUrl = @"https://api.instagram.com/v1/users/%@/media/recent/?access_token=%@&count=60";
 static NSString *userRelationshipUrl = @"https://api.instagram.com/v1/users/%@/relationship?access_token=%@";
-
+static NSString *userSearchUrl = @"https://api.instagram.com/v1/users/search?q=%@&access_token=%@";
 static NSMutableDictionary *mapping;
 
 #define ACCESS_TOKEN @"ACCESS_TOKEN"
@@ -107,6 +107,7 @@ static NSMutableDictionary *mapping;
     return [NSURL URLWithString: url];
 }
 
+
 +(NSURL*)retrieveUserDetailUrlWithUserId:(NSString *)userId
 {
     return [NSURL URLWithString:[NSString stringWithFormat:userDetailUrl, userId, [self accessToken]]];
@@ -149,5 +150,11 @@ static NSMutableDictionary *mapping;
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:token forKey:ACCESS_TOKEN];
+}
+
++(NSURL *)retrieveUserSearchUrlWithQueryParameter:(NSString *)q
+{
+    NSString *url = [NSString stringWithFormat:userSearchUrl, q, [self accessToken]];
+    return [NSURL URLWithString:url];
 }
 @end
