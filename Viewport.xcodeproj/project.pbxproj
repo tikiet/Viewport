@@ -51,8 +51,8 @@
 		BAD91DA619694B5700BED591 /* VPURLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD91DA519694B5700BED591 /* VPURLParser.m */; };
 		BAD91DB31969709F00BED591 /* VPFeedsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD91DB11969709F00BED591 /* VPFeedsViewController.m */; };
 		BAD91DB41969709F00BED591 /* VPFeedsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAD91DB21969709F00BED591 /* VPFeedsViewController.xib */; };
-		BAEAFDDB1995FC4000BF22C3 /* VPSearchUserResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAEAFDD91995FC4000BF22C3 /* VPSearchUserResultViewController.m */; };
-		BAEAFDDC1995FC4000BF22C3 /* VPSearchUserResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAEAFDDA1995FC4000BF22C3 /* VPSearchUserResultViewController.xib */; };
+		BAEAFDE119961E4D00BF22C3 /* VPSearchUserResultView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAEAFDE019961E4D00BF22C3 /* VPSearchUserResultView.xib */; };
+		BAEAFDE4199622AB00BF22C3 /* VPSearchUserResultView.m in Sources */ = {isa = PBXBuildFile; fileRef = BAEAFDE3199622AB00BF22C3 /* VPSearchUserResultView.m */; };
 		BAEBEFE3196457F90074D049 /* VPImage.m in Sources */ = {isa = PBXBuildFile; fileRef = BAEBEFE2196457F90074D049 /* VPImage.m */; };
 		BAEBEFE61964596B0074D049 /* VPImages.m in Sources */ = {isa = PBXBuildFile; fileRef = BAEBEFE51964596B0074D049 /* VPImages.m */; };
 		BAEBEFE919645BA90074D049 /* VPCaption.m in Sources */ = {isa = PBXBuildFile; fileRef = BAEBEFE819645BA90074D049 /* VPCaption.m */; };
@@ -157,9 +157,9 @@
 		BAD91DB01969709F00BED591 /* VPFeedsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VPFeedsViewController.h; sourceTree = "<group>"; };
 		BAD91DB11969709F00BED591 /* VPFeedsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VPFeedsViewController.m; sourceTree = "<group>"; };
 		BAD91DB21969709F00BED591 /* VPFeedsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VPFeedsViewController.xib; sourceTree = "<group>"; };
-		BAEAFDD81995FC4000BF22C3 /* VPSearchUserResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VPSearchUserResultViewController.h; sourceTree = "<group>"; };
-		BAEAFDD91995FC4000BF22C3 /* VPSearchUserResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VPSearchUserResultViewController.m; sourceTree = "<group>"; };
-		BAEAFDDA1995FC4000BF22C3 /* VPSearchUserResultViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VPSearchUserResultViewController.xib; sourceTree = "<group>"; };
+		BAEAFDE019961E4D00BF22C3 /* VPSearchUserResultView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VPSearchUserResultView.xib; sourceTree = "<group>"; };
+		BAEAFDE2199622AB00BF22C3 /* VPSearchUserResultView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VPSearchUserResultView.h; sourceTree = "<group>"; };
+		BAEAFDE3199622AB00BF22C3 /* VPSearchUserResultView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VPSearchUserResultView.m; sourceTree = "<group>"; };
 		BAEBEFE1196457F90074D049 /* VPImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VPImage.h; sourceTree = "<group>"; };
 		BAEBEFE2196457F90074D049 /* VPImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VPImage.m; sourceTree = "<group>"; };
 		BAEBEFE41964596B0074D049 /* VPImages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VPImages.h; sourceTree = "<group>"; };
@@ -230,9 +230,9 @@
 				BA294C231992776D004036CF /* VPSearchViewController.h */,
 				BA294C241992776D004036CF /* VPSearchViewController.m */,
 				BA294C251992776D004036CF /* VPSearchViewController.xib */,
-				BAEAFDD81995FC4000BF22C3 /* VPSearchUserResultViewController.h */,
-				BAEAFDD91995FC4000BF22C3 /* VPSearchUserResultViewController.m */,
-				BAEAFDDA1995FC4000BF22C3 /* VPSearchUserResultViewController.xib */,
+				BAEAFDE019961E4D00BF22C3 /* VPSearchUserResultView.xib */,
+				BAEAFDE2199622AB00BF22C3 /* VPSearchUserResultView.h */,
+				BAEAFDE3199622AB00BF22C3 /* VPSearchUserResultView.m */,
 			);
 			name = VPSearchViewController;
 			sourceTree = "<group>";
@@ -572,7 +572,6 @@
 				BA414B5D197BC5FB0061BA59 /* VPFeedDetailCommentView.xib in Resources */,
 				BA47A47B196EE11B0005997B /* heart.png in Resources */,
 				BAD91DA31969295D00BED591 /* VPFeedView.xib in Resources */,
-				BAEAFDDC1995FC4000BF22C3 /* VPSearchUserResultViewController.xib in Resources */,
 				BAD91D9C196923C500BED591 /* VPLoginViewController.xib in Resources */,
 				BA294C271992776D004036CF /* VPSearchViewController.xib in Resources */,
 				BACFA41E19834D4B00D3E924 /* VPUserDetailPhotoView.xib in Resources */,
@@ -586,6 +585,7 @@
 				BA47A47A196EE11B0005997B /* internet.png in Resources */,
 				BAD4303A197B67510084C415 /* TKNavigationController.xib in Resources */,
 				BAD91DB41969709F00BED591 /* VPFeedsViewController.xib in Resources */,
+				BAEAFDE119961E4D00BF22C3 /* VPSearchUserResultView.xib in Resources */,
 				BA414B58197BC5A50061BA59 /* VPFeedDetailPhotoView.xib in Resources */,
 				BAF657FF1960323300593F2D /* MainMenu.xib in Resources */,
 			);
@@ -608,7 +608,6 @@
 			files = (
 				BAF657FC1960323300593F2D /* VPAppDelegate.m in Sources */,
 				BA355DF6196993D900D542BB /* VPConnectionDataDepot.m in Sources */,
-				BAEAFDDB1995FC4000BF22C3 /* VPSearchUserResultViewController.m in Sources */,
 				BA414B60197BE1570061BA59 /* VPFeedDetailPhotoView.m in Sources */,
 				BAD80B2A198E2AA30022FE69 /* VPRelationship.m in Sources */,
 				BAD43042197BAD3A0084C415 /* VPFeedDetailViewController.m in Sources */,
@@ -629,6 +628,7 @@
 				BA07C61F19725BAD00027EC1 /* TKImageLoader.m in Sources */,
 				BAEBEFE61964596B0074D049 /* VPImages.m in Sources */,
 				BAEBEFE3196457F90074D049 /* VPImage.m in Sources */,
+				BAEAFDE4199622AB00BF22C3 /* VPSearchUserResultView.m in Sources */,
 				BAEBEFEF196463FE0074D049 /* VPFeed.m in Sources */,
 				BAAFC76C19630B8E004E3408 /* VPComment.m in Sources */,
 				BAAFC77819639B01004E3408 /* VPVideos.m in Sources */,

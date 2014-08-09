@@ -1,18 +1,13 @@
-//
-//  VPSearchViewController.h
-//  Viewport
-//
-//  Created by 吴旭东 on 8/6/14.
-//  Copyright (c) 2014 xudongwu.com. All rights reserved.
-//
-
 #import <Cocoa/Cocoa.h>
+#import "VPModelDelegate.h"
 
-@interface VPSearchViewController : NSViewController
+@interface VPSearchViewController : NSViewController <NSTableViewDataSource, NSTableViewDelegate>
 
 @property (weak) IBOutlet NSSearchField *searchField;
 @property (weak) IBOutlet NSTableView *tableView;
 @property (weak) IBOutlet NSScrollView *scrollView;
 @property (weak) IBOutlet NSClipView *clipView;
+
+@property id<VPModelDelegate> delegate;
 
 @end

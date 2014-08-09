@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5053" systemVersion="13E28" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5053"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application"/>
+        <customView id="PxR-2S-QaH" customClass="VPSearchUserResultView">
+            <rect key="frame" x="0.0" y="0.0" width="430" height="70"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3j2-hI-uYx">
+                    <rect key="frame" x="10" y="10" width="50" height="50"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="q52-SU-gbe"/>
+                        <constraint firstAttribute="height" constant="50" id="rWh-gD-WxH"/>
+                    </constraints>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSUser" id="Mhs-Se-geo"/>
+                </imageView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kwe-6b-Ux9">
+                    <rect key="frame" x="73" y="38" width="344" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="nickname" id="c1B-WH-Km8">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="BdD-su-DMm">
+                    <rect key="frame" x="73" y="16" width="344" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="full name" id="ZQ9-7Z-ufy">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstItem="BdD-su-DMm" firstAttribute="trailing" secondItem="PxR-2S-QaH" secondAttribute="trailing" constant="-15" id="Kf1-6g-IXa"/>
+                <constraint firstItem="kwe-6b-Ux9" firstAttribute="leading" secondItem="3j2-hI-uYx" secondAttribute="trailing" constant="15" id="VeP-zh-pce"/>
+                <constraint firstItem="BdD-su-DMm" firstAttribute="top" secondItem="kwe-6b-Ux9" secondAttribute="bottom" constant="5" id="X2P-Hz-mQa"/>
+                <constraint firstItem="BdD-su-DMm" firstAttribute="leading" secondItem="3j2-hI-uYx" secondAttribute="trailing" constant="15" id="bBn-ap-Lpl"/>
+                <constraint firstItem="kwe-6b-Ux9" firstAttribute="trailing" secondItem="PxR-2S-QaH" secondAttribute="trailing" constant="-15" id="eq3-EJ-LtI"/>
+                <constraint firstItem="kwe-6b-Ux9" firstAttribute="top" secondItem="PxR-2S-QaH" secondAttribute="top" constant="15" id="iB5-Ah-ySB"/>
+                <constraint firstItem="3j2-hI-uYx" firstAttribute="centerY" secondItem="PxR-2S-QaH" secondAttribute="centerY" id="iUV-Nh-2Iw"/>
+                <constraint firstItem="3j2-hI-uYx" firstAttribute="leading" secondItem="PxR-2S-QaH" secondAttribute="leading" constant="10" id="x21-Nx-oMy"/>
+            </constraints>
+            <connections>
+                <outlet property="fullname" destination="BdD-su-DMm" id="uUU-sq-ZvW"/>
+                <outlet property="imageView" destination="3j2-hI-uYx" id="Zob-6U-KsL"/>
+                <outlet property="nickname" destination="kwe-6b-Ux9" id="lrG-qW-DOQ"/>
+                <outlet property="profilePicture" destination="3j2-hI-uYx" id="fKO-a2-bSS"/>
+            </connections>
+        </customView>
+    </objects>
+    <resources>
+        <image name="NSUser" width="32" height="32"/>
+    </resources>
+</document>

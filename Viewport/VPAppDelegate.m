@@ -106,6 +106,7 @@
                                                                     bundle:nil];
         searchController.view.wantsLayer = YES;
         searchController.view.layer.backgroundColor = CGColorCreateGenericRGB(0.84, 0.84, 0.84, 1);
+        searchController.delegate = self;
         [navController addViewController:searchController retain:YES];
     }
 }
