@@ -53,6 +53,7 @@
 		BAD91DB41969709F00BED591 /* VPFeedsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAD91DB21969709F00BED591 /* VPFeedsViewController.xib */; };
 		BAEAFDE119961E4D00BF22C3 /* VPSearchUserResultView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAEAFDE019961E4D00BF22C3 /* VPSearchUserResultView.xib */; };
 		BAEAFDE4199622AB00BF22C3 /* VPSearchUserResultView.m in Sources */ = {isa = PBXBuildFile; fileRef = BAEAFDE3199622AB00BF22C3 /* VPSearchUserResultView.m */; };
+		BAEAFDE81996435D00BF22C3 /* ClickableTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = BAEAFDE71996435D00BF22C3 /* ClickableTableView.m */; };
 		BAEBEFE3196457F90074D049 /* VPImage.m in Sources */ = {isa = PBXBuildFile; fileRef = BAEBEFE2196457F90074D049 /* VPImage.m */; };
 		BAEBEFE61964596B0074D049 /* VPImages.m in Sources */ = {isa = PBXBuildFile; fileRef = BAEBEFE51964596B0074D049 /* VPImages.m */; };
 		BAEBEFE919645BA90074D049 /* VPCaption.m in Sources */ = {isa = PBXBuildFile; fileRef = BAEBEFE819645BA90074D049 /* VPCaption.m */; };
@@ -160,6 +161,8 @@
 		BAEAFDE019961E4D00BF22C3 /* VPSearchUserResultView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VPSearchUserResultView.xib; sourceTree = "<group>"; };
 		BAEAFDE2199622AB00BF22C3 /* VPSearchUserResultView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VPSearchUserResultView.h; sourceTree = "<group>"; };
 		BAEAFDE3199622AB00BF22C3 /* VPSearchUserResultView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VPSearchUserResultView.m; sourceTree = "<group>"; };
+		BAEAFDE61996435D00BF22C3 /* ClickableTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClickableTableView.h; sourceTree = "<group>"; };
+		BAEAFDE71996435D00BF22C3 /* ClickableTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClickableTableView.m; sourceTree = "<group>"; };
 		BAEBEFE1196457F90074D049 /* VPImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VPImage.h; sourceTree = "<group>"; };
 		BAEBEFE2196457F90074D049 /* VPImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VPImage.m; sourceTree = "<group>"; };
 		BAEBEFE41964596B0074D049 /* VPImages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VPImages.h; sourceTree = "<group>"; };
@@ -391,6 +394,15 @@
 			name = VPFeedsController;
 			sourceTree = "<group>";
 		};
+		BAEAFDE51996432D00BF22C3 /* ClickableTableView */ = {
+			isa = PBXGroup;
+			children = (
+				BAEAFDE61996435D00BF22C3 /* ClickableTableView.h */,
+				BAEAFDE71996435D00BF22C3 /* ClickableTableView.m */,
+			);
+			name = ClickableTableView;
+			sourceTree = "<group>";
+		};
 		BAF657DC1960323300593F2D = {
 			isa = PBXGroup;
 			children = (
@@ -436,6 +448,7 @@
 		BAF657EE1960323300593F2D /* Viewport */ = {
 			isa = PBXGroup;
 			children = (
+				BAEAFDE51996432D00BF22C3 /* ClickableTableView */,
 				BA294C2219927747004036CF /* VPSearchViewController */,
 				BAD4303B197B67610084C415 /* TKNavigationController */,
 				BACFA4171982B15E00D3E924 /* VPUserDetailViewController */,
@@ -614,6 +627,7 @@
 				BACFA41B1982B18900D3E924 /* VPUserDetailViewController.m in Sources */,
 				BA414B63197BE1780061BA59 /* VPFeedDetailCommentView.m in Sources */,
 				BACFA4211983E8FA00D3E924 /* VPUserDetailPhotoView.m in Sources */,
+				BAEAFDE81996435D00BF22C3 /* ClickableTableView.m in Sources */,
 				BAAFC76F19630F5E004E3408 /* VPComments.m in Sources */,
 				BAAFC769196302ED004E3408 /* VPUser.m in Sources */,
 				BAAFC77519631492004E3408 /* VPVideo.m in Sources */,

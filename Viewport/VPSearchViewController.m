@@ -20,6 +20,7 @@
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.tableView.extendedDelegate = self;
 }
 
 - (IBAction)enter:(id)sender {
@@ -81,15 +82,9 @@
     return view;
 }
 
--(BOOL)tableView:(NSTableView *)tableView shouldSelectRow:(NSInteger)row
-{
-    return true;
-}
-
--(void)tableViewSelectionDidChange:(NSNotification *)notification
-{
+- (void)tableView:(NSTableView *)tableView didClickedRow:(NSInteger)row{
     if (self.delegate) {
-        VPUser *user = users[self.tableView.selectedRow];
+        VPUser *user = users[row];
         [self.delegate modelDidSelect:user];
     }
 }

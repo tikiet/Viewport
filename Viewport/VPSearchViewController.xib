@@ -38,7 +38,7 @@
                         <rect key="frame" x="1" y="1" width="478" height="238"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView wantsLayer="YES" verticalHuggingPriority="750" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="none" columnReordering="NO" columnResizing="NO" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" typeSelect="NO" rowHeight="70" viewBased="YES" floatsGroupRows="NO" id="8Fy-sd-eZJ">
+                            <tableView wantsLayer="YES" verticalHuggingPriority="750" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="none" columnReordering="NO" columnResizing="NO" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" typeSelect="NO" rowHeight="70" viewBased="YES" floatsGroupRows="NO" id="8Fy-sd-eZJ" customClass="ClickableTableView">
                                 <rect key="frame" x="0.0" y="0.0" width="478" height="238"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
