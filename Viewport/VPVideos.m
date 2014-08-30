@@ -12,23 +12,23 @@
 
 @synthesize lowBandwidth, lowResolution, standardResolution;
 
--(id)initWithStandardResolution:(VPVideo *)standard lowResolution:(VPVideo *)lowResolution lowBandwidth:(VPVideo *)lowBandwidth
+-(id)initWithStandardResolution:(VPVideo *)s lowResolution:(VPVideo *)lr lowBandwidth:(VPVideo *)lb
 {
     self = [super init];
     if (self) {
-        self.lowResolution = lowResolution;
-        self.lowBandwidth = lowBandwidth;
-        self.standardResolution = standard;
+        self.lowResolution = lr;
+        self.lowBandwidth = lb;
+        self.standardResolution = s;
     }
     return self;
 }
 
 -(id)initWithDictionary:(NSDictionary *)dictionray
 {
-    VPVideo *standard = [[VPVideo alloc] initWithDictionary:[dictionray objectForKey:@"standard_resolution"]];
-    VPVideo *lowResolution = [[VPVideo alloc] initWithDictionary:[dictionray objectForKey:@"low_resolution"]];
-    VPVideo *lowBandwidth = [[VPVideo alloc] initWithDictionary:[dictionray objectForKey:@"low_bandwidth"]];
+    VPVideo *s = [[VPVideo alloc] initWithDictionary:[dictionray objectForKey:@"standard_resolution"]];
+    VPVideo *lr = [[VPVideo alloc] initWithDictionary:[dictionray objectForKey:@"low_resolution"]];
+    VPVideo *lb = [[VPVideo alloc] initWithDictionary:[dictionray objectForKey:@"low_bandwidth"]];
     
-    return [self initWithStandardResolution:standard lowResolution:lowResolution lowBandwidth:lowBandwidth];
+    return [self initWithStandardResolution:s lowResolution:lr lowBandwidth:lb];
 }
 @end

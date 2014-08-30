@@ -12,23 +12,23 @@
 
 @synthesize url, height, width;
 
--(id)initWithUrl:(NSString *)url width:(int)width height:(int)height
+-(id)initWithUrl:(NSString *)u width:(int)w height:(int)h
 {
     self = [super init];
     if (self) {
-        self.url = url;
-        self.width = width;
-        self.height = height;
+        self.url = u;
+        self.width = w;
+        self.height = h;
     }
     return self;
 }
 
 -(id)initWithDictionary:(NSDictionary *)dictionary
 {
-    int width = [[dictionary objectForKey:@"width"] intValue];
-    int height = [[dictionary objectForKey:@"height"] intValue];
-    NSString *url = [dictionary objectForKey:@"url"];
+    int w = [[dictionary objectForKey:@"width"] intValue];
+    int h = [[dictionary objectForKey:@"height"] intValue];
+    NSString *u = [dictionary objectForKey:@"url"];
     
-    return [self initWithUrl:url width:width height:height];
+    return [self initWithUrl:u width:w height:h];
 }
 @end

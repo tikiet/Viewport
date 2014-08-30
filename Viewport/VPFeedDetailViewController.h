@@ -7,10 +7,9 @@
 @interface VPFeedDetailViewController : NSViewController <NSTableViewDataSource, NSTableViewDelegate>
 
 @property (weak) IBOutlet NSTableView *tableView;
-
 @property VPFeed *feed;
-
 @property NSObject<VPModelDelegate> *modelDelegate;
+@property AVPlayerView *playerView;
 
 -(void)show;
 -(void)prepare;

@@ -4,6 +4,7 @@
 #import "VPCaption.h"
 #import "VPComments.h"
 #import "VPLikes.h"
+#import "VPVideos.h"
 
 @interface VPFeed : NSObject <NSCoding>
 
@@ -14,6 +15,7 @@
 @property NSString *feedId;
 @property VPComments *comments;
 @property VPLikes *likes;
+@property VPVideos *videos;
 
 -(id)initWithDictionray:(NSDictionary*)dictionary;
 

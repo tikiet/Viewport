@@ -2,7 +2,7 @@
 
 @implementation VPFeed
 
-@synthesize user, images, createdTime, feedId, likes, comments;
+@synthesize user, images, createdTime, feedId, likes, comments, videos;
 
 -(id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -12,6 +12,7 @@
     self.feedId = [aDecoder decodeObjectForKey:@"feedId"];
     self.comments = [aDecoder decodeObjectForKey:@"comments"];
     self.likes = [aDecoder decodeObjectForKey:@"likes"];
+    self.videos = [aDecoder decodeObjectForKey:@"videos"];
     
     return self;
 }
@@ -24,6 +25,7 @@
     [aCoder encodeInt:self.createdTime forKey:@"createdTime"];
     [aCoder encodeObject:self.likes forKey:@"likes"];
     [aCoder encodeObject:self.comments forKey:@"comments"];
+    [aCoder encodeObject:self.videos forKey:@"videos"];
 }
 
 -(id)initWithUser:(VPUser *)u
@@ -33,6 +35,7 @@
                id:(NSString*)fid
             likes:(VPLikes *)l
          comments:(VPComments *)cm
+           videos:(VPVideos*) v
 {
     self = [super init];
     if (self) {
@@ -43,6 +46,7 @@
         self.feedId = fid;
         self.likes = l;
         self.comments = cm;
+        self.videos = v;
     }
     return self;
 }
@@ -56,8 +60,9 @@
     NSString *fid = [dictionary objectForKey:@"id"];
     VPLikes *l = [[VPLikes alloc] initWithDictionary: [dictionary objectForKey:@"likes"]];
     VPComments *cm = [[VPComments alloc] initWithDictionary:[dictionary objectForKey:@"comments"]];
+    VPVideos *v = [[VPVideos alloc] initWithDictionary:[dictionary objectForKey:@"videos"]];
     
-    return [self initWithUser:u images:i caption:c createdTime:ct id:fid likes:l comments:cm];
+    return [self initWithUser:u images:i caption:c createdTime:ct id:fid likes:l comments:cm videos:v];
 }
 
 -(NSUInteger) hash

@@ -4,6 +4,8 @@
 #import "VPFeedDetailCommentView.h"
 #import "NSTextField+LayoutContraintTag.h"
 #import "NS(Attributed)String+Geometrics.h"
+#import <AVFoundation/AVFoundation.h>
+#import <AVKit/AVKit.h>
 
 @interface VPFeedDetailViewController ()
 
@@ -13,7 +15,7 @@
 
 static NSFont *defaultFont;
 
-@synthesize feed;
+@synthesize feed, playerView;
 
 +(void)initialize
 {
@@ -59,13 +61,33 @@ static NSFont *defaultFont;
     return false;
 }
 
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    NSLog(@"obj:%@", [change objectForKey:@"status"]);
+}
+
 -(NSView *) tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
 {
+    NSLog(@"videos:%@", feed.videos.standardResolution.url);
     if (row == 0){
         VPFeedDetailPhotoView *photoView = [tableView makeViewWithIdentifier:@"photo" owner:self];
-        TKImageLoader *loader = [[TKImageLoader alloc] initWithURL:[NSURL URLWithString:feed.images.standardResolution.url]
-                                                         imageView:photoView.imageView];
-        [loader start];
+        if (feed.videos.standardResolution.url != nil) {
+            NSURL *url = [NSURL URLWithString:feed.videos.standardResolution.url];
+            AVPlayerItem *playerItem = [AVPlayerItem playerItemWithURL:url];
+            [playerItem addObserver:self forKeyPath:@"status" options:0 context:NULL];
+            photoView.playerView.player = [AVPlayer playerWithPlayerItem:playerItem];
+            
+            self.playerView = photoView.playerView;
+            [photoView.imageView setHidden:YES];
+            [photoView.playerView setHidden:NO];
+        } else {
+            TKImageLoader *loader = [[TKImageLoader alloc] initWithURL:[NSURL URLWithString:feed.images.standardResolution.url]
+                                                             imageView:photoView.imageView];
+            
+            [photoView.imageView setHidden:NO];
+            [photoView.playerView setHidden:YES];
+            [loader start];
+        }
         return photoView;
     } else {
         VPFeedDetailCommentView *commentView = [tableView makeViewWithIdentifier:@"comment" owner:self];
