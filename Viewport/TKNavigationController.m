@@ -87,6 +87,10 @@
 -(void)pop
 {
     if (![retainedViewControllers containsObject: [self.viewControllers lastObject]]) {
+        if ([[self.viewControllers lastObject] respondsToSelector:@selector(willDisappear)]) {
+            [[self.viewControllers lastObject] performSelector:@selector(willDisappear) withObject:nil withObject:nil];
+        }
+        
         [self.viewControllers removeLastObject];
         
         CATransition *transition = [CATransition animation];

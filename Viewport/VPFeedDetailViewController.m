@@ -12,6 +12,10 @@
 @end
 
 @implementation VPFeedDetailViewController
+{
+    AVPlayerItem *avplayerItem;
+    AVPlayer *avplayer;
+}
 
 static NSFont *defaultFont;
 
@@ -61,6 +65,13 @@ static NSFont *defaultFont;
     return false;
 }
 
+-(void)willDisappear
+{
+    NSLog(@"will disappear");
+    if (avplayerItem) {
+        [avplayerItem removeObserver:self forKeyPath:@"status"];
+    }
+}
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     NSLog(@"obj:%@", [change objectForKey:@"status"]);
@@ -71,11 +82,13 @@ static NSFont *defaultFont;
     NSLog(@"videos:%@", feed.videos.standardResolution.url);
     if (row == 0){
         VPFeedDetailPhotoView *photoView = [tableView makeViewWithIdentifier:@"photo" owner:self];
+        playerView = photoView.playerView;
+        
         if (feed.videos.standardResolution.url != nil) {
             NSURL *url = [NSURL URLWithString:feed.videos.standardResolution.url];
-            AVPlayerItem *playerItem = [AVPlayerItem playerItemWithURL:url];
-            [playerItem addObserver:self forKeyPath:@"status" options:0 context:NULL];
-            photoView.playerView.player = [AVPlayer playerWithPlayerItem:playerItem];
+            avplayerItem = [AVPlayerItem playerItemWithURL:url];
+            [avplayerItem addObserver:self forKeyPath:@"status" options:0 context:NULL];
+            photoView.playerView.player = [AVPlayer playerWithPlayerItem:avplayerItem];
             
             self.playerView = photoView.playerView;
             [photoView.imageView setHidden:YES];
@@ -83,7 +96,6 @@ static NSFont *defaultFont;
         } else {
             TKImageLoader *loader = [[TKImageLoader alloc] initWithURL:[NSURL URLWithString:feed.images.standardResolution.url]
                                                              imageView:photoView.imageView];
-            
             [photoView.imageView setHidden:NO];
             [photoView.playerView setHidden:YES];
             [loader start];
